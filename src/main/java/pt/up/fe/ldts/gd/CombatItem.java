@@ -12,4 +12,8 @@ public class CombatItem extends Item {
     public void setUnused() {
         this.used = false;
     }
+
+    public boolean isEquipped() {
+        return this.used;
+    }
 }

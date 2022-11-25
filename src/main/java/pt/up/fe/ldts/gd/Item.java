@@ -18,10 +18,6 @@ public abstract class Item {
         this.price = price;
     }
 
-    public boolean isEquipped() {
-        return this.used;
-    }
-
     public String getName() {
         return this.name;
     }

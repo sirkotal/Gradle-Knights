@@ -11,7 +11,5 @@ public class PotionItemTest {
         Assertions.assertEquals("Holy Orange Juice", potion.getName());
         Assertions.assertEquals(10000, potion.getPrice());
         Assertions.assertEquals(100, potion.getValue());
-        potion.setUsed();
-        Assertions.assertEquals(true, potion.isEquipped());
     }
 }
