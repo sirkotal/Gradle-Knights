@@ -22,8 +22,6 @@ public abstract class Item {
         return this.used;
     }
 
-    public abstract String getType();
-
     public String getName() {
         return this.name;
     }

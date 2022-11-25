@@ -8,7 +8,6 @@ public class CombatItemTest {
     @Test
     public void setUsed() {
         CombatItem sword = new CombatItem("Excalibur", 100, 5000);
-        Assertions.assertEquals("combat", sword.getType());
         Assertions.assertEquals(5000, sword.getPrice());
         Assertions.assertEquals(100, sword.getValue());
         sword.setUsed();
