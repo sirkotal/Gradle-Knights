@@ -5,9 +5,9 @@ Para tal tivemos como ideia um jogo do género RPG (role-playing game) onde o pe
 
 
 # ### IMPLEMENTED FEATURES
--**fight** - O player defronta um inimigo e consoante o resultado este morre ou ganha uma recompensa deixada pelo adversário além de alguma perda de pontos de vida
--**loot** - O player recolhe a recompensa do inimigo em caso de vitoria
--**shop** - O player tem a possibilidade de utilizar o seu gold em troca de items que o fortalecem
+-**fight** - O player defronta um inimigo e consoante o resultado este morre ou ganha uma recompensa deixada pelo adversário além de alguma perda de pontos de vida;
+-**loot** - O player recolhe a recompensa do inimigo em caso de vitoria;
+-**shop** - O player tem a possibilidade de utilizar o seu gold em troca de items que o fortalecem;
   
 
 # ### PLANNED FEATURES
