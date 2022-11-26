@@ -5,13 +5,9 @@ import java.util.List;
 
 public class Player {
     private String name;
-
     private int hp;
-
     private int damage;
-
     private int gold;
-
     private final List<Item> inventory;
 
     public Player(String name, int damage) {
@@ -43,7 +39,6 @@ public class Player {
         return inventory;
     }
 
-
     public int getHp() {
         return hp;
     }
@@ -67,4 +62,5 @@ public class Player {
     public void setDamage(int damage) {
         this.damage = damage;
     }
+
 }
