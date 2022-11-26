@@ -1,23 +1,25 @@
 package pt.up.fe.ldts.gd;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Player {
     private String name;
 
-    private int hp = 100;
+    private int hp;
 
-    private int atk;
+    private int damage;
 
-    private int gold = 50;
+    private int gold;
 
-    private List<Item> inventory = new ArrayList<>();
+    private List<Item> inventory;
 
     public Player(String name, int atk) {
         this.name = name;
-        this.atk = atk;
+        this.damage = atk;
+        this.hp = 100;
+        this.damage = 15;
+        this.inventory = new ArrayList<>();
     }
 
     public int getGold() {
