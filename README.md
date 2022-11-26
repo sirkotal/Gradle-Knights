@@ -4,10 +4,12 @@ Para tal tivemos como ideia um jogo do género RPG (role-playing game) onde o pe
 
 
 ### IMPLEMENTED FEATURES
--**fight** - O player defronta um inimigo e consoante o resultado este morre ou ganha uma recompensa deixada pelo adversário além de alguma perda de pontos de vida;  
--**loot** - O player recolhe a recompensa do inimigo em caso de vitoria;  
--**shop** - O player tem a possibilidade de utilizar o seu gold em troca de items que o fortalecem;
-  
+- **fight** - O player defronta um inimigo e consoante o resultado este morre ou ganha uma recompensa deixada pelo adversário além de alguma perda de pontos de vida;  
+- **loot** - O player recolhe a recompensa do inimigo em caso de vitoria;  
+- **shop** - O player tem a possibilidade de utilizar o seu gold em troca de items que o fortalecem;
+![image](https://user-images.githubusercontent.com/93836408/204077928-7887bc97-78c4-42b4-8bb4-1fe1a1caa3af.png)
+![image](https://user-images.githubusercontent.com/93836408/204077965-3bb9b8c3-7237-4ef7-94a9-fdb84766a57a.png)
+
 
 ### PLANNED FEATURES
 
