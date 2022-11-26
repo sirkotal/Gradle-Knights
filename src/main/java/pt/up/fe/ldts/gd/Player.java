@@ -11,14 +11,33 @@ public class Player {
 
     private int atk;
 
-    private int def;
-
     private int gold = 50;
 
     private List<Item> inventory = new ArrayList<>();
 
-    public Player(String name) {
+    public Player(String name, int atk) {
         this.name = name;
+        this.atk = atk;
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+
+    public void addItem(Item item) {
+        inventory.add(item);
+    }
+
+    public void removeItem(Item item) {
+        inventory.remove(item);
+    }
+
+    public List<Item> getInventory() {
+        return inventory;
     }
 
 
