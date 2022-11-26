@@ -23,24 +23,24 @@ Exemplos jogo:
         ("#            MENSAGEM               #");
         ("# # # # # # # # # # # # # # # # # # #");
       
-        System.out.println("# # # # # # # # # # # # # # # # # # #");
-        System.out.println("#     .      .    .   .       .     #");
-        System.out.println("#       .       .      .   .   .    #");
-        System.out.println("#      .     .      .        .    . #");
-        System.out.println("#                      / \          #");
-        System.out.println("# / \     / \  .      /   \   .     #");
-        System.out.println("# ,  \   /,  \   / \ /  ´  \        #");
-        System.out.println("#  .  \ /  .  \ / ' /   '   \       #");
-        System.out.println("# ,    / .   ´ \' ./  .    ´ \      #");
-        System.out.println("#   ' /,  '   ' \'/,   '   ´  \     #");
-        System.out.println("#  ´ /   ,   ´   \    ,    .   \    #");
-        System.out.println("#   / '       .   \'  .     ´   \   #");
-        System.out.println("#  /' .   | | ,  . \ ' | |   '   \  #");
-        System.out.println("#         | |          | |          #");
-        System.out.println("# # # # # # # # # # # # # # # # # # #");
-        System.out.println("#                                   #");
-        System.out.println("#            MENSAGEM               #");
-        System.out.println("# # # # # # # # # # # # # # # # # # #");
+        ("# # # # # # # # # # # # # # # # # # #");
+        ("#     .      .    .   .       .     #");
+        ("#       .       .      .   .   .    #");
+        ("#      .     .      .        .    . #");
+        ("#                      / \          #");
+        ("# / \     / \  .      /   \   .     #");
+        ("# ,  \   /,  \   / \ /  ´  \        #");
+        ("#  .  \ /  .  \ / ' /   '   \       #");
+        ("# ,    / .   ´ \' ./  .    ´ \      #");
+        ("#   ' /,  '   ' \'/,   '   ´  \     #");
+        ("#  ´ /   ,   ´   \    ,    .   \    #");
+        ("#   / '       .   \'  .     ´   \   #");
+        ("#  /' .   | | ,  . \ ' | |   '   \  #");
+        ("#         | |          | |          #");
+        ("# # # # # # # # # # # # # # # # # # #");
+        ("#                                   #");
+        ("#            MENSAGEM               #");
+        ("# # # # # # # # # # # # # # # # # # #");
 
 
 ### IMPLEMENTED FEATURES
