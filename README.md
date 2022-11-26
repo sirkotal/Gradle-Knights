@@ -1,4 +1,4 @@
-## LPOO_<2><1>
+## FEUP-LDTS-PROJ
 Este trabalho realizado por João Pedro Rodrigues Coutinho (up202108787), Joaquim Afonso Marques da Cunha (up202108779) e Miguel Jorge Medeiros Garrido (up202108889) tem como objetivo a realização do projeto da disciplina "Laboratório de Desenho e Teste de Software" (L.EIC014) onde nos foi proposto a realização de um text-based game em Java. 
 Para tal tivemos como ideia um jogo do género RPG (role-playing game) onde o personagem tem de explorar e coletar "gold" para se fortalecer e enfrentar diversos oponentes e desafios durante a sua jornada.
 
@@ -61,7 +61,7 @@ Exemplos jogo:
 - **Novos locais Town** - Locais onde pode interagir de mais diversas formas como por exemplo melhorar o armamento
 
 
-### DESING
+### DESIGN
 #### DIFERENTES "TOWNS" TEM LOJAS COM PREÇOS DIFERENTES
 **Problem in Context**
 Decidimos que, baseado em vários rpgs, nem todas as Towns deveriam apresentar os mesmos valores de preços e raridade. Com isso, ao invés de os alterar diretamente no construtor decidimos implementar o strategy pattern para melhorar a leitura e possiveis adições de outras estratégias. Conseguimos assim tornar o nosso código mais flexível a mudanças de comportamento no que diz respeito as caracteristicas dos items. 
