@@ -101,10 +101,8 @@ Como referido em cima utilizamos o **Factory Method** patern. Com este design pa
 Nada encontrado até então ainda que consideremos que possámos a vir a alterar muitas estratégias ao longo do desenvolvimento.
 
 ### TESTING
-![image](https://user-images.githubusercontent.com/93836408/204087675-99d07919-5dd1-4609-8634-b8b358f9207b.png)
-![image](https://user-images.githubusercontent.com/93836408/204087694-fd47cb8a-a1fb-4999-a1f2-47fffaa2eeda.png)
-![image](https://user-images.githubusercontent.com/93836408/204087702-d86c469a-6231-4ef2-b2f7-1867700dcbd6.png)
-![image](https://user-images.githubusercontent.com/93836408/204087732-c78df087-f8bd-4fcf-8f99-30ab60c10b25.png)
+![image](https://user-images.githubusercontent.com/93836408/204087956-ef296a17-c8eb-4d71-a0dd-321a06c26d4b.png)
+
 
 
 
