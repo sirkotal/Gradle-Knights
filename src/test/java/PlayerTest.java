@@ -13,8 +13,8 @@ public class PlayerTest {
         CombatItem sword = new CombatItem("Excalibur", 100, 5000);
         CombatItem axe = new CombatItem("Skullcracker", 80, 3500);
         PotionItem potion = new PotionItem("Tap Water", 100, 100000);
-        p1.setGold(10);
-        Assertions.assertEquals(10, p1.getGold());
+        p1.setGold(p1.getGold() + 15);
+        Assertions.assertEquals(25, p1.getGold());
         Assertions.assertEquals(100, p1.getHP());
         p1.addItem(sword);
         p1.addItem(axe);
