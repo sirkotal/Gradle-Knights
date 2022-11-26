@@ -7,19 +7,19 @@ import java.util.Random;
 public class Enemy {
     private int hp;
     private int damage;
+    private final int gold;
 
-    public Enemy(int hp, int base_damage, int max_damage) {
+    public Enemy(int hp, int gold, int base_damage, int max_damage) {
         this.hp = hp;
         Random rand = new Random();
         this.damage = base_damage;
-        this.damage += rand.nextInt(max_damage - base_damage);
+        if(base_damage < max_damage)
+            this.damage += rand.nextInt(max_damage - base_damage);
+
+        this.gold = gold + rand.nextInt(10);
     }
 
     public void loot(Player player) {
-        Random rand = new Random();
-        int gold_base = 5;
-        int gold = rand.nextInt(10) + gold_base;
-
         player.setGold(player.getGold() + gold);
     }
 
@@ -37,5 +37,9 @@ public class Enemy {
 
     public void setDamage(int damage) {
         this.damage = damage;
+    }
+
+    public int getGold() {
+        return gold;
     }
 }
