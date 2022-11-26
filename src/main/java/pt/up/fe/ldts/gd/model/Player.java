@@ -1,4 +1,4 @@
-package pt.up.fe.ldts.gd;
+package pt.up.fe.ldts.gd.model;
 
 import java.util.ArrayList;
 import java.util.List;

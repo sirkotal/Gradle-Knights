@@ -1,4 +1,4 @@
-package pt.up.fe.ldts.gd;
+package pt.up.fe.ldts.gd.model;
 
 public class Item {
     private String name;
