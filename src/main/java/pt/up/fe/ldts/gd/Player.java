@@ -14,9 +14,8 @@ public class Player {
 
     private List<Item> inventory;
 
-    public Player(String name, int atk) {
+    public Player(String name) {
         this.name = name;
-        this.damage = atk;
         this.hp = 100;
         this.damage = 15;
         this.inventory = new ArrayList<>();
@@ -28,6 +27,14 @@ public class Player {
 
     public void setGold(int gold) {
         this.gold = gold;
+    }
+
+    public int getHP() {
+        return hp;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void addItem(Item item) {
