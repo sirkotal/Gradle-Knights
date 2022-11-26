@@ -1,4 +1,4 @@
-## FEUP-LDTS-PROJ
+## LPOO_<2><1>
 Este trabalho realizado por João Pedro Rodrigues Coutinho (up202108787), Joaquim Afonso Marques da Cunha (up202108779) e Miguel Jorge Medeiros Garrido (up202108889) tem como objetivo a realização do projeto da disciplina "Laboratório de Desenho e Teste de Software" (L.EIC014) onde nos foi proposto a realização de um text-based game em Java. 
 Para tal tivemos como ideia um jogo do género RPG (role-playing game) onde o personagem tem de explorar e coletar "gold" para se fortalecer e enfrentar diversos oponentes e desafios durante a sua jornada.
 
@@ -49,15 +49,19 @@ Exemplos jogo:
 - **shop** - O player tem a possibilidade de utilizar o seu gold em troca de items que o fortalecem;
 ![image](https://user-images.githubusercontent.com/93836408/204077928-7887bc97-78c4-42b4-8bb4-1fe1a1caa3af.png)
 ![image](https://user-images.githubusercontent.com/93836408/204077965-3bb9b8c3-7237-4ef7-94a9-fdb84766a57a.png)
+![image](https://user-images.githubusercontent.com/93836408/204086574-ebbcd303-6f69-4339-82dd-5d1c0ba21e2a.png)
 
 
 ### PLANNED FEATURES
 - **Raridade items** - Towns com lojas com items que apesar de mais caros são raros e mais fortes
 - **Lista Items Default** - List de items default onde os items podem ou não ser alterada consoante o comportamento da Town (mudança de preço e/ou raridade)
-- **
+- **Lista Ascii Art** - Ficheiro txt com todas as artes que vão ser utilizadas no jogo que será importado como uma lista
+- **States, Controllers, Viewers** - Base restante ao programa que irá comunicar entre si e o Model
+- **Decisões Player** - Capacidade de escolha de tentativa de fuga de uma luta
+- **Novos locais Town** - Locais onde pode interagir de mais diversas formas como por exemplo melhorar o armamento
 
 
-### DESIGN
+### DESING
 #### DIFERENTES "TOWNS" TEM LOJAS COM PREÇOS DIFERENTES
 **Problem in Context**
 Decidimos que, baseado em vários rpgs, nem todas as Towns deveriam apresentar os mesmos valores de preços e raridade. Com isso, ao invés de os alterar diretamente no construtor decidimos implementar o strategy pattern para melhorar a leitura e possiveis adições de outras estratégias. Conseguimos assim tornar o nosso código mais flexível a mudanças de comportamento no que diz respeito as caracteristicas dos items. 
@@ -104,5 +108,6 @@ Como referido em cima utilizamos o **Factory Method** patern. Com este design pa
 João Coutinho 33%
 Joaquim Cunha 33%
 Miguel Garrido 33%
+
 
 
