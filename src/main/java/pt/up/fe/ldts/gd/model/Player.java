@@ -1,0 +1,46 @@
+package pt.up.fe.ldts.gd.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Player {
+    private String name;
+
+    private int hp;
+
+    private int damage;
+
+    private int gold;
+
+    private List<Item> inventory;
+
+    public Player(String name, int atk) {
+        this.name = name;
+        this.damage = atk;
+        this.hp = 100;
+        this.damage = 15;
+        this.inventory = new ArrayList<>();
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+
+    public void addItem(Item item) {
+        inventory.add(item);
+    }
+
+    public void removeItem(Item item) {
+        inventory.remove(item);
+    }
+
+    public List<Item> getInventory() {
+        return inventory;
+    }
+
+
+}
