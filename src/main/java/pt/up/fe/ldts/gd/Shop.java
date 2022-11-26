@@ -10,7 +10,7 @@ public class Shop {
     private final List<Item> items;
 
     public Shop(List<Item> items) {
-        this.items = new LinkedList<>(items);
+        this.items = new ArrayList<>(items);
     }
 
     public boolean buyItem(Player player, String item_name) {
@@ -18,7 +18,7 @@ public class Shop {
             if(item.getName().equals(item_name) && player.getGold() >= item.getValue()) {
                 player.addItem(item);
                 player.setGold(player.getGold() - item.getValue());
-                boolean flag = items.remove(item);
+                items.remove(item);
                 return true;
             }
         }
