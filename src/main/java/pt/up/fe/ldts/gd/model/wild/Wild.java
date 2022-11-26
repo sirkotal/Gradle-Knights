@@ -27,7 +27,7 @@ public class Wild {
             num_enemy = 0;
         else
             num_enemy = rand.nextInt(enemies.size() - 1);
-        int player_total_atk = enemies.get(num_enemy).getHp() / player.getAtk();
+        int player_total_atk = enemies.get(num_enemy).getHp() / player.getDamage();
         int enemy_total_atk = player.getHp() / enemies.get(num_enemy).getDamage();
         if(player_total_atk > enemy_total_atk)
             return false;
