@@ -4,24 +4,24 @@ Para tal tivemos como ideia um jogo do género RPG (role-playing game) onde o pe
 
 Exemplos jogo:
   
-        System.out.println("# # # # # # # # # # # # # # # # # # #");
-        System.out.println("#              ________             #");
-        System.out.println("#             |  SHOP  |            #");
-        System.out.println("#             \________/            #");
-        System.out.println("#       /||||||||||||||||||||\      #");
-        System.out.println("#      /||||||||||||||||||||||\     #");
-        System.out.println("#     /||||||||||||||||||||||||\    #");
-        System.out.println("#    /||||||||||||||||||||||||||\   #");
-        System.out.println("#       |                    |      #");
-        System.out.println("#       |                    |      #");
-        System.out.println("#       |        ____        |      #");
-        System.out.println("#       |       |    |       |      #");
-        System.out.println("#       |       |    |       |      #");
-        System.out.println("#       |_______|____|_______|      #");
-        System.out.println("# # # # # # # # # # # # # # # # # # #");
-        System.out.println("#                                   #");
-        System.out.println("#            MENSAGEM               #");
-        System.out.println("# # # # # # # # # # # # # # # # # # #");
+        ("# # # # # # # # # # # # # # # # # # #");
+        ("#              ________             #");
+        ("#             |  SHOP  |            #");
+        ("#             \________/            #");
+        ("#       /||||||||||||||||||||\      #");
+        ("#      /||||||||||||||||||||||\     #");
+        ("#     /||||||||||||||||||||||||\    #");
+        ("#    /||||||||||||||||||||||||||\   #");
+        ("#       |                    |      #");
+        ("#       |                    |      #");
+        ("#       |        ____        |      #");
+        ("#       |       |    |       |      #");
+        ("#       |       |    |       |      #");
+        ("#       |_______|____|_______|      #");
+        ("# # # # # # # # # # # # # # # # # # #");
+        ("#                                   #");
+        ("#            MENSAGEM               #");
+        ("# # # # # # # # # # # # # # # # # # #");
       
         System.out.println("# # # # # # # # # # # # # # # # # # #");
         System.out.println("#     .      .    .   .       .     #");
