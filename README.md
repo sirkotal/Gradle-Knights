@@ -19,7 +19,10 @@ Exemplos jogo:
         System.out.println("#       |       |    |       |      #");
         System.out.println("#       |_______|____|_______|      #");
         System.out.println("# # # # # # # # # # # # # # # # # # #");
-
+        System.out.println("#                                   #");
+        System.out.println("#            MENSAGEM               #");
+        System.out.println("# # # # # # # # # # # # # # # # # # #");
+      
         System.out.println("# # # # # # # # # # # # # # # # # # #");
         System.out.println("#     .      .    .   .       .     #");
         System.out.println("#       .       .      .   .   .    #");
@@ -34,6 +37,9 @@ Exemplos jogo:
         System.out.println("#   / '       .   \'  .     ´   \   #");
         System.out.println("#  /' .   | | ,  . \ ' | |   '   \  #");
         System.out.println("#         | |          | |          #");
+        System.out.println("# # # # # # # # # # # # # # # # # # #");
+        System.out.println("#                                   #");
+        System.out.println("#            MENSAGEM               #");
         System.out.println("# # # # # # # # # # # # # # # # # # #");
 
 
