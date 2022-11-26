@@ -9,10 +9,10 @@ public class EnemyTest {
     @Test
     public void lootTest() {
         Enemy enemy = new Enemy(10, 10, 10, 10);
-        Player player = new Player();
+        Player player = new Player("Saul", 10);
 
         int initial_gold = player.getGold();
-        Assertions.assertEquals(10, initial_gold);
+        Assertions.assertEquals(15, initial_gold);
 
         enemy.loot(player);
 
