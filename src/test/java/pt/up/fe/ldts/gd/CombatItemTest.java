@@ -3,6 +3,7 @@ package pt.up.fe.ldts.gd;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pt.up.fe.ldts.gd.model.CombatItem;
+import pt.up.fe.ldts.gd.model.Item;
 
 public class CombatItemTest {
     @Test

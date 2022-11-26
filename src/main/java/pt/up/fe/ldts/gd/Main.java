@@ -1,4 +1,4 @@
-package pt.up.fe.ldts.gd.model;
+package pt.up.fe.ldts.gd;
 
 public class Main {
     public static void main(String[] args) {
