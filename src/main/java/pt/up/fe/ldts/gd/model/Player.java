@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
+    private int gold;
     private String name;
     private int hp;
     private int damage;
-    private int gold;
     private final List<Item> inventory;
 
     public Player(String name, int damage) {
@@ -62,5 +62,4 @@ public class Player {
     public void setDamage(int damage) {
         this.damage = damage;
     }
-
 }

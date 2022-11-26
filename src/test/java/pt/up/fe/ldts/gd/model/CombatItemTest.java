@@ -1,4 +1,4 @@
-package pt.up.fe.ldts.gd;
+package pt.up.fe.ldts.gd.model;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
