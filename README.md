@@ -57,7 +57,7 @@ Exemplos jogo:
 - **
 
 
-### DESING
+### DESIGN
 #### DIFERENTES "TOWNS" TEM LOJAS COM PREÇOS DIFERENTES
 **Problem in Context**
 Decidimos que, baseado em vários rpgs, nem todas as Towns deveriam apresentar os mesmos valores de preços e raridade. Com isso, ao invés de os alterar diretamente no construtor decidimos implementar o strategy pattern para melhorar a leitura e possiveis adições de outras estratégias. Conseguimos assim tornar o nosso código mais flexível a mudanças de comportamento no que diz respeito as caracteristicas dos items. 
