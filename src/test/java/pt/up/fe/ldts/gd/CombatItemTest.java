@@ -13,7 +13,7 @@ public class CombatItemTest {
         Assertions.assertEquals(5000, sword.getPrice());
         Assertions.assertEquals(100, sword.getValue());
         sword.setUsed();
-        Assertions.assertEquals(true, sword.isEquipped());
+        Assertions.assertTrue(sword.isEquipped());
     }
 }
 
