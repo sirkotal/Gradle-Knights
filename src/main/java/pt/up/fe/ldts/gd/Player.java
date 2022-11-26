@@ -18,6 +18,7 @@ public class Player {
         this.name = name;
         this.hp = 100;
         this.damage = 15;
+        this.gold = 0;
         this.inventory = new ArrayList<>();
     }
 
