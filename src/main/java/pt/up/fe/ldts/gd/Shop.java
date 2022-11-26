@@ -1,16 +1,16 @@
 package pt.up.fe.ldts.gd;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Shop {
     private final List<Item> items;
-    public Shop(){
-        items = new ArrayList<>();
-    }
 
     public Shop(List<Item> items) {
-        this.items = items;
+        this.items = new LinkedList<>(items);
     }
 
     public boolean buyItem(Player player, String item_name) {
@@ -18,11 +18,10 @@ public class Shop {
             if(item.getName().equals(item_name) && player.getGold() >= item.getValue()) {
                 player.addItem(item);
                 player.setGold(player.getGold() - item.getValue());
-                items.remove(item);
+                boolean flag = items.remove(item);
                 return true;
             }
         }
-
         return false;
     }
 
