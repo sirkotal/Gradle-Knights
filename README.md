@@ -3,7 +3,7 @@ Este trabalho realizado por João Pedro Rodrigues Coutinho (up202108787), Joaqui
 Para tal tivemos como ideia um jogo do género RPG (role-playing game) onde o personagem tem de explorar e coletar "gold" para se fortalecer e enfrentar diversos oponentes e desafios durante a sua jornada.
 
 Exemplos jogo:
-/# # # # # # # # # # # # # # # # # # # 
+/# # # # # # # # # # # # # # # # # # #  
 /#              ________             #  
 /#             |  SHOP  |            #  
 /#             \________/            #  
@@ -20,9 +20,9 @@ Exemplos jogo:
 /# # # # # # # # # # # # # # # # # # #  
 /#                                   #  
 /#              Mensagem             #  
-/#                                   #     
+/#                                   #  
 /# # # # # # # # # # # # # # # # # # #  
-
+  
 /# # # # # # # # # # # # # # # # # # #  
 /#     .      .    .   .       .     #  
 /#       .       .      .   .   .    #  
