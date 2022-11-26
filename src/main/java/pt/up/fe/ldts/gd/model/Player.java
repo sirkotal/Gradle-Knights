@@ -9,7 +9,7 @@ public class Player {
     public Player() {
         this.gold = 10;
         this.atk = 10;
-        this.hp = 10;
+        this.hp = 100;
     }
 
     public int getGold() {
@@ -23,7 +23,16 @@ public class Player {
     public int getAtk() {
         return atk;
     }
+
+    public void setAtk(int atk) {
+        this.atk = atk;
+    }
+
     public int getHp() {
         return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
     }
 }
