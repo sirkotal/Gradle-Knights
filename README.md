@@ -98,7 +98,7 @@ Como referido em cima utilizamos o **Factory Method** patern. Com este design pa
 
 
 ### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
-
+Nada encontrado até então ainda que consideremos que possámos a vir a alterar muitas estratégias ao longo do desenvolvimento.
 
 ### TESTING
 
