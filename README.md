@@ -2,6 +2,48 @@
 Este trabalho realizado por João Pedro Rodrigues Coutinho (up202108787), Joaquim Afonso Marques da Cunha (up202108779) e Miguel Jorge Medeiros Garrido (up202108889) tem como objetivo a realização do projeto da disciplina "Laboratório de Desenho e Teste de Software" (L.EIC014) onde nos foi proposto a realização de um text-based game em Java. 
 Para tal tivemos como ideia um jogo do género RPG (role-playing game) onde o personagem tem de explorar e coletar "gold" para se fortalecer e enfrentar diversos oponentes e desafios durante a sua jornada.
 
+Exemplos jogo:
+# # # # # # # # # # # # # # # # # # #  
+#              ________             #  
+#             |  SHOP  |            #  
+#             \________/            #  
+#       /||||||||||||||||||||\      #  
+#      /||||||||||||||||||||||\     #  
+#     /||||||||||||||||||||||||\    #  
+#    /||||||||||||||||||||||||||\   #  
+#       |                    |      #  
+#       |                    |      #  
+#       |        ____        |      #  
+#       |       |    |       |      #  
+#       |       |    |       |      #  
+#       |_______|____|_______|      #  
+# # # # # # # # # # # # # # # # # # #  
+#                                   #  
+#              Mensagem             #  
+#                                   #     
+# # # # # # # # # # # # # # # # # # #  
+
+# # # # # # # # # # # # # # # # # # #  
+#     .      .    .   .       .     #  
+#       .       .      .   .   .    #  
+#      .     .      .        .    . #  
+#                      / \          #  
+# / \     / \  .      /   \   .     #  
+# ,  \   /,  \   / \ /  ´  \        #  
+#  .  \ /  .  \ / ' /   '   \       #  
+# ,    / .   ´ \' ./  .    ´ \      #  
+#   ' /,  '   ' \'/,   '   ´  \     #  
+#  ´ /   ,   ´   \    ,    .   \    #  
+#   / '       .   \'  .     ´   \   #  
+#  /' .   | | ,  . \ ' | |   '   \  #  
+#         | |          | |          #  
+# # # # # # # # # # # # # # # # # # #  
+# # # # # # # # # # # # # # # # # # #  
+#                                   #  
+#              Mensagem             #  
+#                                   #     
+# # # # # # # # # # # # # # # # # # #  
+
 
 ### IMPLEMENTED FEATURES
 - **fight** - O player defronta um inimigo e consoante o resultado este morre ou ganha uma recompensa deixada pelo adversário além de alguma perda de pontos de vida;  
@@ -12,13 +54,15 @@ Para tal tivemos como ideia um jogo do género RPG (role-playing game) onde o pe
 
 
 ### PLANNED FEATURES
+- **Raridade items** - Towns com lojas com items que apesar de mais caros são raros e mais fortes
+- **Lista Items Default** - List de items default onde os items podem ou não ser alterada consoante o comportamento da Town (mudança de preço e/ou raridade)
 - **
 
 
 ### DESING
 #### DIFERENTES "TOWNS" TEM LOJAS COM PREÇOS DIFERENTES
 **Problem in Context**
-Decidimos que, baseado em vários rpgs, nem todas as Towns deveriam apresentar os mesmos valores de preços. Com isso, ao invés de alterar os preços diretamente no construtor decidimos implementar o strategy pattern para melhorar a leitura e possiveis adições de outras estratégias. Conseguimos assim tornar o nosso código mais flexível a mudanças de comportamento no que diz respeito ao custo dos items. 
+Decidimos que, baseado em vários rpgs, nem todas as Towns deveriam apresentar os mesmos valores de preços e raridade. Com isso, ao invés de os alterar diretamente no construtor decidimos implementar o strategy pattern para melhorar a leitura e possiveis adições de outras estratégias. Conseguimos assim tornar o nosso código mais flexível a mudanças de comportamento no que diz respeito as caracteristicas dos items. 
 
 **The Pattern**
 Para isto decidimos usar o **Strategy** pattern. Este permite-nos que classes difiram apenas no seu comportamento e que consiga ser alterado em "run time". Neste design pattern conseguimos alterar facilmente o comportamento de um objeto consoante a strategy. Este pattern facilitou-nos a resolução do nosso problema, pois conseguimos alterar o comportamento de uma Town, tornando mais interativa as lojas ao apresentarem diferentes preços ao player
@@ -29,7 +73,7 @@ Para isto decidimos usar o **Strategy** pattern. Este permite-nos que classes di
 
 **Consequences**
 O uso do Strategy Pattern traz os seguintes benifícios:
-- Permite que as Towns se diferenciem em termos de custo;
+- Permite que as Towns se diferenciem em termos de custo e raridade;
 - Fornece diferentes implementações e facilita novas que sejam desejadas no futuro;
 - Reduz o número de condições que teriam de ser utilizadas através do encapsulamento dos comportamentos em cada classe e do uso de polimorfismo;
 
@@ -62,4 +106,5 @@ Como referido em cima utilizamos o **Factory Method** patern. Com este design pa
 João Coutinho 33%
 Joaquim Cunha 33%
 Miguel Garrido 33%
+
 
