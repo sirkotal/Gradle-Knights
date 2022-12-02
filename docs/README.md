@@ -69,12 +69,14 @@ public int buyItem(Player player, String itemName, boolean dup) {
             }
         }
         return -1;
-    }```
+    }
+```
 
 ```java
 public void loot(Player player) {
         player.setGold(player.getGold() + gold);
-    }```
+    }
+```
 
 ```java
 public boolean fight(Player player) {
@@ -92,7 +94,8 @@ public boolean fight(Player player) {
         enemies.get(num_enemy).loot(player);
         enemies.remove(num_enemy);
         return true;
-    }```
+    }
+```
 
 
 ### PLANNED FEATURES
