@@ -47,9 +47,52 @@ Exemplos jogo:
 - **fight** - O player defronta um inimigo e consoante o resultado este morre ou ganha uma recompensa deixada pelo adversário além de alguma perda de pontos de vida;  
 - **loot** - O player recolhe a recompensa do inimigo em caso de vitoria;  
 - **shop** - O player tem a possibilidade de utilizar o seu gold em troca de items que o fortalecem;
-![image](https://user-images.githubusercontent.com/93836408/204077928-7887bc97-78c4-42b4-8bb4-1fe1a1caa3af.png)
-![image](https://user-images.githubusercontent.com/93836408/204077965-3bb9b8c3-7237-4ef7-94a9-fdb84766a57a.png)
-![image](https://user-images.githubusercontent.com/93836408/204086574-ebbcd303-6f69-4339-82dd-5d1c0ba21e2a.png)
+
+```java
+public int buyItem(Player player, String itemName, boolean dup) {
+        for(Item item: items) {
+            if(item.getName().equals(itemName) &&
+                    ((player.getGold() >= item.getValue() && !dup) ||
+                            (player.getGold() >= item.getValue()*2 && dup))) {
+                player.addItem(item);
+                int spent = -1;
+                if(dup) {
+                    spent = item.getValue() * 2;
+                    player.setGold(player.getGold() - spent);
+                }
+                else {
+                    spent = item.getValue();
+                    player.setGold(player.getGold() - spent);
+                }
+                items.remove(item);
+                return spent;
+            }
+        }
+        return -1;
+    }```
+
+```java
+public void loot(Player player) {
+        player.setGold(player.getGold() + gold);
+    }```
+
+```java
+public boolean fight(Player player) {
+        Random rand = new Random();
+        int num_enemy;
+        if(enemies.size() == 1)
+            num_enemy = 0;
+        else
+            num_enemy = rand.nextInt(enemies.size() - 1);
+        int player_total_atk = enemies.get(num_enemy).getHp() / player.getDamage();
+        int enemy_total_atk = player.getHp() / enemies.get(num_enemy).getDamage();
+        if(player_total_atk > enemy_total_atk)
+            return false;
+        player.setHp(player.getHp() - player_total_atk * enemies.get(num_enemy).getDamage());
+        enemies.get(num_enemy).loot(player);
+        enemies.remove(num_enemy);
+        return true;
+    }```
 
 
 ### PLANNED FEATURES
