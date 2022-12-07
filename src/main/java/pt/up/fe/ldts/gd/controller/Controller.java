@@ -13,5 +13,5 @@ public abstract class Controller<T> {
         return template;
     }
 
-    public abstract void step();
+    public abstract void step(Game game/*, GUI action*/);
 }
