@@ -10,9 +10,8 @@ public class Player {
     private int damage;
     private final List<Item> inventory;
 
-    public Player(String name, int damage) {
+    public Player(String name) {
         this.name = name;
-        this.damage = damage;
         this.hp = 100;
         this.damage = 15;
         this.gold = 15;
@@ -51,15 +50,18 @@ public class Player {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getDamage() {
         return damage;
     }
 
     public void setDamage(int damage) {
         this.damage = damage;
+    }
+
+    public boolean isAlive() {
+        if (this.hp == 0) {
+            return false;
+        }
+        return true;
     }
 }
