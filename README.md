@@ -6,4 +6,4 @@ O objetivo do projeto é criar um jogo baseado em Lanterna - library de Java par
 
 Decidimos criar um jogo inspirado em RPGs medievais como [Eye of the Beholder](https://store.steampowered.com/app/1882260/Eye_of_the_Beholder/) ou [Reigns](https://store.steampowered.com/app/474750/Reigns/).
 
-Uma versão mais completa do relatório encontra-se em [**docs/**](docs/README.md).
+Uma versão mais completa do relatório encontra-se [aqui](docs/README.md).
