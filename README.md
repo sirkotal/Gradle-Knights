@@ -4,6 +4,6 @@ Trabalho de grupo realizado por João Pedro Rodrigues Coutinho (up202108787), Jo
 
 O objetivo do projeto é criar um jogo baseado em Lanterna - library de Java para criar text-based GUIs - chamado "Gradle Knights".
 
-Decidimos criar um jogo inspirado em RPGs medievais como Eye of the Beholder (https://store.steampowered.com/app/1882260/Eye_of_the_Beholder/) ou Reigns (https://store.steampowered.com/app/474750/Reigns/).
+Decidimos criar um jogo inspirado em RPGs medievais como [Eye of the Beholder](https://store.steampowered.com/app/1882260/Eye_of_the_Beholder/) ou [Reigns](https://store.steampowered.com/app/474750/Reigns/).
 
-Uma versão mais completa do relatório encontra-se em **docs/**.
+Uma versão mais completa do relatório encontra-se em [**docs/**](docs/README.md).
