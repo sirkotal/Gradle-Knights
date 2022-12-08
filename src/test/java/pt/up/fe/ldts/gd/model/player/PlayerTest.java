@@ -1,11 +1,10 @@
-package pt.up.fe.ldts.gd.model;
+package pt.up.fe.ldts.gd.model.player;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pt.up.fe.ldts.gd.model.CombatItem;
-import pt.up.fe.ldts.gd.model.Item;
-import pt.up.fe.ldts.gd.model.Player;
-import pt.up.fe.ldts.gd.model.PotionItem;
+import pt.up.fe.ldts.gd.model.player.CombatItem;
+import pt.up.fe.ldts.gd.model.player.Player;
+import pt.up.fe.ldts.gd.model.player.PotionItem;
 
 public class PlayerTest {
     @Test
