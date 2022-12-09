@@ -22,6 +22,14 @@ public class Wild {
             enemies.add(new Enemy(10,10,10,20));
         }
     }
+
+    public Player getPlayer() {
+        return this.player;
+    }
+
+    public List<Enemy> getEnemies() {
+        return enemies;
+    }
     
     public boolean fight(Player player) {
         Random rand = new Random();
@@ -38,13 +46,5 @@ public class Wild {
         enemies.get(num_enemy).loot(player);
         enemies.remove(num_enemy);
         return true;
-    }
-
-    public Player getPlayer() {
-        return this.player;
-    }
-
-    public List<Enemy> getEnemies() {
-        return enemies;
     }
 }
