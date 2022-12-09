@@ -13,7 +13,7 @@ public class WildState extends State<Wild> {
     }
 
     protected Controller<Wild> getController() {
-        return new WildController(getTemplate());
+        return new WildController(getModel());
     }
 
     protected Viewer<Wild> getViewer() {

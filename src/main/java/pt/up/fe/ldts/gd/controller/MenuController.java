@@ -24,7 +24,7 @@ public class MenuController extends Controller<Menu> {
                 break;
             case SELECT:
                 if(getModel().selectedExit()) game.setState(null);
-                game.setState(new TownState(new Town(new Player("Heisenberg"))));
+                else game.setState(new TownState(new Town(new Player("Heisenberg"))));
         }
     }
 }

@@ -22,7 +22,7 @@ public class ShopTest {
         items.add(new CombatItem("item1", 10, 10));
         items.add(new CombatItem("item2", 20, 20));
         shop = new Shop(items);
-        player = new Player("Saul", 50);
+        player = new Player("Saul");
         player.setGold(50);
     }
 

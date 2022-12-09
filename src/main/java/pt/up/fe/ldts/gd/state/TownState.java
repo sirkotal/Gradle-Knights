@@ -13,7 +13,7 @@ public class TownState extends State<Town> {
     }
 
     protected Controller<Town> getController() {
-        return new TownController(getTemplate());
+        return new TownController(getModel());
     }
 
     protected Viewer<Town> getViewer() {
