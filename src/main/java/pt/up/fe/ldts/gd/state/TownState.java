@@ -1,10 +1,10 @@
 package pt.up.fe.ldts.gd.state;
 
 import pt.up.fe.ldts.gd.controller.Controller;
-import pt.up.fe.ldts.gd.viewer.Viewer;
-import pt.up.fe.ldts.gd.model.town.Town;
 import pt.up.fe.ldts.gd.controller.TownController;
+import pt.up.fe.ldts.gd.model.town.Town;
 import pt.up.fe.ldts.gd.viewer.TownViewer;
+import pt.up.fe.ldts.gd.viewer.Viewer;
 
 public class TownState extends State<Town> {
     public TownState(Town town) {

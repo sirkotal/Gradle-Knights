@@ -3,16 +3,18 @@ package pt.up.fe.ldts.gd.controller;
 import pt.up.fe.ldts.gd.Game;
 import pt.up.fe.ldts.gd.gui.GUI;
 
+import java.io.IOException;
+
 public abstract class Controller<T> {
-    private final T template;
+    private final T model;
 
-    public Controller(T template) {
-        this.template = template;
+    public Controller(T model) {
+        this.model = model;
     }
 
-    public T getTemplate() {
-        return template;
+    public T getModel() {
+        return model;
     }
 
-    public abstract void step(Game game, GUI action);
+    public abstract void step(Game game, GUI.ACTION action) throws IOException;
 }

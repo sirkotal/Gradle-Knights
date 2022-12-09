@@ -1,7 +1,7 @@
 package pt.up.fe.ldts.gd;
-import pt.up.fe.ldts.gd.state.State;
 
 import pt.up.fe.ldts.gd.gui.LanternaGUI;
+import pt.up.fe.ldts.gd.state.State;
 
 import java.io.IOException;
 

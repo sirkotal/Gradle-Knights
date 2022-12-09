@@ -33,6 +33,10 @@ public class Menu {
         this.lines = readAscii(this.entries.get(currentEntry));
     }
 
+    public boolean selectedExit() {
+        return currentEntry == 1;
+    }
+
     private List<String> readAscii(String mode) throws IOException {
         if(!mode.equals("start") && !mode.equals("exit")) {
             throw new Error("mode can only be start or exit");

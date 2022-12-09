@@ -2,7 +2,6 @@ package pt.up.fe.ldts.gd.controller;
 
 import pt.up.fe.ldts.gd.Game;
 import pt.up.fe.ldts.gd.gui.GUI;
-import pt.up.fe.ldts.gd.model.menu.Menu;
 import pt.up.fe.ldts.gd.model.town.Town;
 
 public class TownController extends Controller<Town> {
@@ -10,7 +9,7 @@ public class TownController extends Controller<Town> {
         super(town);
     }
 
-    public void step(Game game, GUI action) {
+    public void step(Game game, GUI.ACTION action) {
 
     }
 }
