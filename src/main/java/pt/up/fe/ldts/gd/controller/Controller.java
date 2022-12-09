@@ -1,6 +1,7 @@
 package pt.up.fe.ldts.gd.controller;
 
 import pt.up.fe.ldts.gd.Game;
+import pt.up.fe.ldts.gd.gui.GUI;
 
 public abstract class Controller<T> {
     private final T template;
@@ -13,5 +14,5 @@ public abstract class Controller<T> {
         return template;
     }
 
-    public abstract void step(Game game/*, GUI action*/);
+    public abstract void step(Game game, GUI action);
 }
