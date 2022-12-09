@@ -12,6 +12,7 @@ public class PlayerController extends WildController {
         super(wild);
     }
 
+    @Override
     public void step(Game game, GUI.ACTION action) throws IOException {
         if (getModel().getPlayer().isTurn()) {
             attackEnemy(getModel().getPlayer());

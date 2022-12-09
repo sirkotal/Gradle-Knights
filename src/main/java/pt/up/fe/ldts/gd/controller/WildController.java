@@ -9,8 +9,12 @@ import java.io.IOException;
 
 
 public class WildController extends Controller<Wild> {
+    private final PlayerController p1Controller;
+    private final EnemyController enemiesController;
     public WildController(Wild wild) {
         super(wild);
+        this.p1Controller = new PlayerController(wild);
+        this.enemiesController = new EnemyController(wild);
     }
 
     public void step(Game game, GUI.ACTION action) throws IOException {
@@ -18,7 +22,8 @@ public class WildController extends Controller<Wild> {
                 game.setState(new MenuState(new Menu()));
         }
         else {
-
+            p1Controller.step(game, action);
+            enemiesController.step(game, action);
         }
     }
 }

@@ -14,6 +14,7 @@ public class EnemyController extends WildController {
         super(wild);
     }
 
+    @Override
     public void step(Game game, GUI.ACTION action) throws IOException {
         for (Enemy enemy : getModel().getEnemies()) {
             if (enemy.isTurn()) {
