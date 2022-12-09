@@ -8,6 +8,8 @@ public class Player {
     private String name;
     private int hp;
     private int damage;
+
+    private boolean turn;
     private final List<Item> inventory;
 
     public Player(String name) {
@@ -32,6 +34,14 @@ public class Player {
 
     public void removeItem(Item item) {
         inventory.remove(item);
+    }
+
+    public boolean isTurn() {
+        return this.turn;
+    }
+
+    public void setTurn(boolean type) {
+        this.turn = type;
     }
 
     public List<Item> getInventory() {

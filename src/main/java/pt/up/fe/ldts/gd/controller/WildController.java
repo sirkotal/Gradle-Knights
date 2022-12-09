@@ -14,8 +14,11 @@ public class WildController extends Controller<Wild> {
     }
 
     public void step(Game game, GUI.ACTION action) throws IOException {
-        if (action == GUI.ACTION.QUIT || getModel().getPlayer().isAlive()) {
+        if (action == GUI.ACTION.QUIT || !getModel().getPlayer().isAlive()) {
                 game.setState(new MenuState(new Menu()));
+        }
+        else {
+
         }
     }
 }
