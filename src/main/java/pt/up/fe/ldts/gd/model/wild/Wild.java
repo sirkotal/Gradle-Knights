@@ -1,6 +1,6 @@
 package pt.up.fe.ldts.gd.model.wild;
 
-import pt.up.fe.ldts.gd.model.Player;
+import pt.up.fe.ldts.gd.model.player.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +28,10 @@ public class Wild {
         else
             num_enemy = rand.nextInt(enemies.size() - 1);
         int player_total_atk = enemies.get(num_enemy).getHp() / player.getDamage();
-        int enemy_total_atk = player.getHp() / enemies.get(num_enemy).getDamage();
+        int enemy_total_atk = player.getHP() / enemies.get(num_enemy).getDamage();
         if(player_total_atk > enemy_total_atk)
             return false;
-        player.setHp(player.getHp() - player_total_atk * enemies.get(num_enemy).getDamage());
+        player.setHP(player.getHP() - player_total_atk * enemies.get(num_enemy).getDamage());
         enemies.get(num_enemy).loot(player);
         enemies.remove(num_enemy);
         return true;

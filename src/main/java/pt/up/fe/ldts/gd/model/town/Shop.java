@@ -1,7 +1,7 @@
 package pt.up.fe.ldts.gd.model.town;
 
-import pt.up.fe.ldts.gd.model.Item;
-import pt.up.fe.ldts.gd.model.Player;
+import pt.up.fe.ldts.gd.model.player.Item;
+import pt.up.fe.ldts.gd.model.player.Player;
 
 import java.util.ArrayList;
 import java.util.List;
