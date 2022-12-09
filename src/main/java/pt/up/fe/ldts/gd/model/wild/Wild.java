@@ -37,6 +37,10 @@ public class Wild {
         return true;
     }
 
+    public Player getPlayer() {
+        return this.player;
+    }
+
     public List<Enemy> getEnemies() {
         return enemies;
     }
