@@ -2,7 +2,7 @@ package pt.up.fe.ldts.gd.model.wild;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pt.up.fe.ldts.gd.model.Player;
+import pt.up.fe.ldts.gd.model.player.Player;
 
 public class EnemyTest {
 

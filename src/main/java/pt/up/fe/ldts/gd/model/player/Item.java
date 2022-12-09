@@ -1,8 +1,5 @@
-package pt.up.fe.ldts.gd.model;
+package pt.up.fe.ldts.gd.model.player;
 
-
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Item {
     private String name;

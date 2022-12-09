@@ -3,10 +3,9 @@ package pt.up.fe.ldts.gd.model.town;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pt.up.fe.ldts.gd.model.CombatItem;
-import pt.up.fe.ldts.gd.model.Item;
-import pt.up.fe.ldts.gd.model.Player;
-import pt.up.fe.ldts.gd.model.town.Shop;
+import pt.up.fe.ldts.gd.model.player.CombatItem;
+import pt.up.fe.ldts.gd.model.player.Item;
+import pt.up.fe.ldts.gd.model.player.Player;
 
 
 import java.util.ArrayList;
