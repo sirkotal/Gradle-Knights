@@ -1,5 +1,8 @@
 package pt.up.fe.ldts.gd.state;
 
+import pt.up.fe.ldts.gd.controller.Controller;
+import pt.up.fe.ldts.gd.viewer.Viewer;
+
 public abstract class State<T> {
     private final T template;
     private final Controller<T> controller;
