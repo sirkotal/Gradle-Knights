@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -16,11 +17,15 @@ public class Town {
     private Shop shop;
     private TownStrategy strategy;
     private List<String> lines;
+    private List<String> options;
 
     public Town(Player player) throws IOException {
         this.player = player;
         this.shop = createShop();
         this.lines = readAscii();
+
+        this.options = Arrays.asList("1: Shop", "2: Wild", "3: Menu");
+
         Random rand = new Random();
         int random = rand.nextInt(10);
         if(random > 7)
@@ -31,6 +36,9 @@ public class Town {
 
     public List<String> getLines() {
         return this.lines;
+    }
+    public List<String> getOptions() {
+        return this.options;
     }
 
     // to be implemented

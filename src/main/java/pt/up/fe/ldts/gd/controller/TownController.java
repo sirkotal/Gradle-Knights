@@ -29,8 +29,7 @@ public class TownController extends Controller<Town> {
             game.setState(new WildState(new Wild(new Player("Heisenberg")))); // temporary!!!
         }
         else if (action == GUI.ACTION.OPTION3) {
-            /*gui.close;
-            game.exit;*/
+            game.setState(new MenuState(new Menu()));
         }
     }
 }
