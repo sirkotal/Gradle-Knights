@@ -37,6 +37,10 @@ public class Menu {
         return currentEntry == 1;
     }
 
+    public List<String> getLines() {
+        return this.lines;
+    }
+
     private List<String> readAscii(String mode) throws IOException {
         if(!mode.equals("start") && !mode.equals("exit")) {
             throw new Error("mode can only be start or exit");

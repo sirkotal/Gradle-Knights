@@ -12,10 +12,10 @@ public class MenuState extends State<Menu> {
     }
 
     protected Controller<Menu> getController() {
-        return new MenuController(getTemplate());
+        return new MenuController(getModel());
     }
 
     protected Viewer<Menu> getViewer() {
-        return new MenuViewer(getTemplate());
+        return new MenuViewer(getModel());
     }
 }

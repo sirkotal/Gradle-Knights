@@ -1,6 +1,8 @@
 package pt.up.fe.ldts.gd.gui;
 
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
@@ -54,6 +56,13 @@ public class LanternaGUI implements GUI{
         if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == '3') return ACTION.OPTION3;
 
         return ACTION.NONE;
+    }
+
+    @Override
+    public void drawText(String str, int col, int row) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
+        tg.putString(col, row, str);
     }
 
     @Override
