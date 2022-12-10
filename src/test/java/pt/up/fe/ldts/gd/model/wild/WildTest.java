@@ -9,7 +9,7 @@ public class WildTest {
     public void fightTest() {
         Player player = new Player("Saul");
         Wild wild = new Wild(player);
-
+        wild.createEnemies();
         int initial_gold = player.getGold();
 
         int gold_loot = 0;

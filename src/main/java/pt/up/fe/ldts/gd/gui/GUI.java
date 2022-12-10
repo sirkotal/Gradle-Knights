@@ -11,5 +11,5 @@ public interface GUI {
     void refresh() throws IOException;
     void close() throws IOException;
 
-    enum ACTION { UP, DOWN, SELECT, NONE }
+    enum ACTION { UP, DOWN, SELECT, NONE, QUIT, OPTION1, OPTION2, OPTION3}
 }

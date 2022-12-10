@@ -8,16 +8,27 @@ import java.util.Random;
 
 public class Wild {
     private Player player;
-    private final List<Enemy> enemies;
+    private List<Enemy> enemies;
+
+    private Random rand = new Random();
     public Wild(Player player) {
         this.player = player;
-        Random rand = new Random();
         this.enemies = new ArrayList<>();
+    }
+
+    public void createEnemies() {
         int num_enemies = rand.nextInt(2) + 1;
         for(int i = 0; i < num_enemies; i++) {
-            // For now hard coded
             enemies.add(new Enemy(10,10,10,20));
         }
+    }
+
+    public Player getPlayer() {
+        return this.player;
+    }
+
+    public List<Enemy> getEnemies() {
+        return enemies;
     }
     
     public boolean fight(Player player) {
@@ -35,9 +46,5 @@ public class Wild {
         enemies.get(num_enemy).loot(player);
         enemies.remove(num_enemy);
         return true;
-    }
-
-    public List<Enemy> getEnemies() {
-        return enemies;
     }
 }
