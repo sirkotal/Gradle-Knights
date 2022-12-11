@@ -1,6 +1,7 @@
-package pt.up.fe.ldts.gd.controller;
+package pt.up.fe.ldts.gd.controller.menu;
 
 import pt.up.fe.ldts.gd.Game;
+import pt.up.fe.ldts.gd.controller.Controller;
 import pt.up.fe.ldts.gd.gui.GUI;
 import pt.up.fe.ldts.gd.model.menu.Menu;
 import pt.up.fe.ldts.gd.model.player.Player;
