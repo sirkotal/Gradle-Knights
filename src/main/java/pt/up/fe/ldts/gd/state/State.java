@@ -27,8 +27,8 @@ public abstract class State<T> {
     protected abstract Controller<T> getController();
 
     public void step(Game game, GUI gui) throws IOException {
+        viewer.draw(gui);
         GUI.ACTION action = gui.getNextAction();
         controller.step(game, action);
-        viewer.draw(gui);
     }
 }

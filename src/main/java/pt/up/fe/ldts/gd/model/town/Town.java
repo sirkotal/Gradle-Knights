@@ -57,6 +57,9 @@ public class Town {
 
         return lines;
     }
+    public Player getPlayer() {
+        return this.player;
+    }
 
     public boolean buyItem(String itemName) {
         return strategy.buyItem(shop, player, itemName);
