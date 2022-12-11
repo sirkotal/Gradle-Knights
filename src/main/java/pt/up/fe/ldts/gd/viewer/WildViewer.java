@@ -15,7 +15,7 @@ public class WildViewer extends Viewer<Wild> {
     protected void drawElements(GUI gui) {
         List<String> lines = getModel().getLines();
         for(int i = 0; i < lines.size(); i++) {
-            gui.drawText(lines.get(i), 23, 8+i);
+            gui.drawText(lines.get(i), 30, 8+i);
         }
 
         /*
