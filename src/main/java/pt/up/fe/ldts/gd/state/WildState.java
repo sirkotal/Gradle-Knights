@@ -1,7 +1,8 @@
 package pt.up.fe.ldts.gd.state;
 
 import pt.up.fe.ldts.gd.controller.Controller;
-import pt.up.fe.ldts.gd.controller.WildController;
+import pt.up.fe.ldts.gd.controller.wild.WildController;
+import pt.up.fe.ldts.gd.controller.wild.WildFightController;
 import pt.up.fe.ldts.gd.gui.GUI;
 import pt.up.fe.ldts.gd.model.player.Player;
 import pt.up.fe.ldts.gd.model.wild.Wild;
@@ -14,7 +15,7 @@ public class WildState extends State<Wild> {
     }
 
     protected Controller<Wild> getController() {
-        return new WildController(getModel());
+        return new WildFightController(getModel());
     }
 
     protected Viewer<Wild> getViewer() {
