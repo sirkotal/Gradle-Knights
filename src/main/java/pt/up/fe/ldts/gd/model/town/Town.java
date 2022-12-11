@@ -26,6 +26,10 @@ public class Town {
         return new Shop(new ArrayList<>());
     }
 
+    public Player getPlayer() {
+        return this.player;
+    }
+
     public boolean buyItem(String itemName) {
         return strategy.buyItem(shop, player, itemName);
     }
