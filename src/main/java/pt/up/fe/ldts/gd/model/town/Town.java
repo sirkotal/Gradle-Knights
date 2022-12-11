@@ -1,6 +1,5 @@
 package pt.up.fe.ldts.gd.model.town;
 
-import pt.up.fe.ldts.gd.model.menu.Menu;
 import pt.up.fe.ldts.gd.model.player.Player;
 
 import java.io.BufferedReader;
@@ -48,7 +47,7 @@ public class Town {
 
     private List<String> readAscii() throws IOException {
         List<String> lines = new ArrayList<>();
-        URL resource = Menu.class.getResource("/ascii/town/town.txt");
+        URL resource = Town.class.getResource("/ascii/town/town.txt");
         assert resource != null;
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
