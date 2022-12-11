@@ -8,15 +8,17 @@ import pt.up.fe.ldts.gd.model.wild.Wild;
 import java.io.IOException;
 
 public class PlayerController extends WildController {
+    private Player player;
     public PlayerController(Wild wild) {
         super(wild);
+        this.player = getModel().getPlayer();
     }
 
     @Override
     public void step(Game game, GUI.ACTION action) throws IOException {
-        if (getModel().getPlayer().isTurn()) {
-            attackEnemy(getModel().getPlayer());
-            getModel().getPlayer().setTurn(false);
+        if (player.isTurn()) {
+            attackEnemy(player);
+            player.setTurn(false);
         }
     }
 
