@@ -27,11 +27,10 @@ public class TownController extends Controller<Town> {
             // generate new items for shop, change graphics (enters shop)
         }
         else if (action == GUI.ACTION.OPTION2) {
-            game.setState(new WildState(new Wild(getModel().getPlayer()))); // temporary!!!
+            game.setState(new WildState(new Wild(getModel().getPlayer())));
         }
         else if (action == GUI.ACTION.OPTION3) {
-            /*gui.close;
-            game.exit;*/
+            game.setState(new MenuState(new Menu()));
         }
     }
 }
