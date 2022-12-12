@@ -53,9 +53,16 @@ public class LanternaGUI implements GUI{
         if(keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
         if(keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
 
-        if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == '1') return ACTION.OPTION1;
-        if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == '2') return ACTION.OPTION2;
-        if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == '3') return ACTION.OPTION3;
+        if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == '1') return ACTION.OPT1;
+        if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == '2') return ACTION.OPT2;
+        if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == '3') return ACTION.OPT3;
+        if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == '4') return ACTION.OPT4;
+        if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == '5') return ACTION.OPT5;
+        if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == '6') return ACTION.OPT6;
+        if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == '7') return ACTION.OPT7;
+        if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == '8') return ACTION.OPT8;
+        if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == '9') return ACTION.OPT9;
+        if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == '0') return ACTION.OPT0;
 
         return ACTION.NONE;
     }
