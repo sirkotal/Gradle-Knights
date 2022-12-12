@@ -42,8 +42,8 @@ public class Town {
     }
 
     // to be implemented
-    private Shop createShop() {
-        return new Shop(new ArrayList<>());
+    private Shop createShop() throws IOException {
+        return new Shop(new ArrayList<>(), player);
     }
 
     private List<String> readAscii() throws IOException {
@@ -61,7 +61,11 @@ public class Town {
         return this.player;
     }
 
+    public Shop getShop() {
+        return shop;
+    }
+
     public boolean buyItem(String itemName) {
-        return strategy.buyItem(shop, player, itemName);
+        return strategy.buyItem(shop, itemName);
     }
 }

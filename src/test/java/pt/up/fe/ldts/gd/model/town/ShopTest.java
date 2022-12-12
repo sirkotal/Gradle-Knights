@@ -7,6 +7,7 @@ import pt.up.fe.ldts.gd.model.player.CombatItem;
 import pt.up.fe.ldts.gd.model.player.Item;
 import pt.up.fe.ldts.gd.model.player.Player;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,13 +17,13 @@ public class ShopTest {
     Player player;
 
     @BeforeEach
-    public void setup() {
+    public void setup() throws IOException {
         items = new ArrayList<>();
         items.add(new CombatItem("item1", 10, 10));
         items.add(new CombatItem("item2", 20, 20));
-        shop = new Shop(items);
         player = new Player("Saul");
         player.setGold(50);
+        shop = new Shop(items, player);
     }
 
     @Test
@@ -30,7 +31,7 @@ public class ShopTest {
         Assertions.assertTrue(player.getInventory().isEmpty());
         Assertions.assertEquals(50, player.getGold());
 
-        int spent = shop.buyItem(player, "item1", false);
+        int spent = shop.buyItem("item1", false);
 
         Assertions.assertEquals(10, spent);
 
@@ -41,7 +42,7 @@ public class ShopTest {
         Assertions.assertEquals(new CombatItem("item2", 20, 20), shop.getItems().get(0));
         Assertions.assertEquals(40, player.getGold());
 
-        spent = shop.buyItem(player, "item2", false);
+        spent = shop.buyItem("item2", false);
 
         Assertions.assertEquals(20, spent);
 
@@ -58,7 +59,7 @@ public class ShopTest {
         Assertions.assertTrue(player.getInventory().isEmpty());
         Assertions.assertEquals(50, player.getGold());
 
-        int spent = shop.buyItem(player, "item1", true);
+        int spent = shop.buyItem("item1", true);
 
         Assertions.assertEquals(20, spent);
 
@@ -69,7 +70,7 @@ public class ShopTest {
         Assertions.assertEquals(new CombatItem("item2", 20, 20), shop.getItems().get(0));
         Assertions.assertEquals(30, player.getGold());
 
-        spent = shop.buyItem(player, "item2", true);
+        spent = shop.buyItem("item2", true);
 
         Assertions.assertEquals(-1, spent);
 
