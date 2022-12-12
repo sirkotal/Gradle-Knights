@@ -8,9 +8,9 @@ public class ExpensiveStrategy implements ShopStrategy {
 
     @Override
     public boolean buyItem(Item item, Player player) {
-        if(player.getGold() >= item.getValue()*2) {
+        if(player.getGold() >= item.getPrice()*2) {
             player.addItem(item);
-            int spent = item.getValue() * 2;
+            int spent = item.getPrice() * 2;
             player.setGold(player.getGold() - spent);
             return true;
         }

@@ -1,7 +1,6 @@
 package pt.up.fe.ldts.gd.model.town;
 
 import pt.up.fe.ldts.gd.model.menu.Menu;
-import pt.up.fe.ldts.gd.model.player.CombatItem;
 import pt.up.fe.ldts.gd.model.player.Item;
 import pt.up.fe.ldts.gd.model.player.Player;
 
@@ -18,33 +17,44 @@ public class Shop {
     private List<String> lines;
     private Player player;
     private List<String> options;
-    private ShopStrategy strategy;
+    private ShopStrategy strategy; // we can have an item to change from expensive to cheap
 
     public Shop(Shop shop) throws IOException {
         this.items = shop.getItems();
         this.lines = readAscii();
         this.player = shop.getPlayer();
-        this.options = new ArrayList<>();
-        // use with less than 5 items (needs to have another implementation to support more)
-        for(int i = 1; i <= items.size(); i++) {
-            Item item = items.get(i-1);
-            options.add(i + ": " + item.getName() + "(" + item.getValue() + "/" + item.getPrice() + ")");
-        }
-        options.add("9: Town");
-        options.add("0: Menu");
-
-        Random rand = new Random();
-        int random = rand.nextInt(10);
-        if(random > 7)
-            this.strategy = new ExpensiveStrategy();
-        else
-            this.strategy = new CheapStrategy();
+        this.strategy = shop.getStrategy();
+        this.options = shop.getOptions();
     }
 
     public Shop(List<Item> items, Player player) throws IOException {
         this.items = new ArrayList<>(items);
         this.lines = readAscii();
         this.player = player;
+
+        Random rand = new Random();
+        int random = rand.nextInt(10);
+        boolean isExpensive; // used for options only
+        if(random > 7) {
+            this.strategy = new ExpensiveStrategy();
+            isExpensive = true;
+        }
+        else {
+            this.strategy = new CheapStrategy();
+            isExpensive = false;
+        }
+
+        this.options = new ArrayList<>();
+        // use with less than 5 items (needs to have another implementation to support more)
+        for(int i = 1; i <= items.size(); i++) {
+            Item item = items.get(i-1);
+            if(isExpensive)
+                options.add(i + ": " + item.getName() + "(" + item.getValue() + "/" + item.getPrice() * 2 + ")");
+            else
+                options.add(i + ": " + item.getName() + "(" + item.getValue() + "/" + item.getPrice() + ")");
+        }
+        options.add("9: Town");
+        options.add("0: Menu");
     }
 
     public void buyItem(Item item) {
@@ -66,6 +76,10 @@ public class Shop {
 
     public List<String> getOptions() {
         return options;
+    }
+
+    public ShopStrategy getStrategy() {
+        return strategy;
     }
 
     public void setStrategy(ShopStrategy strategy) {
