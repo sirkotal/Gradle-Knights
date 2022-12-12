@@ -1,6 +1,8 @@
 package pt.up.fe.ldts.gd.model.town;
 
 import pt.up.fe.ldts.gd.model.menu.Menu;
+import pt.up.fe.ldts.gd.model.player.CombatItem;
+import pt.up.fe.ldts.gd.model.player.Item;
 import pt.up.fe.ldts.gd.model.player.Player;
 
 import java.io.BufferedReader;
@@ -43,7 +45,25 @@ public class Town {
 
     // to be implemented
     private Shop createShop() throws IOException {
-        return new Shop(new ArrayList<>(), player);
+        List<Item> items = new ArrayList<>();
+
+        List<String> combat_items = Arrays.asList("Sword", "Axe");
+        for(String item_name: combat_items) {
+            int value, price;
+
+            URL resource = Town.class.getResource("/items/" + item_name + ".txt");
+            assert resource != null;
+
+            BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
+            String str = br.readLine();
+            value = Integer.parseInt(str);
+            str = br.readLine();
+            price = Integer.parseInt(str);
+
+            items.add(new CombatItem(item_name, value, price));
+        }
+
+        return new Shop(items, player);
     }
 
     private List<String> readAscii() throws IOException {

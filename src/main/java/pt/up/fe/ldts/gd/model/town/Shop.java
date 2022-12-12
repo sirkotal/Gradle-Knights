@@ -25,12 +25,11 @@ public class Shop {
         this.options = new ArrayList<>();
         // use with less than 5 items (needs to have another implementation to support more)
         for(int i = 1; i <= items.size(); i++) {
-            options.add(i + ": " + items.get(i-1).getName());
+            Item item = items.get(i-1);
+            options.add(i + ": " + item.getName() + "(" + item.getValue() + "/" + item.getPrice() + ")");
         }
         options.add("9: Town");
         options.add("0: Menu");
-
-        System.out.println(items.size());
     }
 
     public Shop(List<Item> items, Player player) throws IOException {

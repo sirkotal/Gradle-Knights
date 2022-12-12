@@ -50,16 +50,16 @@ public class Player {
 
     public Item getItem(String name) {
         for (Item item: inventory) {
-            if (item.getName() == name) {
+            if (item.getName().equals(name)) {
                 return item;
             }
         }
         return null;
     }
 
-    public void showItem(String name) {
+    public void showItem(String item_name) {
         for (Item item: inventory) {
-            if (item.getName() == name) {
+            if (item.getName().equals(item_name)) {
                 System.out.println("Name: " + item.getName());
                 System.out.printf("Value: %d", item.getValue());
                 System.out.println();
@@ -100,9 +100,6 @@ public class Player {
     }
 
     public boolean isAlive() {
-        if (this.hp == 0) {
-            return false;
-        }
-        return true;
+        return this.hp != 0;
     }
 }
