@@ -23,7 +23,7 @@ public class TownController extends Controller<Town> {
         else if (action == GUI.ACTION.OPT2) {
             game.setState(new WildState(new Wild(getModel().getPlayer())));
         }
-        else if (action == GUI.ACTION.OPT3) {
+        else if (action == GUI.ACTION.OPT0) {
             game.setState(new MenuState(new Menu()));
         }
     }

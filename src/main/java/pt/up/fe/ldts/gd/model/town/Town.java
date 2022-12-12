@@ -24,7 +24,7 @@ public class Town {
         this.shop = createShop();
         this.lines = readAscii();
 
-        this.options = Arrays.asList("1: Shop", "2: Wild", "3: Menu");
+        this.options = Arrays.asList("1: Shop", "2: Wild", "0: Menu");
 
         Random rand = new Random();
         int random = rand.nextInt(10);
