@@ -4,6 +4,7 @@ import pt.up.fe.ldts.gd.model.menu.Menu;
 import pt.up.fe.ldts.gd.model.player.CombatItem;
 import pt.up.fe.ldts.gd.model.player.Item;
 import pt.up.fe.ldts.gd.model.player.Player;
+import pt.up.fe.ldts.gd.model.player.PotionItem;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -51,7 +52,7 @@ public class Town {
         for(String item_name: combat_items) {
             int value, price;
 
-            URL resource = Town.class.getResource("/items/" + item_name + ".txt");
+            URL resource = Town.class.getResource("/items/combat/" + item_name + ".txt");
             assert resource != null;
 
             BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
@@ -61,6 +62,22 @@ public class Town {
             price = Integer.parseInt(str);
 
             items.add(new CombatItem(item_name, value, price));
+        }
+
+        List<String> potion_items = Arrays.asList("HealthPotion");
+        for(String item_name: potion_items) {
+            int value, price;
+
+            URL resource = Town.class.getResource("/items/potion/" + item_name + ".txt");
+            assert resource != null;
+
+            BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
+            String str = br.readLine();
+            value = Integer.parseInt(str);
+            str = br.readLine();
+            price = Integer.parseInt(str);
+
+            items.add(new PotionItem(item_name, value, price));
         }
 
         return new Shop(items, player);

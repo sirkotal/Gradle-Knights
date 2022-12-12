@@ -5,7 +5,9 @@ import pt.up.fe.ldts.gd.controller.Controller;
 import pt.up.fe.ldts.gd.gui.GUI;
 import pt.up.fe.ldts.gd.model.menu.Menu;
 import pt.up.fe.ldts.gd.model.town.Shop;
+import pt.up.fe.ldts.gd.model.town.Town;
 import pt.up.fe.ldts.gd.state.MenuState;
+import pt.up.fe.ldts.gd.state.TownState;
 
 import java.io.IOException;
 
@@ -18,6 +20,9 @@ public class ShopController extends Controller<Shop> {
     public void step(Game game, GUI.ACTION action) throws IOException {
         if(action == GUI.ACTION.OPT0) {
             game.setState(new MenuState(new Menu()));
+        }
+        if(action == GUI.ACTION.OPT9) {
+            game.setState(new TownState(new Town(getModel().getPlayer())));
         }
     }
 }

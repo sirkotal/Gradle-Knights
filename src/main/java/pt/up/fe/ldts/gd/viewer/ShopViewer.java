@@ -24,10 +24,10 @@ public class ShopViewer extends Viewer<Shop> {
         }
 
         List<String> options = getModel().getOptions();
-        int opt_col = 32;
+        int opt_col = 25;
         for(String str: options) {
             gui.drawText(str, opt_col, 35);
-            opt_col += 20;
+            opt_col += str.length() + 5;
         }
     }
 }

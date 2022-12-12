@@ -23,10 +23,10 @@ public class TownViewer extends Viewer<Town> {
         }
 
         List<String> options = getModel().getOptions();
-        int opt_col = 47;
+        int opt_col = 45;
         for(String str: options) {
             gui.drawText(str, opt_col, 35);
-            opt_col += 10;
+            opt_col += str.length() + 5;
         }
     }
 }
