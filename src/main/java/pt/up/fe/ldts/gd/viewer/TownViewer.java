@@ -12,6 +12,11 @@ public class TownViewer extends Viewer<Town> {
 
     @Override
     protected void drawElements(GUI gui) {
+        String hp = "HP: " + Integer.toString(getModel().getPlayer().getHP());
+        String gold = "GOLD: " + Integer.toString(getModel().getPlayer().getGold());
+
+        gui.drawPlayerInfo(hp, gold);
+
         List<String> lines = getModel().getLines();
         for(int i = 0; i < lines.size(); i++) {
             gui.drawText(lines.get(i), 23, 8+i);

@@ -75,6 +75,14 @@ public class LanternaGUI implements GUI{
     }
 
     @Override
+    public void drawPlayerInfo(String hp, String gold) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
+        tg.putString(55, 40, hp);
+        tg.putString(55, 41, gold);
+    }
+
+    @Override
     public void clear() {
         screen.clear();
     }

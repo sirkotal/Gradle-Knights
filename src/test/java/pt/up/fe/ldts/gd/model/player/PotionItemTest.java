@@ -2,7 +2,6 @@ package pt.up.fe.ldts.gd.model.player;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pt.up.fe.ldts.gd.model.player.PotionItem;
 
 public class PotionItemTest {
     @Test

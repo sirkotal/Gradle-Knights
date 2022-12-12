@@ -7,7 +7,6 @@ import pt.up.fe.ldts.gd.model.player.CombatItem;
 import pt.up.fe.ldts.gd.model.player.Item;
 import pt.up.fe.ldts.gd.model.player.Player;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
