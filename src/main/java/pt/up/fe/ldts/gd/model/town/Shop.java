@@ -11,12 +11,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Shop {
     private final List<Item> items;
     private List<String> lines;
     private Player player;
     private List<String> options;
+    private ShopStrategy strategy;
 
     public Shop(Shop shop) throws IOException {
         this.items = shop.getItems();
@@ -30,6 +32,13 @@ public class Shop {
         }
         options.add("9: Town");
         options.add("0: Menu");
+
+        Random rand = new Random();
+        int random = rand.nextInt(10);
+        if(random > 7)
+            this.strategy = new ExpensiveStrategy();
+        else
+            this.strategy = new CheapStrategy();
     }
 
     public Shop(List<Item> items, Player player) throws IOException {
@@ -38,26 +47,9 @@ public class Shop {
         this.player = player;
     }
 
-    public int buyItem(String itemName, boolean dup) {
-        for(Item item: items) {
-            if(item.getName().equals(itemName) &&
-                    ((player.getGold() >= item.getValue() && !dup) ||
-                            (player.getGold() >= item.getValue()*2 && dup))) {
-                player.addItem(item);
-                int spent = -1;
-                if(dup) {
-                    spent = item.getValue() * 2;
-                    player.setGold(player.getGold() - spent);
-                }
-                else {
-                    spent = item.getValue();
-                    player.setGold(player.getGold() - spent);
-                }
-                items.remove(item);
-                return spent;
-            }
-        }
-        return -1;
+    public void buyItem(Item item) {
+        boolean flag = strategy.buyItem(item, player);
+        // use the flag to set some message like town
     }
 
     public List<Item> getItems(){
@@ -74,6 +66,10 @@ public class Shop {
 
     public List<String> getOptions() {
         return options;
+    }
+
+    public void setStrategy(ShopStrategy strategy) {
+        this.strategy = strategy;
     }
 
     private List<String> readAscii() throws IOException {
