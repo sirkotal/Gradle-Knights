@@ -1,7 +1,10 @@
 package pt.up.fe.ldts.gd.model.town;
 
 import pt.up.fe.ldts.gd.model.menu.Menu;
+import pt.up.fe.ldts.gd.model.player.CombatItem;
+import pt.up.fe.ldts.gd.model.player.Item;
 import pt.up.fe.ldts.gd.model.player.Player;
+import pt.up.fe.ldts.gd.model.player.PotionItem;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -10,12 +13,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class Town {
     private Player player;
     private Shop shop;
-    private TownStrategy strategy;
     private List<String> lines;
     private List<String> options;
 
@@ -25,13 +26,6 @@ public class Town {
         this.lines = readAscii();
 
         this.options = Arrays.asList("1: Shop", "2: Wild", "0: Menu");
-
-        Random rand = new Random();
-        int random = rand.nextInt(10);
-        if(random > 7)
-            this.strategy = new ExpensiveStrategy();
-        else
-            this.strategy = new CheapStrategy();
     }
 
     public List<String> getLines() {
@@ -42,8 +36,42 @@ public class Town {
     }
 
     // to be implemented
-    private Shop createShop() {
-        return new Shop(new ArrayList<>());
+    private Shop createShop() throws IOException {
+        List<Item> items = new ArrayList<>();
+
+        List<String> combat_items = Arrays.asList("Sword", "Axe");
+        for(String item_name: combat_items) {
+            int value, price;
+
+            URL resource = Town.class.getResource("/items/combat/" + item_name + ".txt");
+            assert resource != null;
+
+            BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
+            String str = br.readLine();
+            value = Integer.parseInt(str);
+            str = br.readLine();
+            price = Integer.parseInt(str);
+
+            items.add(new CombatItem(item_name, value, price));
+        }
+
+        List<String> potion_items = Arrays.asList("HealthPotion");
+        for(String item_name: potion_items) {
+            int value, price;
+
+            URL resource = Town.class.getResource("/items/potion/" + item_name + ".txt");
+            assert resource != null;
+
+            BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
+            String str = br.readLine();
+            value = Integer.parseInt(str);
+            str = br.readLine();
+            price = Integer.parseInt(str);
+
+            items.add(new PotionItem(item_name, value, price));
+        }
+
+        return new Shop(items, player);
     }
 
     private List<String> readAscii() throws IOException {
@@ -61,7 +89,7 @@ public class Town {
         return this.player;
     }
 
-    public boolean buyItem(String itemName) {
-        return strategy.buyItem(shop, player, itemName);
+    public Shop getShop() {
+        return shop;
     }
 }

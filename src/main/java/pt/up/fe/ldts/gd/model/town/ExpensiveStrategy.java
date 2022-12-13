@@ -1,13 +1,19 @@
 package pt.up.fe.ldts.gd.model.town;
 
+import pt.up.fe.ldts.gd.model.player.Item;
 import pt.up.fe.ldts.gd.model.player.Player;
 
-public class ExpensiveStrategy implements TownStrategy {
+public class ExpensiveStrategy implements ShopStrategy {
     public ExpensiveStrategy() {}
 
     @Override
-    public boolean buyItem(Shop shop, Player player, String itemName) {
-        int spent = shop.buyItem(player, itemName, true);
-        return spent != -1;
+    public boolean buyItem(Item item, Player player) {
+        if(player.getGold() >= item.getPrice()*2) {
+            player.addItem(item);
+            int spent = item.getPrice() * 2;
+            player.setGold(player.getGold() - spent);
+            return true;
+        }
+        return false;
     }
 }
