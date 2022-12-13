@@ -8,4 +8,10 @@ public class PotionItem extends Item {
     public void setUsed() {
         this.used = true;
     }
+
+    public void refill() {
+        if (this.used == true) {
+            this.used = false;
+        }
+    }
 }

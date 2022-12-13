@@ -5,11 +5,11 @@ public class CombatItem extends Item {
         super(name, value, price);
     }
 
-    public void setUsed() {
+    public void equip() {
         this.used = true;
     }
 
-    public void setUnused() {
+    public void unequip() {
         this.used = false;
     }
 
