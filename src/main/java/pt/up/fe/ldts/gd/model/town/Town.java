@@ -1,8 +1,11 @@
 package pt.up.fe.ldts.gd.model.town;
 
+<<<<<<< HEAD
 import pt.up.fe.ldts.gd.model.menu.Menu;
 import pt.up.fe.ldts.gd.model.player.CombatItem;
 import pt.up.fe.ldts.gd.model.player.Item;
+=======
+>>>>>>> e2665c199a2379d2bf2aaf3668ee87b70c56834d
 import pt.up.fe.ldts.gd.model.player.Player;
 import pt.up.fe.ldts.gd.model.player.PotionItem;
 
@@ -76,7 +79,7 @@ public class Town {
 
     private List<String> readAscii() throws IOException {
         List<String> lines = new ArrayList<>();
-        URL resource = Menu.class.getResource("/ascii/town/town.txt");
+        URL resource = Town.class.getResource("/ascii/town/town.txt");
         assert resource != null;
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
