@@ -7,8 +7,6 @@ import java.util.Random;
 public class Enemy {
     private int hp;
     private int damage;
-
-    private boolean turn;
     private final int gold;
 
     public Enemy(int hp, int gold, int base_damage, int max_damage) {
@@ -34,7 +32,7 @@ public class Enemy {
     }
 
     public boolean isAlive() {
-        return this.hp != 0;
+        return this.hp > 0;
     }
 
     public int getDamage() {
@@ -47,13 +45,5 @@ public class Enemy {
 
     public int getGold() {
         return gold;
-    }
-
-    public boolean isTurn() {
-        return this.turn;
-    }
-
-    public void setTurn(boolean type) {
-        this.turn = type;
     }
 }

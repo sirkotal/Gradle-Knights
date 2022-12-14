@@ -40,7 +40,7 @@ public class Wild {
         return enemies;
     }
     
-    public void fight(Player player) {
+    public void fight() {
         Random rand = new Random();
         int num_enemy;
 
@@ -54,7 +54,6 @@ public class Wild {
         while (player.isAlive() || enemies.get(num_enemy).isAlive()) {
             player.setHP(player.getHP() - enemies.get(num_enemy).getDamage());
             enemies.get(num_enemy).setHP(enemies.get(num_enemy).getHP() - player.getDamage());
-
         }
 
         if (player.isAlive()) {

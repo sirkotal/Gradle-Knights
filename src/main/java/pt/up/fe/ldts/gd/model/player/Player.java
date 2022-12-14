@@ -9,7 +9,6 @@ public class Player {
     private int hp;
     private int damage;
 
-    private boolean turn;
     private final List<Item> inventory;
 
     public Player(String name) {
@@ -34,14 +33,6 @@ public class Player {
 
     public void removeItem(Item item) {
         inventory.remove(item);
-    }
-
-    public boolean isTurn() {
-        return this.turn;
-    }
-
-    public void setTurn(boolean type) {
-        this.turn = type;
     }
 
     public List<Item> getInventory() {
@@ -79,14 +70,6 @@ public class Player {
         this.hp = hp;
     }
 
-    public void addHP(int points) {
-        this.hp += points;
-    }
-
-    public void loseHP(int points) {
-        this.hp -= points;
-    }
-
     public String getName() {
         return name;
     }
@@ -100,6 +83,6 @@ public class Player {
     }
 
     public boolean isAlive() {
-        return this.hp != 0;
+        return this.hp > 0;
     }
 }
