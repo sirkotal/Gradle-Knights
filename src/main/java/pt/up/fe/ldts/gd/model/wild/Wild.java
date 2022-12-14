@@ -45,8 +45,8 @@ public class Wild {
             int player_atk = enemies.get(num_enemy).getHP() / player.getDamage();
             int enemy_atk = player.getHP() / enemies.get(num_enemy).getDamage();
 
-            for (Enemy enemy: enemies) {
-                player.setHP(player.getHP() - player_atk * enemies.get(num_enemy).getDamage());
+            for (int i = 0; i < enemies.size(); i++) {
+                player.setHP(player.getHP() - player_atk * enemies.get(i).getDamage());
             }
             enemies.get(num_enemy).setHP(enemies.get(num_enemy).getHP() - enemy_atk * player.getDamage());
 
