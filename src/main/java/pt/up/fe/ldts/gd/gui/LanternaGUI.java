@@ -10,7 +10,12 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LanternaGUI implements GUI{
     private final Screen screen;
@@ -80,6 +85,26 @@ public class LanternaGUI implements GUI{
         tg.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
         tg.putString(55, 40, hp);
         tg.putString(55, 41, gold);
+    }
+
+    @Override
+    public void drawDeathScreen() throws IOException {
+        List<String> lines = new ArrayList<>();
+        URL resource = LanternaGUI.class.getResource("/ascii/death.txt");
+        assert resource != null;
+        BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
+
+        for(String line; (line = br.readLine()) != null;)
+            lines.add(line);
+
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
+
+        for(int i = 0; i < lines.size(); i++) {
+            drawText(lines.get(i), 35, 15+i);
+        }
+
+        drawText("PRESS 0 TO EXIT TO MENU", 50, 35);
     }
 
     @Override

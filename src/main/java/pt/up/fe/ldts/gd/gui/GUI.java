@@ -8,6 +8,7 @@ public interface GUI {
 
     void drawText(String str, int col, int row);
     void drawPlayerInfo(String hp, String gold);
+    void drawDeathScreen() throws IOException;
     void clear();
     void refresh() throws IOException;
     void close() throws IOException;
