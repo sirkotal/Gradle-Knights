@@ -19,7 +19,7 @@ public class WildFightController extends WildController {
     }
 
     public void step(Game game, GUI.ACTION action) throws IOException {
-        if (action == GUI.ACTION.OPT3 || !getModel().getPlayer().isAlive()) {
+        if (action == GUI.ACTION.OPT0 || !getModel().getPlayer().isAlive()) {
             game.setState(new MenuState(new Menu()));
         }
         else {

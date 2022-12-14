@@ -1,6 +1,5 @@
 package pt.up.fe.ldts.gd.model.town;
 
-import pt.up.fe.ldts.gd.model.menu.Menu;
 import pt.up.fe.ldts.gd.model.player.CombatItem;
 import pt.up.fe.ldts.gd.model.player.Item;
 import pt.up.fe.ldts.gd.model.player.Player;

@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -14,11 +15,13 @@ public class Wild {
     private Player player;
     private List<Enemy> enemies;
     private List<String> lines;
+    private List<String> options;
 
     public Wild(Player player) throws IOException {
         this.player = player;
         this.enemies = new ArrayList<>();
         this.lines = readAscii();
+        this.options = Arrays.asList("1: Continue", "0: Menu");
     }
 
     public void createEnemies() {
@@ -56,6 +59,10 @@ public class Wild {
 
     public List<String> getLines() {
         return this.lines;
+    }
+
+    public List<String> getOptions() {
+        return options;
     }
 
     private List<String> readAscii() throws IOException {
