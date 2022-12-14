@@ -21,10 +21,10 @@ public class WildTest {
             gold_loot += enemy.getGold();
         }
 
-        while(!wild.getEnemies().isEmpty() || !wild.getPlayer().isAlive()) {
+        while(!wild.getEnemies().isEmpty() && wild.getPlayer().isAlive()) {
             wild.fight();
         }
 
-        Assertions.assertEquals(initial_gold + gold_loot, wild.getPlayer().getGold());
+        Assertions.assertTrue(wild.getPlayer().getGold() <= initial_gold + gold_loot);
     }
 }
