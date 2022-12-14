@@ -10,11 +10,13 @@ public class AmuletItem extends Item {
     }
 
     public void changeStrategy(Shop shop) {
-        if (shop.getStrategy() instanceof CheapStrategy) {
-            shop.setStrategy(new ExpensiveStrategy());
-        }
-        else if (shop.getStrategy() instanceof ExpensiveStrategy) {
-            shop.setStrategy(new CheapStrategy());
+        if (this.used == true) {
+            if (shop.getStrategy() instanceof CheapStrategy) {
+                shop.setStrategy(new ExpensiveStrategy());
+            }
+            else if (shop.getStrategy() instanceof ExpensiveStrategy) {
+                shop.setStrategy(new CheapStrategy());
+            }
         }
     }
 
