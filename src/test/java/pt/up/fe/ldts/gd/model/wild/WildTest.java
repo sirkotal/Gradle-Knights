@@ -12,7 +12,6 @@ public class WildTest {
     public void fightTest() throws IOException {
         Player player = new Player("Saul");
         Wild wild = new Wild(player);
-        wild.createEnemies();
 
         int initial_gold = wild.getPlayer().getGold();
 

@@ -19,17 +19,9 @@ public class Wild {
 
     public Wild(Player player) throws IOException {
         this.player = player;
-        this.enemies = new ArrayList<>();
+        this.enemies = createEnemies();
         this.lines = readAscii();
         this.options = Arrays.asList("1: Continue", "0: Menu");
-    }
-
-    public void createEnemies() {
-        Random rand = new Random();
-        int num_enemies = rand.nextInt(2) + 1;
-        for(int i = 0; i < num_enemies; i++) {
-            enemies.add(new Enemy(10,10,10,20));
-        }
     }
 
     public Player getPlayer() {
@@ -68,6 +60,16 @@ public class Wild {
 
     public List<String> getOptions() {
         return options;
+    }
+
+    private List<Enemy> createEnemies() {
+        List<Enemy> enemies = new ArrayList<>();
+        Random rand = new Random();
+        int num_enemies = rand.nextInt(2) + 1;
+        for(int i = 0; i < num_enemies; i++) {
+            enemies.add(new Enemy(10,10,10,20));
+        }
+        return enemies;
     }
 
     private List<String> readAscii() throws IOException {
