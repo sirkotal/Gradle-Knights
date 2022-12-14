@@ -5,8 +5,6 @@ import pt.up.fe.ldts.gd.model.town.ExpensiveStrategy;
 import pt.up.fe.ldts.gd.model.town.Shop;
 
 public class AmuletItem extends Item {
-    private CheapStrategy lowstrat;
-    private ExpensiveStrategy highstrat;
     public AmuletItem(String name, int value, int price) {
         super(name, value, price);
     }
