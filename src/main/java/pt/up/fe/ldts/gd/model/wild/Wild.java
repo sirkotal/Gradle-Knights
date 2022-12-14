@@ -33,18 +33,33 @@ public class Wild {
     
     public void fight(Player player) {
         Random rand = new Random();
+        boolean flag = true;
         int num_enemy;
-        if(enemies.size() == 1)
-            num_enemy = 0;
-        else
-            num_enemy = rand.nextInt(enemies.size() - 1);
-        /*int player_total_atk = enemies.get(num_enemy).getHp() / player.getDamage();
-        int enemy_total_atk = player.getHP() / enemies.get(num_enemy).getDamage();
-        if(player_total_atk > enemy_total_atk)
-            return false;
-        player.setHP(player.getHP() - player_total_atk * enemies.get(num_enemy).getDamage());
-        enemies.get(num_enemy).loot(player);
-        enemies.remove(num_enemy);
-        return true;*/
+
+        while (flag) {
+            if(enemies.size() == 1)
+                num_enemy = 0;
+            else
+                num_enemy = rand.nextInt(enemies.size() - 1);
+
+            int player_atk = enemies.get(num_enemy).getHP() / player.getDamage();
+            int enemy_atk = player.getHP() / enemies.get(num_enemy).getDamage();
+
+            for (Enemy enemy: enemies) {
+                player.setHP(player.getHP() - player_atk * enemies.get(num_enemy).getDamage());
+            }
+            enemies.get(num_enemy).setHP(enemies.get(num_enemy).getHP() - enemy_atk * player.getDamage());
+
+            if (!player.isAlive()) {
+                flag = false;
+                /* YOU DEAD, BOI */
+            }
+
+            if(!enemies.get(num_enemy).isAlive()) {
+                flag = false;
+                enemies.get(num_enemy).loot(player);
+                enemies.remove(num_enemy);
+            }
+        }
     }
 }

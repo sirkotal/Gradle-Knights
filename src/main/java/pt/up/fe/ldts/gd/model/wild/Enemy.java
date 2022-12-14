@@ -25,12 +25,16 @@ public class Enemy {
         player.setGold(player.getGold() + gold);
     }
 
-    public int getHp() {
+    public int getHP() {
         return hp;
     }
 
-    public void setHp(int hp) {
+    public void setHP(int hp) {
         this.hp = hp;
+    }
+
+    public boolean isAlive() {
+        return this.hp != 0;
     }
 
     public int getDamage() {

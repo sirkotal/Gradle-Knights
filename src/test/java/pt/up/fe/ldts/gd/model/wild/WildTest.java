@@ -16,7 +16,7 @@ public class WildTest {
         int remaining_hp = player.getHP();
         for(Enemy enemy: wild.getEnemies()) {
             gold_loot += enemy.getGold();
-            remaining_hp -= enemy.getDamage() * (enemy.getHp() / player.getDamage());
+            remaining_hp -= enemy.getDamage() * (enemy.getHP() / player.getDamage());
         }
 
         while(!wild.getEnemies().isEmpty())
