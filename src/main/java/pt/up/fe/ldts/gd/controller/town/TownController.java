@@ -30,5 +30,3 @@ public class TownController extends Controller<Town> {
         }
     }
 }
-
-// jogo, shop, wild

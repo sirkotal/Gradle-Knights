@@ -10,21 +10,16 @@ import java.io.IOException;
 
 
 public class WildFightController extends WildController {
-    private final PlayerController p1Controller;
-    private final EnemyController enemiesController;
     public WildFightController(Wild wild) {
         super(wild);
-        this.p1Controller = new PlayerController(wild);
-        this.enemiesController = new EnemyController(wild);
     }
 
     public void step(Game game, GUI.ACTION action) throws IOException {
         if (action == GUI.ACTION.OPT0) {
             game.setState(new MenuState(new Menu()));
         }
-        else if(getModel().getPlayer().isAlive()) {
-            p1Controller.step(game, action);
-            enemiesController.step(game, action);
+        else if (action == GUI.ACTION.OPT1 && getModel().getPlayer().isAlive()) {
+            getModel().fight(getModel().getPlayer());
         }
     }
 }
