@@ -70,6 +70,10 @@ public class Shop {
         return lines;
     }
 
+    public void levelUp() {
+        player.setDamage(player.getDamage()+1);
+    }
+
     public Player getPlayer() {
         return player;
     }

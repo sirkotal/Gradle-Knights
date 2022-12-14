@@ -31,20 +31,20 @@ public class Wild {
         return enemies;
     }
     
-    public boolean fight(Player player) {
+    public void fight(Player player) {
         Random rand = new Random();
         int num_enemy;
         if(enemies.size() == 1)
             num_enemy = 0;
         else
             num_enemy = rand.nextInt(enemies.size() - 1);
-        int player_total_atk = enemies.get(num_enemy).getHp() / player.getDamage();
+        /*int player_total_atk = enemies.get(num_enemy).getHp() / player.getDamage();
         int enemy_total_atk = player.getHP() / enemies.get(num_enemy).getDamage();
         if(player_total_atk > enemy_total_atk)
             return false;
         player.setHP(player.getHP() - player_total_atk * enemies.get(num_enemy).getDamage());
         enemies.get(num_enemy).loot(player);
         enemies.remove(num_enemy);
-        return true;
+        return true;*/
     }
 }
