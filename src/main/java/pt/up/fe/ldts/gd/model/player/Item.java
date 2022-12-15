@@ -8,6 +8,8 @@ public abstract class Item {
     protected boolean used = false;
     private int count;
 
+    protected int type; // 0 for potions, 1 for combat
+
     public Item(String name, int value, int price) {
         this.name = name;
         this.value = value;
@@ -49,4 +51,5 @@ public abstract class Item {
     }
 
     public abstract void setUsed();
+    
 }

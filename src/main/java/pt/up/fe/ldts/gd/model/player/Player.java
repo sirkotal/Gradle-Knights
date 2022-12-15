@@ -60,4 +60,21 @@ public class Player {
     public boolean isAlive() {
         return this.hp > 0;
     }
+
+    public void use(Item item) {
+        if (item.type == 0) {
+            setHP(hp + item.getValue());
+            inventory.removeItem(item);
+        }
+
+        if (item.type == 1) {
+            for (Item cItem: inventory.getItems()) {
+                if (cItem.used == true && cItem.type == 1) {
+                    cItem.used = false;
+                }
+            }
+            setDamage(item.getValue());
+            item.setUsed();
+        }
+    }
 }
