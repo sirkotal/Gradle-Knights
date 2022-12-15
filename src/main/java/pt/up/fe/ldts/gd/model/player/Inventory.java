@@ -1,18 +1,12 @@
 package pt.up.fe.ldts.gd.model.player;
 
 import pt.up.fe.ldts.gd.model.menu.Menu;
-import pt.up.fe.ldts.gd.model.town.CheapStrategy;
-import pt.up.fe.ldts.gd.model.town.ExpensiveStrategy;
-import pt.up.fe.ldts.gd.model.town.Shop;
-import pt.up.fe.ldts.gd.model.town.ShopStrategy;
+import pt.up.fe.ldts.gd.model.player.Player;
+import pt.up.fe.ldts.gd.model.player.Item;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Inventory {
     private List<Item> items;

@@ -1,10 +1,9 @@
 package pt.up.fe.ldts.gd.state;
 
 import pt.up.fe.ldts.gd.controller.Controller;
-import pt.up.fe.ldts.gd.controller.town.ShopController;
+import pt.up.fe.ldts.gd.controller.player.InventoryController;
 import pt.up.fe.ldts.gd.model.player.Inventory;
-import pt.up.fe.ldts.gd.model.town.Shop;
-import pt.up.fe.ldts.gd.viewer.ShopViewer;
+import pt.up.fe.ldts.gd.viewer.InventoryViewer;
 import pt.up.fe.ldts.gd.viewer.Viewer;
 
 public class InventoryState extends State<Inventory> {
