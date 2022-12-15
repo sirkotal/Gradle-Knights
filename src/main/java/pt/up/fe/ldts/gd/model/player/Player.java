@@ -12,7 +12,7 @@ public class Player {
         this.hp = 75;
         this.damage = 15;
         this.gold = 15;
-        this.inventory = new Inventory(this);
+        this.inventory = new Inventory();
     }
 
     public int getGold() {

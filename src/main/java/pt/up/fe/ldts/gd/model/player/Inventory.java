@@ -6,23 +6,17 @@ import java.util.List;
 
 public class Inventory {
     private List<Item> items;
-    private Player player;
     private List<String> stats;
     private List<String> options;
 
-    public Inventory(Player player) {
+    public Inventory() {
         this.items = new ArrayList<>();
-        this.player = player;
         this.stats = new ArrayList<>();
         this.options = Arrays.asList("0: Menu", "1: Equip", "2: Unequip", "3: Use", "4: Discard", "5: Exit");
     }
 
     public List<Item> getItems(){
         return items;
-    }
-
-    public Player getPlayer() {
-        return player;
     }
 
     public List<String> getStats() {
