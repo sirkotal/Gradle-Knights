@@ -21,6 +21,7 @@ public class Town {
 
     public Town(Player player) throws IOException {
         this.player = player;
+        this.player.setHP(100);
         this.shop = createShop();
         this.lines = readAscii();
 
