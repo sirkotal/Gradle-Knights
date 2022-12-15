@@ -19,7 +19,7 @@ public class Inventory {
     public Inventory(Player player) throws IOException {
         this.player = player;
         this.items = new ArrayList<>();
-        this.options = Arrays.asList("1: Equip", "2: Unequip", "3: Use", "4: Discard", "9: Exit", "0: Menu");
+        this.options = new ArrayList<>(Arrays.asList("9: Exit", "0: Menu"));
         this.lines = readAscii();
     }
 
