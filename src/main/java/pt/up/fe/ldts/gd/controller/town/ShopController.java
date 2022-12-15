@@ -23,7 +23,6 @@ public class ShopController extends Controller<Shop> {
         super(shop);
         this.player = getModel().getPlayer();
         this.items = getModel().getItems();
-        this.strategy = getModel().getStrategy();
     }
 
     @Override
@@ -33,7 +32,7 @@ public class ShopController extends Controller<Shop> {
         }
         if(action == GUI.ACTION.OPT9) {
             // BUG: resets shop strategy when leaving to town (solution idea: pass town as parameter for ShopState)
-            game.setState(new TownState(new Town(getModel().getPlayer())));
+            game.setState(new TownState(new Town(getModel().getPlayer(),getModel())));
         }
         if(action == GUI.ACTION.OPT1 && items.size() >= 1) {
             strategy.buyItem(items.get(0), player);
