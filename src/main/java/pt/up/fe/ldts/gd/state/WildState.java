@@ -1,9 +1,9 @@
 package pt.up.fe.ldts.gd.state;
 
 import pt.up.fe.ldts.gd.controller.Controller;
-import pt.up.fe.ldts.gd.viewer.Viewer;
+import pt.up.fe.ldts.gd.controller.wild.WildController;
 import pt.up.fe.ldts.gd.model.wild.Wild;
-import pt.up.fe.ldts.gd.controller.WildController;
+import pt.up.fe.ldts.gd.viewer.Viewer;
 import pt.up.fe.ldts.gd.viewer.WildViewer;
 
 public class WildState extends State<Wild> {
@@ -12,10 +12,10 @@ public class WildState extends State<Wild> {
     }
 
     protected Controller<Wild> getController() {
-        return new WildController(getTemplate());
+        return new WildController(getModel());
     }
 
     protected Viewer<Wild> getViewer() {
-        return new WildViewer(getTemplate());
+        return new WildViewer(getModel());
     }
 }

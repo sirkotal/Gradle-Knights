@@ -8,11 +8,12 @@ public class Player {
     private String name;
     private int hp;
     private int damage;
+
     private final List<Item> inventory;
 
     public Player(String name) {
         this.name = name;
-        this.hp = 100;
+        this.hp = 75;
         this.damage = 15;
         this.gold = 15;
         this.inventory = new ArrayList<>();
@@ -69,14 +70,6 @@ public class Player {
         this.hp = hp;
     }
 
-    public void addHP(int points) {
-        this.hp += points;
-    }
-
-    public void loseHP(int points) {
-        this.hp -= points;
-    }
-
     public String getName() {
         return name;
     }
@@ -90,6 +83,6 @@ public class Player {
     }
 
     public boolean isAlive() {
-        return this.hp != 0;
+        return this.hp > 0;
     }
 }

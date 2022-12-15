@@ -4,25 +4,26 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pt.up.fe.ldts.gd.model.player.Player;
 
+import java.io.IOException;
+
 public class WildTest {
+
     @Test
-    public void fightTest() {
+    public void fightTest() throws IOException {
         Player player = new Player("Saul");
         Wild wild = new Wild(player);
 
-        int initial_gold = player.getGold();
+        int initial_gold = wild.getPlayer().getGold();
 
         int gold_loot = 0;
-        int remaining_hp = player.getHP();
         for(Enemy enemy: wild.getEnemies()) {
             gold_loot += enemy.getGold();
-            remaining_hp -= enemy.getDamage() * (enemy.getHp() / player.getDamage());
         }
 
-        while(!wild.getEnemies().isEmpty())
-            wild.fight(player);
+        while(!wild.getEnemies().isEmpty() && wild.getPlayer().isAlive()) {
+            wild.fight();
+        }
 
-        Assertions.assertEquals(initial_gold + gold_loot, player.getGold());
-        Assertions.assertEquals(remaining_hp, player.getHP());
+        Assertions.assertTrue(wild.getPlayer().getGold() <= initial_gold + gold_loot);
     }
 }

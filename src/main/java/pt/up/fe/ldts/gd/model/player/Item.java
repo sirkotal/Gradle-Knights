@@ -4,7 +4,7 @@ package pt.up.fe.ldts.gd.model.player;
 public abstract class Item {
     private String name;
     private int price;
-    private int value;  // dmg + value, se for Abstract
+    private int value;  // functional value of the item
     boolean used = false;
 
     public Item(String name, int value, int price) {
@@ -15,6 +15,10 @@ public abstract class Item {
 
     public String getName() {
         return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getPrice() {
