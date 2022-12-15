@@ -1,30 +1,42 @@
 package pt.up.fe.ldts.gd.model.player;
 
+import pt.up.fe.ldts.gd.model.town.Town;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Inventory {
+    private Player player;
     private List<Item> items;
-    private List<String> stats;
     private List<String> options;
+    private List<String> lines;
 
-    public Inventory() {
+    public Inventory(Player player) throws IOException {
+        this.player = player;
         this.items = new ArrayList<>();
-        this.stats = new ArrayList<>();
-        this.options = Arrays.asList("0: Menu", "1: Equip", "2: Unequip", "3: Use", "4: Discard", "5: Exit");
+        this.options = Arrays.asList("1: Equip", "2: Unequip", "3: Use", "4: Discard", "9: Exit", "0: Menu");
+        this.lines = readAscii();
     }
 
     public List<Item> getItems(){
         return items;
     }
 
-    public List<String> getStats() {
-        return this.stats;
-    }
-
     public List<String> getOptions() {
         return this.options;
+    }
+
+    public List<String> getLines() {
+        return lines;
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 
     public void addItem(Item item) {
@@ -38,7 +50,7 @@ public class Inventory {
 
         if(!found) {
             items.add(item);
-            stats.add(items.size() + ": " + item.getName() + "(" + item.getValue() + ")");
+            options.add(options.size() - 2, items.size() + ": " + item.getName() + "(" + item.getValue() + ")");
         }
     }
 
@@ -76,5 +88,17 @@ public class Inventory {
             }
         }
         System.out.println("No such item was found on your inventory!");
+    }
+
+    private List<String> readAscii() throws IOException {
+        List<String> lines = new ArrayList<>();
+        URL resource = Town.class.getResource("/ascii/inventory/inventory.txt");
+        assert resource != null;
+        BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
+
+        for(String line; (line = br.readLine()) != null;)
+            lines.add(line);
+
+        return lines;
     }
 }

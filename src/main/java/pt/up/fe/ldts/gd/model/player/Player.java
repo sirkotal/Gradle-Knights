@@ -1,5 +1,7 @@
 package pt.up.fe.ldts.gd.model.player;
 
+import java.io.IOException;
+
 public class Player {
     private int gold;
     private String name;
@@ -7,12 +9,12 @@ public class Player {
     private int damage;
     private Inventory inventory;
 
-    public Player(String name) {
+    public Player(String name) throws IOException {
         this.name = name;
         this.hp = 75;
         this.damage = 15;
         this.gold = 15;
-        this.inventory = new Inventory();
+        this.inventory = new Inventory(this);
     }
 
     public int getGold() {
