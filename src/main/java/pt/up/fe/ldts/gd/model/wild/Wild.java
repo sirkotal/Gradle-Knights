@@ -43,7 +43,7 @@ public class Wild {
             num_enemy = rand.nextInt(enemies.size() - 1);
         }
 
-        while (player.isAlive() || enemies.get(num_enemy).isAlive()) {
+        while (player.isAlive() && enemies.get(num_enemy).isAlive()) {
             player.setHP(player.getHP() - enemies.get(num_enemy).getDamage());
             enemies.get(num_enemy).setHP(enemies.get(num_enemy).getHP() - player.getDamage());
         }

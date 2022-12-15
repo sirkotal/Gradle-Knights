@@ -4,8 +4,10 @@ import pt.up.fe.ldts.gd.Game;
 import pt.up.fe.ldts.gd.controller.Controller;
 import pt.up.fe.ldts.gd.gui.GUI;
 import pt.up.fe.ldts.gd.model.menu.Menu;
+import pt.up.fe.ldts.gd.model.town.Town;
 import pt.up.fe.ldts.gd.model.wild.Wild;
 import pt.up.fe.ldts.gd.state.MenuState;
+import pt.up.fe.ldts.gd.state.TownState;
 
 import java.io.IOException;
 
@@ -19,8 +21,13 @@ public class WildController extends Controller<Wild> {
         if (action == GUI.ACTION.OPT0) {
             game.setState(new MenuState(new Menu()));
         }
-        else if (action == GUI.ACTION.OPT1 && getModel().getPlayer().isAlive()) {
-            getModel().fight();
+        else if (action == GUI.ACTION.OPT1) {
+            if(getModel().getEnemies().size() == 0) {
+                game.setState(new TownState(new Town(getModel().getPlayer())));
+            }
+            else if(getModel().getPlayer().isAlive()) {
+                getModel().fight();
+            }
         }
     }
 }
