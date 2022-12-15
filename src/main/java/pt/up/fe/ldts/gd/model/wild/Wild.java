@@ -21,7 +21,7 @@ public class Wild {
         this.player = player;
         this.enemies = createEnemies();
         this.lines = readAscii();
-        this.options = Arrays.asList("1: Continue", "0: Menu");
+        this.options = Arrays.asList("1: Continue", "2: Inventory", "0: Menu");
     }
 
     public Player getPlayer() {
