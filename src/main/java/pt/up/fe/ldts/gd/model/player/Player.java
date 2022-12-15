@@ -13,7 +13,7 @@ public class Player {
 
     public Player(String name) {
         this.name = name;
-        this.hp = 100;
+        this.hp = 75;
         this.damage = 15;
         this.gold = 15;
         this.inventory = new ArrayList<>();

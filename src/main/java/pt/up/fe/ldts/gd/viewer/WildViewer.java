@@ -14,6 +14,8 @@ public class WildViewer extends Viewer<Wild> {
     @Override
     protected void drawElements(GUI gui) throws IOException {
         if(getModel().getPlayer().isAlive()) {
+            gui.drawPlayerInfo(getModel().getPlayer().getHP(), getModel().getPlayer().getGold());
+
             List<String> lines = getModel().getLines();
             for(int i = 0; i < lines.size(); i++) {
                 gui.drawText(lines.get(i), 30, 8+i);
@@ -22,7 +24,7 @@ public class WildViewer extends Viewer<Wild> {
             List<String> options = getModel().getOptions();
             int opt_col = 47;
             for(String str: options) {
-                gui.drawText(str, opt_col, 40);
+                gui.drawText(str, opt_col, 35);
                 opt_col += str.length() + 5;
             }
         } else {

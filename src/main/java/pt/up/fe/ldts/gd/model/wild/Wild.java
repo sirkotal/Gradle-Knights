@@ -67,7 +67,7 @@ public class Wild {
         Random rand = new Random();
         int num_enemies = rand.nextInt(2) + 1;
         for(int i = 0; i < num_enemies; i++) {
-            enemies.add(new Enemy(10,10,10,20));
+            enemies.add(new Enemy(10,10,30,40));
         }
         return enemies;
     }

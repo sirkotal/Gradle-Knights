@@ -12,10 +12,7 @@ public class ShopViewer extends Viewer<Shop> {
 
     @Override
     protected void drawElements(GUI gui) {
-        String hp = "HP: " + Integer.toString(getModel().getPlayer().getHP());
-        String gold = "GOLD: " + Integer.toString(getModel().getPlayer().getGold());
-
-        gui.drawPlayerInfo(hp, gold);
+        gui.drawPlayerInfo(getModel().getPlayer().getHP(), getModel().getPlayer().getGold());
         gui.drawText("Item(value/price)", 50,38);
 
         List<String> lines = getModel().getLines();
