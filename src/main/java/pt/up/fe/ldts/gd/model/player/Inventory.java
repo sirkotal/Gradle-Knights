@@ -1,38 +1,20 @@
 package pt.up.fe.ldts.gd.model.player;
 
-import pt.up.fe.ldts.gd.model.menu.Menu;
-import pt.up.fe.ldts.gd.model.player.Player;
-import pt.up.fe.ldts.gd.model.player.Item;
-
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Inventory {
     private List<Item> items;
     private Player player;
-
     private List<String> stats;
-
     private List<String> options;
 
-    public Inventory(List<Item> items, Player player) throws IOException {
-        this.items = new ArrayList<>(items);
+    public Inventory(Player player) {
+        this.items = new ArrayList<>();
         this.player = player;
         this.stats = new ArrayList<>();
-        this.options = new ArrayList<>();
-
-        for(int i = 0; i <= items.size() - 1; i++) {
-            Item item = items.get(i);
-            stats.add(i + ": " + item.getName() + "(" + item.getValue() + "/" + item.getPrice() + ")");
-        }
-
-        options.add("0: Menu");
-        options.add("1: Equip");
-        options.add("2. Unequip");
-        options.add("3. Use");
-        options.add("4. Discard");
-        options.add("5. Exit");
+        this.options = Arrays.asList("0: Menu", "1: Equip", "2: Unequip", "3: Use", "4: Discard", "5: Exit");
     }
 
     public List<Item> getItems(){
@@ -52,7 +34,18 @@ public class Inventory {
     }
 
     public void addItem(Item item) {
-        items.add(item);
+        boolean found = false;
+        for (Item value : items) {
+            if (value.equals(item)) {
+                found = true;
+                value.incCount();
+            }
+        }
+
+        if(!found) {
+            items.add(item);
+            stats.add(items.size() + ": " + item.getName() + "(" + item.getValue() + ")");
+        }
     }
 
     public void removeItem(Item item) {
@@ -68,13 +61,23 @@ public class Inventory {
         return null;
     }
 
+    public Item getItem(int pos) {
+        return items.get(pos);
+    }
+
+    public int size() {
+        return this.items.size();
+    }
+
+    public boolean isEmpty() {
+        return this.items.isEmpty();
+    }
+
     public void showItem(String item_name) {
         for (Item item: items) {
             if (item.getName().equals(item_name)) {
                 System.out.println("Name: " + item.getName());
                 System.out.printf("Value: %d", item.getValue());
-                System.out.println();
-                System.out.printf("Price: %d", item.getPrice());
                 return;
             }
         }

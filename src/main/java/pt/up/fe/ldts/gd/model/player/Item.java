@@ -5,12 +5,14 @@ public abstract class Item {
     private String name;
     private int price;
     private int value;  // functional value of the item
-    boolean used = false;
+    protected boolean used = false;
+    private int count;
 
     public Item(String name, int value, int price) {
         this.name = name;
         this.value = value;
         this.price = price;
+        this.count = 0;
     }
 
     public String getName() {
@@ -40,6 +42,10 @@ public abstract class Item {
         Item i = (Item) obj;
 
         return name.equals(i.getName());
+    }
+
+    public void incCount() {
+        this.count += 1;
     }
 
     public abstract void setUsed();

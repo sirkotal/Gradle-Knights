@@ -36,13 +36,13 @@ public class ShopTest {
 
         Assertions.assertEquals(40, player.getGold());
         Assertions.assertEquals(1, player.getInventory().size());
-        Assertions.assertEquals(new CombatItem("item1", 10, 10), player.getInventory().get(0));
+        Assertions.assertEquals(new CombatItem("item1", 10, 10), player.getInventory().getItem(0));
 
         shop.buyItem(items.get(1));
 
         Assertions.assertEquals(2, player.getInventory().size());
-        Assertions.assertEquals(new CombatItem("item1", 10, 10), player.getInventory().get(0));
-        Assertions.assertEquals(new CombatItem("item2", 20, 20), player.getInventory().get(1));
+        Assertions.assertEquals(new CombatItem("item1", 10, 10), player.getInventory().getItem(0));
+        Assertions.assertEquals(new CombatItem("item2", 20, 20), player.getInventory().getItem(1));
         Assertions.assertEquals(20, player.getGold());
     }
 
@@ -56,14 +56,14 @@ public class ShopTest {
 
         Assertions.assertEquals(1, player.getInventory().size());
 
-        Assertions.assertEquals(new CombatItem("item1", 10, 10), player.getInventory().get(0));
+        Assertions.assertEquals(new CombatItem("item1", 10, 10), player.getInventory().getItem(0));
         Assertions.assertEquals(30, player.getGold());
 
         shop.buyItem(items.get(1));
 
         Assertions.assertEquals(1, player.getInventory().size());
 
-        Assertions.assertEquals(new CombatItem("item1", 10, 10), player.getInventory().get(0));
+        Assertions.assertEquals(new CombatItem("item1", 10, 10), player.getInventory().getItem(0));
         Assertions.assertEquals(30, player.getGold());
     }
 }

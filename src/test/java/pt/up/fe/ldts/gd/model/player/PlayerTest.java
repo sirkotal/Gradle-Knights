@@ -12,7 +12,7 @@ public class PlayerTest {
         PotionItem potion = new PotionItem("Tap Water", 100, 100000);
         p1.setGold(p1.getGold() + 10);
         Assertions.assertEquals(25, p1.getGold());
-        Assertions.assertEquals(100, p1.getHP());
+        Assertions.assertEquals(75, p1.getHP());
         p1.addItem(sword);
         p1.addItem(axe);
         p1.addItem(potion);
