@@ -3,9 +3,11 @@ package pt.up.fe.ldts.gd.model.player;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 public class PlayerTest {
     @Test
-    public void potionTest() {
+    public void potionTest() throws IOException {
         Player p1 = new Player("Saul");
         CombatItem sword = new CombatItem("Excalibur", 100, 5000);
         CombatItem axe = new CombatItem("Skullcracker", 80, 3500);
