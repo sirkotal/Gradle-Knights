@@ -18,13 +18,13 @@ public class WildViewer extends Viewer<Wild> {
 
             List<String> lines = getModel().getLines();
             for(int i = 0; i < lines.size(); i++) {
-                gui.drawText(lines.get(i), 30, 8+i);
+                gui.drawText(lines.get(i), 30, 8+i, "#FFFFFF");
             }
 
             List<String> options = getModel().getOptions();
             int opt_col = 47;
             for(String str: options) {
-                gui.drawText(str, opt_col, 35);
+                gui.drawText(str, opt_col, 35,"#FFFFFF");
                 opt_col += str.length() + 5;
             }
         } else {

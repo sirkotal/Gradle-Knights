@@ -13,17 +13,17 @@ public class ShopViewer extends Viewer<Shop> {
     @Override
     protected void drawElements(GUI gui) {
         gui.drawPlayerInfo(getModel().getPlayer().getHP(), getModel().getPlayer().getGold());
-        gui.drawText("Item(value/price)", 50,38);
+        gui.drawText("Item(value/price)", 50,38, "#FFFFFF");
 
         List<String> lines = getModel().getLines();
         for(int i = 0; i < lines.size(); i++) {
-            gui.drawText(lines.get(i), 30, 8+i);
+            gui.drawText(lines.get(i), 30, 8+i,"#FFFFFF");
         }
 
         List<String> options = getModel().getOptions();
         int opt_col = 25;
         for(String str: options) {
-            gui.drawText(str, opt_col, 35);
+            gui.drawText(str, opt_col, 35,"#FFFFFF");
             opt_col += str.length() + 5;
         }
     }
