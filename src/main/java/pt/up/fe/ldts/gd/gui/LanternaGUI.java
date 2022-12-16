@@ -128,7 +128,7 @@ public class LanternaGUI implements GUI{
         tg.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
 
         for(int i = 0; i < lines.size(); i++) {
-            drawText(lines.get(i), 35, (34-lines.size())+i);
+            drawText(lines.get(i), 35, (34-lines.size())+i, "#FFFFFF");
         }
     }
 

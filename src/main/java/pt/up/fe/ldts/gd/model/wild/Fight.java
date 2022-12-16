@@ -1,7 +1,6 @@
 package pt.up.fe.ldts.gd.model.wild;
 
 import pt.up.fe.ldts.gd.model.player.Player;
-import pt.up.fe.ldts.gd.model.wild.Enemy;
 
 import java.util.Arrays;
 import java.util.List;

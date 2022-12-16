@@ -24,7 +24,7 @@ public class LanternaGUITest {
 
     @Test
     public void drawTextTest() {
-        gui.drawText("Gus Fring", 1, 1);
+        gui.drawText("Gus Fring", 1, 1, "#FFFFFF");
 
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
         Mockito.verify(tg, Mockito.times(1)).putString(1, 1, "Gus Fring");

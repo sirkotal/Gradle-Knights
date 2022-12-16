@@ -15,7 +15,7 @@ public class FightViewer extends Viewer<Fight> {
         List<String> options = getModel().getOptions();
         int opt_col = 40;
         for(String str: options) {
-            gui.drawText(str, opt_col, 35);
+            gui.drawText(str, opt_col, 35, "#FFFFFF");
             opt_col += str.length() + 5;
         }
     }
