@@ -27,8 +27,8 @@ public class Town {
 
         this.options = Arrays.asList("1: Shop", "2: Wild", "0: Menu");
     }
-    public Town(Player player, Shop shop) throws IOException{
-        this.player = player;
+    public Town(Shop shop) throws IOException{
+        this.player = shop.getPlayer();
         this.player.setHP(75);
         this.shop = shop;
         this.lines = readAscii();

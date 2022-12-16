@@ -14,7 +14,6 @@ import pt.up.fe.ldts.gd.state.WildState;
 import java.io.IOException;
 
 public class TownController extends Controller<Town> {
-
     public TownController(Town town) {
         super(town);
     }
