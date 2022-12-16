@@ -9,11 +9,7 @@ public class AmuletItem extends Item {
     }
 
     public void changeStrategy(Shop shop) {
-        if (this.used)
+        if (isUsed())
             shop.setStrategy(new CheapStrategy());
-    }
-
-    public void setUsed() {
-        this.used = true;
     }
 }

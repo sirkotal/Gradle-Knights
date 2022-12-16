@@ -4,7 +4,6 @@ import pt.up.fe.ldts.gd.Game;
 import pt.up.fe.ldts.gd.controller.Controller;
 import pt.up.fe.ldts.gd.gui.GUI;
 import pt.up.fe.ldts.gd.model.menu.Menu;
-import pt.up.fe.ldts.gd.model.player.CombatItem;
 import pt.up.fe.ldts.gd.model.player.Inventory;
 import pt.up.fe.ldts.gd.model.player.Player;
 import pt.up.fe.ldts.gd.model.wild.Wild;
@@ -25,19 +24,19 @@ public class InventoryController extends Controller<Inventory> {
             game.setState(new MenuState(new Menu()));
         }
         if(action == GUI.ACTION.OPT1 && player.getInventory().size() >= 1) {
-            player.use(player.getInventory().getItems().get(0));
+            player.use(player.getInventory().getItem(0));
         }
         if(action == GUI.ACTION.OPT2 && player.getInventory().size() >= 2) {
-            player.use(player.getInventory().getItems().get(1));
+            player.use(player.getInventory().getItem(1));
         }
         if(action == GUI.ACTION.OPT3 && player.getInventory().size() >= 3) {
-            player.use(player.getInventory().getItems().get(2));
+            player.use(player.getInventory().getItem(2));
         }
         if(action == GUI.ACTION.OPT4 && player.getInventory().size() >= 4) {
-            player.use(player.getInventory().getItems().get(3));
+            player.use(player.getInventory().getItem(3));
         }
         if(action == GUI.ACTION.OPT5 && player.getInventory().size() >= 5) {
-            player.use(player.getInventory().getItems().get(4));
+            player.use(player.getInventory().getItem(4));
         }
         if(action == GUI.ACTION.OPT9) {
             game.setState(new WildState(new Wild(getModel().getPlayer())));

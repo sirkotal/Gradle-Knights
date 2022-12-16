@@ -10,7 +10,7 @@ public class CombatItemTest {
         Assertions.assertEquals("Excalibur", sword.getName());
         Assertions.assertEquals(5000, sword.getPrice());
         Assertions.assertEquals(100, sword.getValue());
-        sword.setUsed();
+        sword.setUsed(true);
         Assertions.assertTrue(sword.isEquipped());
     }
 }

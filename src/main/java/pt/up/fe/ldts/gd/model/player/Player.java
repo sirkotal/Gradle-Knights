@@ -62,19 +62,26 @@ public class Player {
     }
 
     public void use(Item item) {
-        if (item.type == 0) {
+        if (item instanceof PotionItem) {
             setHP(hp + item.getValue());
             inventory.removeItem(item);
         }
 
-        if (item.type == 1) {
+        if (item instanceof CombatItem) {
+            if(item.isUsed()) {
+                item.setUsed(false);
+                setDamage(damage - item.getValue());
+                return;
+            }
+
             for (Item cItem: inventory.getItems()) {
-                if (cItem.used == true && cItem.type == 1) {
-                    cItem.used = false;
+                if (cItem.isUsed() && cItem instanceof CombatItem) {
+                    cItem.setUsed(false);
+                    setDamage(damage - item.getValue());
                 }
             }
-            setDamage(item.getValue());
-            item.setUsed();
+            setDamage(item.getValue() + damage);
+            item.setUsed(true);
         }
     }
 }

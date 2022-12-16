@@ -44,7 +44,7 @@ public class Inventory {
         for (Item value : items) {
             if (value.equals(item)) {
                 found = true;
-                value.incCount();
+                value.setCount(item.getCount() + 1);
             }
         }
 
@@ -55,7 +55,21 @@ public class Inventory {
     }
 
     public void removeItem(Item item) {
+
+        for(Item i: items) {
+            if(i.equals(item) && i.getCount() != 1) {
+                i.setCount(i.getCount() - 1);
+                return;
+            }
+        }
+
         items.remove(item);
+        options = new ArrayList<>();
+        for(int i = 0; i < items.size(); i++) {
+            options.add(i + ": " + items.get(i).getName() + "(" + items.get(i).getValue() + ")");
+        }
+        options.add("9: Exit");
+        options.add("0: Menu");
     }
 
     public Item getItem(String name) {

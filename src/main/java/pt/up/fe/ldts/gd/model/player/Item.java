@@ -5,16 +5,14 @@ public abstract class Item {
     private String name;
     private int price;
     private int value;  // functional value of the item
-    protected boolean used = false;
+    private boolean used = false;
     private int count;
-
-    protected int type; // 0 for potions, 1 for combat
 
     public Item(String name, int value, int price) {
         this.name = name;
         this.value = value;
         this.price = price;
-        this.count = 0;
+        this.count = 1;
     }
 
     public String getName() {
@@ -46,10 +44,19 @@ public abstract class Item {
         return name.equals(i.getName());
     }
 
-    public void incCount() {
-        this.count += 1;
+    public int getCount() {
+        return count;
     }
 
-    public abstract void setUsed();
-    
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public boolean isUsed() {
+        return used;
+    }
+
+    public void setUsed(boolean used) {
+        this.used = used;
+    }
 }
