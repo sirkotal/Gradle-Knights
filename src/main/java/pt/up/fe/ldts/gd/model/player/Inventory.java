@@ -45,43 +45,26 @@ public class Inventory {
             if(items.get(i).equals(item)) {
                 found = true;
                 items.get(i).setCount(item.getCount() + 1);
-                options.remove(i);
-                options.add(i, items.size() + ": " + item.getName() + "(" + item.getValue() + "/" + item.getCount() + ")");
             }
         }
 
-        if(!found) {
+        if(!found)
             items.add(item);
-            options.add(options.size() - 2, items.size() + ": " + item.getName() + "(" + item.getValue() + "/" + item.getCount() + ")");
-        }
+
+        refreshOptions();
     }
 
     public void removeItem(Item item) {
         for (int i = 0; i < items.size(); i++) {
             if(items.get(i).equals(item) && items.get(i).getCount() != 1) {
                 items.get(i).setCount(item.getCount() - 1);
-                options.remove(i);
-                options.add(i, items.size() + ": " + item.getName() + "(" + item.getValue() + "/" + item.getCount() + ")");
+                refreshOptions();
                 return;
             }
         }
 
         items.remove(item);
-        options = new ArrayList<>();
-        for(int i = 0; i < items.size(); i++) {
-            options.add(i + ": " + items.get(i).getName() + "(" + items.get(i).getValue() + "/" + item.getCount() + ")");
-        }
-        options.add("9: Exit");
-        options.add("0: Menu");
-    }
-
-    public Item getItem(String name) {
-        for (Item item: items) {
-            if (item.getName().equals(name)) {
-                return item;
-            }
-        }
-        return null;
+        refreshOptions();
     }
 
     public Item getItem(int pos) {
@@ -94,6 +77,18 @@ public class Inventory {
 
     public boolean isEmpty() {
         return this.items.isEmpty();
+    }
+
+    public void refreshOptions() {
+        this.options = new ArrayList<>();
+        for(int i = 0; i < items.size(); i++) {
+            if(items.get(i).isUsed())
+                this.options.add((i+1) + ": " + items.get(i).getNameEquiped() + " (" + items.get(i).getValue() + "/" + items.get(i).getCount() + ")");
+            else
+                this.options.add((i+1) + ": " + items.get(i).getName() + " (" + items.get(i).getValue() + "/" + items.get(i).getCount() + ")");
+        }
+        this.options.add("9: Exit");
+        this.options.add("0: Menu");
     }
 
     private List<String> readAscii() throws IOException {

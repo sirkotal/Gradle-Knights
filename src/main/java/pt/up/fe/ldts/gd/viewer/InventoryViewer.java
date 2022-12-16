@@ -19,7 +19,7 @@ public class InventoryViewer extends Viewer<Inventory> {
         }
 
         List<String> options = getModel().getOptions();
-        int opt_col = 27;
+        int opt_col = 10;
         for(String str: options) {
             gui.drawText(str, opt_col, 37);
             opt_col += str.length() + 5;
