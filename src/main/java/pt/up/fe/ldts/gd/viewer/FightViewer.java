@@ -1,7 +1,7 @@
 package pt.up.fe.ldts.gd.viewer;
 
 import pt.up.fe.ldts.gd.gui.GUI;
-import pt.up.fe.ldts.gd.model.player.Fight;
+import pt.up.fe.ldts.gd.model.wild.Fight;
 
 import java.io.IOException;
 import java.util.List;
@@ -18,6 +18,5 @@ public class FightViewer extends Viewer<Fight> {
             gui.drawText(str, opt_col, 35);
             opt_col += str.length() + 5;
         }
-
     }
 }

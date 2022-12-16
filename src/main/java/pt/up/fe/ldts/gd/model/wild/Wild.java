@@ -25,12 +25,12 @@ public class Wild {
         this.options = Arrays.asList("1: Continue", "2: Inventory", "0: Menu");
         this.message=("Be careful! There are monsters in here!");
     }
-    public Wild(Player player, List<Enemy> enemies) throws IOException {
+    public Wild(Player player, List<Enemy> enemies, String message) throws IOException {
         this.player = player;
         this.enemies = enemies;
         this.lines = readAscii();
         this.options = Arrays.asList("1: Continue", "2: Inventory", "0: Menu");
-        this.message=("Be careful! There are monsters in here!");
+        this.message = message;
     }
 
     public Player getPlayer() {

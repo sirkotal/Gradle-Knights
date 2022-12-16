@@ -1,5 +1,6 @@
-package pt.up.fe.ldts.gd.model.player;
+package pt.up.fe.ldts.gd.model.wild;
 
+import pt.up.fe.ldts.gd.model.player.Player;
 import pt.up.fe.ldts.gd.model.wild.Enemy;
 
 import java.util.Arrays;
@@ -15,7 +16,7 @@ public class Fight {
         this.enemies=enemies;
         options= Arrays.asList("1: Run Away", "2: Fight", "0: Menu");
     }
-    public void resultFight() {
+    public int resultFight() {
         Random rand = new Random();
         int num_enemy;
 
@@ -30,11 +31,14 @@ public class Fight {
             enemies.get(num_enemy).setHP(enemies.get(num_enemy).getHP() - player.getDamage());
         }
 
+        int loot = 0;
         if (player.isAlive()) {
-            //message = ("You fought an enemy and you won! You won " + enemies.get(num_enemy).getGold() + " gold!");
+            loot = enemies.get(num_enemy).getGold();
             enemies.get(num_enemy).loot(player);
             enemies.remove(num_enemy);
         }
+
+        return loot;
     }
 
     public Player getPlayer() {

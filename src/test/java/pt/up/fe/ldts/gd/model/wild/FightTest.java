@@ -6,12 +6,12 @@ import pt.up.fe.ldts.gd.model.player.Player;
 
 import java.io.IOException;
 
-/*public class WildTest {
-
+public class FightTest {
     @Test
     public void fightTest() throws IOException {
         Player player = new Player("Saul");
         Wild wild = new Wild(player);
+        Fight fight = new Fight(wild.getPlayer(), wild.getEnemies());
 
         int initial_gold = wild.getPlayer().getGold();
 
@@ -21,9 +21,9 @@ import java.io.IOException;
         }
 
         while(!wild.getEnemies().isEmpty() && wild.getPlayer().isAlive()) {
-            wild.fight();
+            fight.resultFight();
         }
 
         Assertions.assertTrue(wild.getPlayer().getGold() <= initial_gold + gold_loot);
     }
-}*/
+}
