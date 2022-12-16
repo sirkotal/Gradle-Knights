@@ -15,6 +15,7 @@ public class WildViewer extends Viewer<Wild> {
     protected void drawElements(GUI gui) throws IOException {
         if(getModel().getPlayer().isAlive()) {
             gui.drawPlayerInfo(getModel().getPlayer().getHP(), getModel().getPlayer().getGold());
+            gui.drawText(getModel().getMessage(), 125/2 - getModel().getMessage().length()/2, 46);
 
             List<String> lines = getModel().getLines();
             for(int i = 0; i < lines.size(); i++) {
