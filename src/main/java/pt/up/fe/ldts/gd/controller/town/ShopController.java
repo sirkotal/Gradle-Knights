@@ -23,6 +23,7 @@ public class ShopController extends Controller<Shop> {
         super(shop);
         this.player = getModel().getPlayer();
         this.items = getModel().getItems();
+        this.strategy = getModel().getStrategy();
     }
 
     @Override
