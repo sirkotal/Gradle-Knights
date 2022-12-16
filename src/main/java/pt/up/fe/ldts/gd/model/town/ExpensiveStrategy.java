@@ -12,6 +12,7 @@ public class ExpensiveStrategy implements ShopStrategy {
             player.addItem(item);
             int spent = item.getPrice() * 2;
             player.setGold(player.getGold() - spent);
+
             return true;
         }
         return false;
