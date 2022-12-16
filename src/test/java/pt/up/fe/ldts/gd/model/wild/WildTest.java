@@ -6,7 +6,7 @@ import pt.up.fe.ldts.gd.model.player.Player;
 
 import java.io.IOException;
 
-public class WildTest {
+/*public class WildTest {
 
     @Test
     public void fightTest() throws IOException {
@@ -26,4 +26,4 @@ public class WildTest {
 
         Assertions.assertTrue(wild.getPlayer().getGold() <= initial_gold + gold_loot);
     }
-}
+}*/
