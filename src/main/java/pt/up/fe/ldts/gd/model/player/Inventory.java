@@ -41,24 +41,27 @@ public class Inventory {
 
     public void addItem(Item item) {
         boolean found = false;
-        for (Item value : items) {
-            if (value.equals(item)) {
+        for (int i = 0; i < items.size(); i++) {
+            if(items.get(i).equals(item)) {
                 found = true;
-                value.setCount(item.getCount() + 1);
+                items.get(i).setCount(item.getCount() + 1);
+                options.remove(i);
+                options.add(i, items.size() + ": " + item.getName() + "(" + item.getValue() + "/" + item.getCount() + ")");
             }
         }
 
         if(!found) {
             items.add(item);
-            options.add(options.size() - 2, items.size() + ": " + item.getName() + "(" + item.getValue() + ")");
+            options.add(options.size() - 2, items.size() + ": " + item.getName() + "(" + item.getValue() + "/" + item.getCount() + ")");
         }
     }
 
     public void removeItem(Item item) {
-
-        for(Item i: items) {
-            if(i.equals(item) && i.getCount() != 1) {
-                i.setCount(i.getCount() - 1);
+        for (int i = 0; i < items.size(); i++) {
+            if(items.get(i).equals(item) && items.get(i).getCount() != 1) {
+                items.get(i).setCount(item.getCount() - 1);
+                options.remove(i);
+                options.add(i, items.size() + ": " + item.getName() + "(" + item.getValue() + "/" + item.getCount() + ")");
                 return;
             }
         }
@@ -66,7 +69,7 @@ public class Inventory {
         items.remove(item);
         options = new ArrayList<>();
         for(int i = 0; i < items.size(); i++) {
-            options.add(i + ": " + items.get(i).getName() + "(" + items.get(i).getValue() + ")");
+            options.add(i + ": " + items.get(i).getName() + "(" + items.get(i).getValue() + "/" + item.getCount() + ")");
         }
         options.add("9: Exit");
         options.add("0: Menu");
@@ -91,17 +94,6 @@ public class Inventory {
 
     public boolean isEmpty() {
         return this.items.isEmpty();
-    }
-
-    public void showItem(String item_name) {
-        for (Item item: items) {
-            if (item.getName().equals(item_name)) {
-                System.out.println("Name: " + item.getName());
-                System.out.printf("Value: %d", item.getValue());
-                return;
-            }
-        }
-        System.out.println("No such item was found on your inventory!");
     }
 
     private List<String> readAscii() throws IOException {
