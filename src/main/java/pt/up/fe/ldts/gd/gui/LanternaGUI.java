@@ -116,7 +116,7 @@ public class LanternaGUI implements GUI{
     public void drawEnemy() throws IOException {
         List<String> lines = new ArrayList<>();
         Random rand = new Random();
-        int randomnum = rand.nextInt(3)+1;
+        int randomnum = rand.nextInt(4)+1;
         URL resource = LanternaGUI.class.getResource("/ascii/wild/fight/enemy"+randomnum+".txt");
         assert resource != null;
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
@@ -128,7 +128,7 @@ public class LanternaGUI implements GUI{
         tg.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
 
         for(int i = 0; i < lines.size(); i++) {
-            drawText(lines.get(i), 35, 0+i);
+            drawText(lines.get(i), 35, (34-lines.size())+i);
         }
     }
 
