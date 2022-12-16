@@ -22,10 +22,8 @@ public class FightController extends Controller<Fight> {
         }
         if(action == GUI.ACTION.OPT2) {
             getModel().resultFight();
-            if (getModel().getPlayer().isAlive())
-                game.setState(new WildState(new Wild(getModel().getPlayer())));
-            else
-                game.setState();
+            game.setState(new WildState(new Wild(getModel().getPlayer())));
+
         }
     }
 

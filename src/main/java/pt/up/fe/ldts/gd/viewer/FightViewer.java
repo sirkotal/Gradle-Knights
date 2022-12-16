@@ -9,6 +9,7 @@ public class FightViewer extends Viewer<Fight> {
     public FightViewer(Fight fight){super(fight);}
 
     protected void drawElements(GUI gui) throws IOException{
+        gui.drawText("Working", 20,20);
 
     }
 }
