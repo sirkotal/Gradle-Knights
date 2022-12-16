@@ -3,22 +3,31 @@ package pt.up.fe.ldts.gd.model.player;
 
 public abstract class Item {
     private String name;
+    private String nameEquiped;
     private int price;
     private int value;  // functional value of the item
-    boolean used = false;
+    private boolean used = false;
+    private int count;
 
     public Item(String name, int value, int price) {
         this.name = name;
+        this.nameEquiped = name + " [Equipped]";
         this.value = value;
         this.price = price;
+        this.count = 1;
     }
 
     public String getName() {
         return this.name;
     }
 
+    public String getNameEquiped() {
+        return nameEquiped;
+    }
+
     public void setName(String name) {
         this.name = name;
+        this.nameEquiped = name + " [Equipped]";
     }
 
     public int getPrice() {
@@ -27,6 +36,23 @@ public abstract class Item {
 
     public int getValue() {
         return this.value;
+    }
+
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public boolean isUsed() {
+        return used;
+    }
+
+    public void setUsed(boolean used) {
+        this.used = used;
     }
 
     @Override
@@ -41,6 +67,4 @@ public abstract class Item {
 
         return name.equals(i.getName());
     }
-
-    public abstract void setUsed();
 }

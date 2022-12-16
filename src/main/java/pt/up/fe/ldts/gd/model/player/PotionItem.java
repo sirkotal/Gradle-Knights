@@ -5,13 +5,9 @@ public class PotionItem extends Item {
         super(name, value, price);
     }
 
-    public void setUsed() {
-        this.used = true;
-    }
-
     public void refill() {
-        if (this.used == true) {
-            this.used = false;
+        if (isUsed()) {
+            setUsed(false);
         }
     }
 }

@@ -5,15 +5,7 @@ public class CombatItem extends Item {
         super(name, value, price);
     }
 
-    public void setUsed() {
-        this.used = true;
-    }
-
-    public void setUnused() {
-        this.used = false;
-    }
-
     public boolean isEquipped() {
-        return this.used;
+        return isUsed();
     }
 }

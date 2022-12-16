@@ -4,10 +4,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pt.up.fe.ldts.gd.model.player.Player;
 
+import java.io.IOException;
+
 public class EnemyTest {
 
     @Test
-    public void lootTest() {
+    public void lootTest() throws IOException {
         Enemy enemy = new Enemy(10, 10, 10, 10);
         Player player = new Player("Saul");
 

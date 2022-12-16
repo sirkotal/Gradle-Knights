@@ -36,19 +36,34 @@ public class ShopController extends Controller<Shop> {
             game.setState(new TownState(new Town(getModel())));
         }
         if(action == GUI.ACTION.OPT1 && items.size() >= 1) {
-            strategy.buyItem(items.get(0), player);
+            if(strategy.buyItem(items.get(0), player))
+                getModel().setMessage("You bought " + items.get(0).getName() + " successfully!");
+            else
+                getModel().setMessage("You don't have enough gold!");
         }
         if(action == GUI.ACTION.OPT2 && items.size() >= 2) {
-            strategy.buyItem(items.get(1), player);
+            if(strategy.buyItem(items.get(1), player))
+                getModel().setMessage("You bought " + items.get(1).getName() + " successfully!");
+            else
+                getModel().setMessage("You don't have enough gold!");
         }
         if(action == GUI.ACTION.OPT3 && items.size() >= 3) {
-            strategy.buyItem(items.get(2), player);
+            if(strategy.buyItem(items.get(2), player))
+                getModel().setMessage("You bought " + items.get(2).getName() + " successfully!");
+            else
+                getModel().setMessage("You don't have enough gold!");
         }
         if(action == GUI.ACTION.OPT4 && items.size() >= 4) {
-            strategy.buyItem(items.get(3), player);
+            if(strategy.buyItem(items.get(3), player))
+                getModel().setMessage("You bought " + items.get(3).getName() + " successfully!");
+            else
+                getModel().setMessage("You don't have enough gold!");
         }
         if(action == GUI.ACTION.OPT5 && items.size() >= 5) {
-            strategy.buyItem(items.get(4), player);
+            if(strategy.buyItem(items.get(4), player))
+                getModel().setMessage("You bought " + items.get(4).getName() + " successfully!");
+            else
+                getModel().setMessage("You don't have enough gold!");
         }
     }
 }

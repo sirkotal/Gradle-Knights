@@ -17,14 +17,15 @@ public class Shop {
     private List<String> lines;
     private Player player;
     private List<String> options;
-    private ShopStrategy strategy; // we can have an item to change from expensive to cheap
-
+    private ShopStrategy strategy;// we can have an item to change from expensive to cheap
+    private String message;
     public Shop(Shop shop) throws IOException {
         this.items = shop.getItems();
         this.lines = readAscii();
         this.player = shop.getPlayer();
         this.strategy = shop.getStrategy();
         this.options = shop.getOptions();
+        this.message = "Welcome to the Shop!";
     }
 
     public Shop(List<Item> items, Player player) throws IOException {
@@ -100,5 +101,11 @@ public class Shop {
             lines.add(line);
 
         return lines;
+    }
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    public String getMessage(){
+        return message;
     }
 }

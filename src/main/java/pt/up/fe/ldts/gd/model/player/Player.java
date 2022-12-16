@@ -1,22 +1,20 @@
 package pt.up.fe.ldts.gd.model.player;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 
 public class Player {
     private int gold;
     private String name;
     private int hp;
     private int damage;
+    private Inventory inventory;
 
-    private final List<Item> inventory;
-
-    public Player(String name) {
+    public Player(String name) throws IOException {
         this.name = name;
         this.hp = 75;
         this.damage = 15;
         this.gold = 15;
-        this.inventory = new ArrayList<>();
+        this.inventory = new Inventory(this);
     }
 
     public int getGold() {
@@ -28,39 +26,16 @@ public class Player {
     }
 
     public void addItem(Item item) {
-        inventory.add(item);
+        inventory.addItem(item);
     }
 
     public void removeItem(Item item) {
-        inventory.remove(item);
+        inventory.removeItem(item);
     }
 
-    public List<Item> getInventory() {
+    public Inventory getInventory() {
         return inventory;
     }
-
-    public Item getItem(String name) {
-        for (Item item: inventory) {
-            if (item.getName().equals(name)) {
-                return item;
-            }
-        }
-        return null;
-    }
-
-    public void showItem(String item_name) {
-        for (Item item: inventory) {
-            if (item.getName().equals(item_name)) {
-                System.out.println("Name: " + item.getName());
-                System.out.printf("Value: %d", item.getValue());
-                System.out.println();
-                System.out.printf("Price: %d", item.getPrice());
-                return;
-            }
-        }
-        System.out.println("No such item was found on your inventory!");
-    }
-
 
     public int getHP() {
         return hp;
@@ -84,5 +59,43 @@ public class Player {
 
     public boolean isAlive() {
         return this.hp > 0;
+    }
+
+    public void use(Item item) {
+        if(!inventory.getItems().contains(item)) {
+            System.out.println("not found");
+            return;
+        }
+
+        if (item instanceof PotionItem) {
+            setHP(hp + item.getValue());
+            inventory.removeItem(item);
+        }
+
+        if (item instanceof CombatItem) {
+            int i;
+            for(i = 0; i < inventory.size(); i++) {
+                if(inventory.getItem(i).equals(item)) {
+                    break;
+                }
+            }
+
+            if(inventory.getItem(i).isUsed()) {
+                inventory.getItem(i).setUsed(false);
+                setDamage(damage - item.getValue());
+                inventory.refreshOptions();
+                return;
+            }
+
+            for(int j = 0; j < inventory.size(); j++) {
+                if (inventory.getItem(j).isUsed() && inventory.getItem(j) instanceof CombatItem) {
+                    inventory.getItem(j).setUsed(false);
+                    setDamage(damage - item.getValue());
+                }
+            }
+            setDamage(item.getValue() + damage);
+            inventory.getItem(i).setUsed(true);
+            inventory.refreshOptions();
+        }
     }
 }
