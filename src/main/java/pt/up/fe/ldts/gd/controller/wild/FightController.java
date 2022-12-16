@@ -22,7 +22,7 @@ public class FightController extends Controller<Fight> {
         }
         if(action == GUI.ACTION.OPT2) {
             int loot = getModel().resultFight();
-            game.setState(new WildState(new Wild(getModel().getPlayer(), getModel().getEnemies(), "You fought an enemy and you won! You got " + loot + " gold!")));
+            game.setState(new WildState(new Wild(getModel().getPlayer(), getModel().getEnemies(), "You fought an enemy and you won! You earned " + loot + " gold!")));
         }
     }
 }
