@@ -10,8 +10,8 @@ public class FightViewer extends Viewer<Fight> {
     public FightViewer(Fight fight){super(fight);}
 
     protected void drawElements(GUI gui) throws IOException{
-        gui.drawText("Working", 20,20);
-        //gui.drawEnemy();
+        //gui.drawText("Working", 20,20);
+        gui.drawEnemy();
         List<String> options = getModel().getOptions();
         int opt_col = 40;
         for(String str: options) {

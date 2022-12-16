@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class LanternaGUI implements GUI{
     private final Screen screen;
@@ -114,9 +115,9 @@ public class LanternaGUI implements GUI{
     @Override
     public void drawEnemy() throws IOException {
         List<String> lines = new ArrayList<>();
-        /*Random rand = new Random();
-        int randomnum = rand.nextInt(4);*/
-        URL resource = LanternaGUI.class.getResource("ascii/wild/fight/enemy3.txt");
+        Random rand = new Random();
+        int randomnum = rand.nextInt(3)+1;
+        URL resource = LanternaGUI.class.getResource("/ascii/wild/fight/enemy"+randomnum+".txt");
         assert resource != null;
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
@@ -127,7 +128,7 @@ public class LanternaGUI implements GUI{
         tg.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
 
         for(int i = 0; i < lines.size(); i++) {
-            drawText(lines.get(i), 35, 15+i);
+            drawText(lines.get(i), 35, 0+i);
         }
     }
 
