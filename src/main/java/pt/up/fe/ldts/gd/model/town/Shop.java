@@ -18,13 +18,14 @@ public class Shop {
     private Player player;
     private List<String> options;
     private ShopStrategy strategy;// we can have an item to change from expensive to cheap
-    private String message = "";
+    private String message;
     public Shop(Shop shop) throws IOException {
         this.items = shop.getItems();
         this.lines = readAscii();
         this.player = shop.getPlayer();
         this.strategy = shop.getStrategy();
         this.options = shop.getOptions();
+        this.message = "Welcome to the Shop!";
     }
 
     public Shop(List<Item> items, Player player) throws IOException {
