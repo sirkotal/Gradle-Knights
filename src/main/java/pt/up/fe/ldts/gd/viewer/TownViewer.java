@@ -4,6 +4,7 @@ import pt.up.fe.ldts.gd.gui.GUI;
 import pt.up.fe.ldts.gd.model.town.Town;
 
 import java.util.List;
+import java.util.UUID;
 
 public class TownViewer extends Viewer<Town> {
     public TownViewer(Town town) {
@@ -13,6 +14,7 @@ public class TownViewer extends Viewer<Town> {
     @Override
     protected void drawElements(GUI gui) {
         gui.drawPlayerInfo(getModel().getPlayer().getHP(), getModel().getPlayer().getGold());
+        String random = UUID.randomUUID().toString();
 
         List<String> lines = getModel().getLines();
         for(int i = 0; i < lines.size(); i++) {

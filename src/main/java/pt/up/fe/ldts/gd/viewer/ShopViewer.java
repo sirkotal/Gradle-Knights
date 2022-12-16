@@ -15,6 +15,8 @@ public class ShopViewer extends Viewer<Shop> {
         gui.drawPlayerInfo(getModel().getPlayer().getHP(), getModel().getPlayer().getGold());
         gui.drawText("Item(value/price)", 50,38, "#FFFFFF");
 
+        gui.drawText(getModel().getMessage(), 125/2 - getModel().getMessage().length()/2, 46, "#FFFFFF");
+
         List<String> lines = getModel().getLines();
         for(int i = 0; i < lines.size(); i++) {
             gui.drawText(lines.get(i), 30, 8+i,"#FFFFFF");
@@ -26,5 +28,6 @@ public class ShopViewer extends Viewer<Shop> {
             gui.drawText(str, opt_col, 35,"#FFFFFF");
             opt_col += str.length() + 5;
         }
+
     }
 }

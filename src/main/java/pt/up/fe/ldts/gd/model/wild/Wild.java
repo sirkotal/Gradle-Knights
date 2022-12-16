@@ -16,12 +16,14 @@ public class Wild {
     private List<Enemy> enemies;
     private List<String> lines;
     private List<String> options;
+    private String message;
 
     public Wild(Player player) throws IOException {
         this.player = player;
         this.enemies = createEnemies();
         this.lines = readAscii();
         this.options = Arrays.asList("1: Continue", "2: Inventory", "0: Menu");
+        this.message=("Be careful! There are monsters in here!");
     }
 
     public Player getPlayer() {
@@ -49,6 +51,7 @@ public class Wild {
         }
 
         if (player.isAlive()) {
+            message=("You fought an enemy and you won! You won "+enemies.get(num_enemy).getGold()+" gold!");
             enemies.get(num_enemy).loot(player);
             enemies.remove(num_enemy);
         }
@@ -82,5 +85,13 @@ public class Wild {
             lines.add(line);
 
         return lines;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

@@ -34,6 +34,7 @@ public class WildController extends Controller<Wild> {
             if(getModel().getPlayer().isAlive()) {
                 game.setState(new InventoryState(getModel().getPlayer().getInventory()));
             }
+
         }
     }
 }

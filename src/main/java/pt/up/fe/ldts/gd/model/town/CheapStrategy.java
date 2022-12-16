@@ -12,8 +12,10 @@ public class CheapStrategy implements ShopStrategy {
             player.addItem(item);
             int spent = item.getPrice();
             player.setGold(player.getGold() - spent);
+
             return true;
         }
+
         return false;
     }
 }
