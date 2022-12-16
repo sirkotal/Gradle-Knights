@@ -11,7 +11,7 @@ public class FightViewer extends Viewer<Fight> {
 
     protected void drawElements(GUI gui) throws IOException{
         gui.drawText("Working", 20,20);
-        gui.drawEnemy();
+        //gui.drawEnemy();
         List<String> options = getModel().getOptions();
         int opt_col = 40;
         for(String str: options) {

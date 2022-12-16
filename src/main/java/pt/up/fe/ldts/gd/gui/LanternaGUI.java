@@ -11,13 +11,11 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class LanternaGUI implements GUI{
     private final Screen screen;
@@ -113,22 +111,16 @@ public class LanternaGUI implements GUI{
         drawText("PRESS 0 TO EXIT TO MENU", 50, 35);
     }
 
+    @Override
     public void drawEnemy() throws IOException {
         List<String> lines = new ArrayList<>();
-        Random rand = new Random();
-        int randomnum = rand.nextInt(4);
-        List<String> resources = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            String path = "ascii/wild/fight/enemy" + Integer.toString(i) + ".txt";
-            resources.add(path);
-        }
-        String name = resources.get(randomnum);
-        System.out.println(resources.size());
-        URL resource = LanternaGUI.class.getResource(name);
+        /*Random rand = new Random();
+        int randomnum = rand.nextInt(4);*/
+        URL resource = LanternaGUI.class.getResource("ascii/wild/fight/enemy3.txt");
         assert resource != null;
-        BufferedReader buffread = new BufferedReader(new FileReader(resource.getFile()));
+        BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
-        for(String line; (line = buffread.readLine()) != null;)
+        for(String line; (line = br.readLine()) != null;)
             lines.add(line);
 
         TextGraphics tg = screen.newTextGraphics();
