@@ -2,15 +2,18 @@ package pt.up.fe.ldts.gd.model.player;
 
 import pt.up.fe.ldts.gd.model.wild.Enemy;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 public class Fight {
     private final Player player;
     private List<Enemy> enemies;
+    private List<String> options;
     public Fight(Player player,List<Enemy> enemies){
         this.player=player;
         this.enemies=enemies;
+        options= Arrays.asList("1: Run Away", "2: Fight", "0: Menu");
     }
     public void resultFight() {
         Random rand = new Random();
@@ -36,5 +39,12 @@ public class Fight {
 
     public Player getPlayer() {
         return player;
+    }
+
+    public List<String> getOptions() {
+        return options;
+    }
+    public List<Enemy> getEnemies(){
+        return enemies;
     }
 }

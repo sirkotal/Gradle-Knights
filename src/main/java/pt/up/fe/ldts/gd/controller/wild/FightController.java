@@ -18,11 +18,11 @@ public class FightController extends Controller<Fight> {
             game.setState(new MenuState(new Menu()));
         }
         if(action == GUI.ACTION.OPT1) {
-            game.setState(new WildState(new Wild(getModel().getPlayer())));
+            game.setState(new WildState(new Wild(getModel().getPlayer(),getModel().getEnemies())));
         }
         if(action == GUI.ACTION.OPT2) {
             getModel().resultFight();
-            game.setState(new WildState(new Wild(getModel().getPlayer())));
+            game.setState(new WildState(new Wild(getModel().getPlayer(),getModel().getEnemies())));
 
         }
     }
