@@ -10,7 +10,6 @@ public class TownState extends State<Town> {
     public TownState(Town town) {
         super(town);
     }
-
     protected Controller<Town> getController() {
         return new TownController(getModel());
     }

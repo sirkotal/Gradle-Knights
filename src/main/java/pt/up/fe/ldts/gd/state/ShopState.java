@@ -7,6 +7,7 @@ import pt.up.fe.ldts.gd.viewer.ShopViewer;
 import pt.up.fe.ldts.gd.viewer.Viewer;
 
 public class ShopState extends State<Shop> {
+
     public ShopState(Shop shop) {
         super(shop);
     }

@@ -6,7 +6,7 @@ public interface GUI {
 
     ACTION getNextAction() throws IOException;
 
-    void drawText(String str, int col, int row);
+    void drawText(String str, int col, int row, String color);
     void drawPlayerInfo(int hp, int gold);
     void drawDeathScreen() throws IOException;
 

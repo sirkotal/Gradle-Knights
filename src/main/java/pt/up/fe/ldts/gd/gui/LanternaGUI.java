@@ -74,9 +74,9 @@ public class LanternaGUI implements GUI{
     }
 
     @Override
-    public void drawText(String str, int col, int row) {
+    public void drawText(String str, int col, int row, String color) {
         TextGraphics tg = screen.newTextGraphics();
-        tg.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
+        tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(col, row, str);
     }
 
@@ -106,10 +106,10 @@ public class LanternaGUI implements GUI{
         tg.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
 
         for(int i = 0; i < lines.size(); i++) {
-            drawText(lines.get(i), 35, 15+i);
+            drawText(lines.get(i), 35, 15+i, "#FFFFFF");
         }
 
-        drawText("PRESS 0 TO EXIT TO MENU", 50, 35);
+        drawText("PRESS 0 TO EXIT TO MENU", 50, 35, "#FFFFFF");
     }
 
     @Override

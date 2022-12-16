@@ -62,26 +62,40 @@ public class Player {
     }
 
     public void use(Item item) {
+        if(!inventory.getItems().contains(item)) {
+            System.out.println("not found");
+            return;
+        }
+
         if (item instanceof PotionItem) {
             setHP(hp + item.getValue());
             inventory.removeItem(item);
         }
 
         if (item instanceof CombatItem) {
-            if(item.isUsed()) {
-                item.setUsed(false);
+            int i;
+            for(i = 0; i < inventory.size(); i++) {
+                if(inventory.getItem(i).equals(item)) {
+                    break;
+                }
+            }
+
+            if(inventory.getItem(i).isUsed()) {
+                inventory.getItem(i).setUsed(false);
                 setDamage(damage - item.getValue());
+                inventory.refreshOptions();
                 return;
             }
 
-            for (Item cItem: inventory.getItems()) {
-                if (cItem.isUsed() && cItem instanceof CombatItem) {
-                    cItem.setUsed(false);
+            for(int j = 0; j < inventory.size(); j++) {
+                if (inventory.getItem(j).isUsed() && inventory.getItem(j) instanceof CombatItem) {
+                    inventory.getItem(j).setUsed(false);
                     setDamage(damage - item.getValue());
                 }
             }
             setDamage(item.getValue() + damage);
-            item.setUsed(true);
+            inventory.getItem(i).setUsed(true);
+            inventory.refreshOptions();
         }
     }
 }
