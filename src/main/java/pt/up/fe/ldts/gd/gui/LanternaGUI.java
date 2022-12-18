@@ -53,7 +53,7 @@ public class LanternaGUI implements GUI{
         KeyStroke keyStroke = screen.readInput();
         if(keyStroke == null) return ACTION.NONE;
 
-        if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
+        if(keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
 
         if(keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;
         if(keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
@@ -102,9 +102,6 @@ public class LanternaGUI implements GUI{
         for(String line; (line = br.readLine()) != null;)
             lines.add(line);
 
-        TextGraphics tg = screen.newTextGraphics();
-        tg.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
-
         for(int i = 0; i < lines.size(); i++) {
             drawText(lines.get(i), 35, 15+i, "#FFFFFF");
         }
@@ -116,16 +113,13 @@ public class LanternaGUI implements GUI{
     public void drawEnemy() throws IOException {
         List<String> lines = new ArrayList<>();
         Random rand = new Random();
-        int randomnum = rand.nextInt(4)+1;
-        URL resource = LanternaGUI.class.getResource("/ascii/wild/fight/enemy"+randomnum+".txt");
+        int random = rand.nextInt(4)+1;
+        URL resource = LanternaGUI.class.getResource("/ascii/wild/fight/enemy" + random + ".txt");
         assert resource != null;
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
         for(String line; (line = br.readLine()) != null;)
             lines.add(line);
-
-        TextGraphics tg = screen.newTextGraphics();
-        tg.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
 
         for(int i = 0; i < lines.size(); i++) {
             drawText(lines.get(i), 35, (34-lines.size())+i, "#FFFFFF");
