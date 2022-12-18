@@ -19,6 +19,7 @@ public class Shop {
     private List<String> options;
     private ShopStrategy strategy;// we can have an item to change from expensive to cheap
     private String message;
+
     public Shop(Shop shop) throws IOException {
         this.items = shop.getItems();
         this.lines = readAscii();
@@ -56,6 +57,8 @@ public class Shop {
         }
         options.add("9: Town");
         options.add("0: Menu");
+
+        this.message = "Welcome to the Shop!";
     }
 
     public void buyItem(Item item) {
@@ -102,9 +105,11 @@ public class Shop {
 
         return lines;
     }
+
     public void setMessage(String message) {
         this.message = message;
     }
+
     public String getMessage(){
         return message;
     }

@@ -28,6 +28,5 @@ public class ShopViewer extends Viewer<Shop> {
             gui.drawText(str, opt_col, 35,"#FFFFFF");
             opt_col += str.length() + 5;
         }
-
     }
 }
