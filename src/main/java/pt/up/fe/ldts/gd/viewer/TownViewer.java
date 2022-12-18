@@ -4,7 +4,6 @@ import pt.up.fe.ldts.gd.gui.GUI;
 import pt.up.fe.ldts.gd.model.town.Town;
 
 import java.util.List;
-import java.util.UUID;
 
 public class TownViewer extends Viewer<Town> {
     public TownViewer(Town town) {
