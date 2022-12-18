@@ -3,7 +3,7 @@ package pt.up.fe.ldts.gd.model.player;
 
 public abstract class Item {
     private String name;
-    private String nameEquiped;
+    private String nameEquipped;
     private int price;
     private int value;  // functional value of the item
     private boolean used = false;
@@ -11,7 +11,7 @@ public abstract class Item {
 
     public Item(String name, int value, int price) {
         this.name = name;
-        this.nameEquiped = name + " [Equipped]";
+        this.nameEquipped = name + " [Equipped]";
         this.value = value;
         this.price = price;
         this.count = 1;
@@ -21,13 +21,13 @@ public abstract class Item {
         return this.name;
     }
 
-    public String getNameEquiped() {
-        return nameEquiped;
+    public String getNameEquipped() {
+        return nameEquipped;
     }
 
     public void setName(String name) {
         this.name = name;
-        this.nameEquiped = name + " [Equipped]";
+        this.nameEquipped = name + " [Equipped]";
     }
 
     public int getPrice() {

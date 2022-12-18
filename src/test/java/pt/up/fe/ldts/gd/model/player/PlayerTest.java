@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class PlayerTest {
     @Test
-    public void potionTest() throws IOException {
+    public void InventoryTest() throws IOException {
         Player p1 = new Player("Saul");
         CombatItem sword = new CombatItem("Excalibur", 100, 5000);
         CombatItem axe = new CombatItem("Skullcracker", 80, 3500);
@@ -20,6 +20,36 @@ public class PlayerTest {
         p1.addItem(potion);
         Assertions.assertEquals(3, p1.getInventory().size());
         p1.removeItem(potion);
+        Assertions.assertEquals(2, p1.getInventory().size());
+    }
+
+    @Test
+    public void PotionTest() throws IOException {
+        Player p1 = new Player("Saul");
+        PotionItem potion = new PotionItem("Tap Water", 100, 100000);
+        Assertions.assertEquals(75, p1.getHP());
+        p1.addItem(potion);
+        Assertions.assertEquals(1, p1.getInventory().size());
+        p1.use(potion);
+        Assertions.assertEquals(175, p1.getHP());
+        Assertions.assertEquals(0, p1.getInventory().size());
+    }
+
+    @Test
+    public void WeaponTest() throws IOException {
+        Player p1 = new Player("Saul");
+        Assertions.assertEquals("Saul", p1.getName());
+        Assertions.assertEquals(true, p1.isAlive());
+        CombatItem sword = new CombatItem("Excalibur", 100, 5000);
+        CombatItem axe = new CombatItem("Skullcracker", 90, 3500);
+        Assertions.assertEquals(15, p1.getDamage());
+        p1.addItem(sword);
+        p1.addItem(axe);
+        Assertions.assertEquals(2, p1.getInventory().size());
+        p1.use(sword);
+        Assertions.assertEquals(115, p1.getDamage());
+        p1.use(axe);
+        Assertions.assertEquals(95, p1.getDamage());
         Assertions.assertEquals(2, p1.getInventory().size());
     }
 }
