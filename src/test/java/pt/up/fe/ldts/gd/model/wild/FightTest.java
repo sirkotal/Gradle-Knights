@@ -12,6 +12,8 @@ public class FightTest {
         Player player = new Player("Saul");
         Wild wild = new Wild(player);
         Fight fight = new Fight(wild.getPlayer(), wild.getEnemies());
+        Assertions.assertEquals("Saul", fight.getPlayer().getName());
+        Assertions.assertEquals(3, fight.getOptions().size());
 
         int initial_gold = wild.getPlayer().getGold();
 
