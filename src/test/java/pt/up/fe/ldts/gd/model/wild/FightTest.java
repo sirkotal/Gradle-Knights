@@ -1,31 +1,94 @@
 package pt.up.fe.ldts.gd.model.wild;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pt.up.fe.ldts.gd.model.player.Player;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class FightTest {
+    private Player player;
+    private Fight fight;
+    private List<Enemy> enemies;
+
+    @BeforeEach
+    public void setup() throws IOException {
+        player = new Player("Saul");
+    }
+
     @Test
-    public void fightTest() throws IOException {
-        Player player = new Player("Saul");
-        Wild wild = new Wild(player);
-        Fight fight = new Fight(wild.getPlayer(), wild.getEnemies());
-        Assertions.assertEquals("Saul", fight.getPlayer().getName());
-        Assertions.assertEquals(3, fight.getOptions().size());
+    public void playerWinAll() {
+        enemies = new ArrayList<>(Arrays.asList(
+                new Enemy(2, 10, 2, 2),
+                new Enemy(2, 10, 2, 2),
+                new Enemy(2, 10, 2, 2)
+        ));
 
-        int initial_gold = wild.getPlayer().getGold();
+        fight = new Fight(player, enemies);
 
-        int gold_loot = 0;
-        for(Enemy enemy: wild.getEnemies()) {
-            gold_loot += enemy.getGold();
-        }
+        Assertions.assertEquals(75, player.getHP());
+        Assertions.assertEquals(15, player.getGold());
+        Assertions.assertEquals(15, player.getDamage());
 
-        while(!wild.getEnemies().isEmpty() && wild.getPlayer().isAlive()) {
-            fight.resultFight();
-        }
+        fight.resultFight();
 
-        Assertions.assertTrue(wild.getPlayer().getGold() <= initial_gold + gold_loot);
+        Assertions.assertEquals(2, fight.getEnemies().size());
+        Assertions.assertEquals(73, fight.getPlayer().getHP());
+        Assertions.assertTrue(fight.getPlayer().getGold() >= 25 && fight.getPlayer().getGold() <= 35);
+        Assertions.assertTrue(fight.getPlayer().isAlive());
+
+        fight.getPlayer().setHP(75);
+        fight.getPlayer().setGold(15);
+
+        fight.resultFight();
+
+        Assertions.assertEquals(1, fight.getEnemies().size());
+        Assertions.assertEquals(73, fight.getPlayer().getHP());
+        Assertions.assertTrue(fight.getPlayer().getGold() >= 25 && fight.getPlayer().getGold() <= 35);
+        Assertions.assertTrue(fight.getPlayer().isAlive());
+
+        fight.getPlayer().setHP(75);
+        fight.getPlayer().setGold(15);
+
+        fight.resultFight();
+
+        Assertions.assertEquals(0, fight.getEnemies().size());
+        Assertions.assertEquals(73, fight.getPlayer().getHP());
+        Assertions.assertTrue(fight.getPlayer().getGold() >= 25 && fight.getPlayer().getGold() <= 35);
+        Assertions.assertTrue(fight.getPlayer().isAlive());
+    }
+
+    @Test
+    public void playerLose() {
+        enemies = new ArrayList<>(Arrays.asList(
+                new Enemy(2, 10, 50, 50),
+                new Enemy(2, 10, 50, 50),
+                new Enemy(2, 10, 50, 50)
+        ));
+
+        fight = new Fight(player, enemies);
+
+        Assertions.assertEquals(75, player.getHP());
+        Assertions.assertEquals(15, player.getGold());
+        Assertions.assertEquals(15, player.getDamage());
+
+        fight.resultFight();
+
+        Assertions.assertEquals(2, fight.getEnemies().size());
+        Assertions.assertEquals(25, fight.getPlayer().getHP());
+        Assertions.assertTrue(fight.getPlayer().getGold() >= 25 && fight.getPlayer().getGold() <= 35);
+        Assertions.assertTrue(fight.getPlayer().isAlive());
+
+        fight.getPlayer().setGold(15);
+
+        fight.resultFight();
+
+        Assertions.assertEquals(2, fight.getEnemies().size());
+        Assertions.assertEquals(15, fight.getPlayer().getGold());
+        Assertions.assertFalse(fight.getPlayer().isAlive());
     }
 }

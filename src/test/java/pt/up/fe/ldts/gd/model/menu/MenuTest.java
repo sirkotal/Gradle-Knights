@@ -2,10 +2,6 @@ package pt.up.fe.ldts.gd.model.menu;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pt.up.fe.ldts.gd.model.player.CombatItem;
-import pt.up.fe.ldts.gd.model.player.Inventory;
-import pt.up.fe.ldts.gd.model.player.Player;
-import pt.up.fe.ldts.gd.model.player.PotionItem;
 
 import java.io.IOException;
 
