@@ -14,7 +14,6 @@ public class TownViewer extends Viewer<Town> {
     @Override
     protected void drawElements(GUI gui) {
         gui.drawPlayerInfo(getModel().getPlayer().getHP(), getModel().getPlayer().getGold());
-        String random = UUID.randomUUID().toString();
 
         List<String> lines = getModel().getLines();
         for(int i = 0; i < lines.size(); i++) {
