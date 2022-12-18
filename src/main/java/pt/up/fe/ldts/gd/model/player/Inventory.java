@@ -83,7 +83,7 @@ public class Inventory {
         this.options = new ArrayList<>();
         for(int i = 0; i < items.size(); i++) {
             if(items.get(i).isUsed())
-                this.options.add((i+1) + ": " + items.get(i).getNameEquiped() + " (" + items.get(i).getValue() + "/" + items.get(i).getCount() + ")");
+                this.options.add((i+1) + ": " + items.get(i).getNameEquipped() + " (" + items.get(i).getValue() + "/" + items.get(i).getCount() + ")");
             else
                 this.options.add((i+1) + ": " + items.get(i).getName() + " (" + items.get(i).getValue() + "/" + items.get(i).getCount() + ")");
         }

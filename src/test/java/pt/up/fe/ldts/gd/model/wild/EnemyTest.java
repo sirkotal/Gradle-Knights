@@ -9,12 +9,18 @@ import java.io.IOException;
 public class EnemyTest {
 
     @Test
-    public void lootTest() throws IOException {
+    public void enemyTest() throws IOException {
         Enemy enemy = new Enemy(10, 10, 10, 10);
         Player player = new Player("Saul");
 
+        Assertions.assertTrue(enemy.isAlive());
+
         int initial_gold = player.getGold();
         Assertions.assertEquals(15, initial_gold);
+
+        Assertions.assertEquals(10, enemy.getHP());
+        enemy.setDamage(12);
+        Assertions.assertEquals(12, enemy.getDamage());
 
         enemy.loot(player);
 
