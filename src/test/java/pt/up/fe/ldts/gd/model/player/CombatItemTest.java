@@ -17,8 +17,8 @@ public class CombatItemTest {
         Assertions.assertFalse(sword.isEquipped());
 
         Assertions.assertEquals("Excalibur [Equipped]", sword.getNameEquipped());
+        p1.addItem(sword);
         p1.use(sword);
-        Assertions.assertTrue(sword.isEquipped());
         sword.setUsed(false);
         Assertions.assertFalse(sword.isEquipped());
     }
