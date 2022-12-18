@@ -1,14 +1,21 @@
 package pt.up.fe.ldts.gd.model.player;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pt.up.fe.ldts.gd.model.town.Shop;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class PlayerTest {
+    Player p1;
+    @BeforeEach
+    public void setup() throws IOException {
+        p1 = new Player("Saul");
+    }
     @Test
     public void InventoryTest() throws IOException {
-        Player p1 = new Player("Saul");
         CombatItem sword = new CombatItem("Excalibur", 100, 5000);
         CombatItem axe = new CombatItem("Skullcracker", 80, 3500);
         PotionItem potion = new PotionItem("Tap Water", 100, 100000);
@@ -25,7 +32,6 @@ public class PlayerTest {
 
     @Test
     public void PotionTest() throws IOException {
-        Player p1 = new Player("Saul");
         PotionItem potion = new PotionItem("Tap Water", 100, 100000);
         Assertions.assertEquals(75, p1.getHP());
         p1.addItem(potion);
@@ -37,7 +43,6 @@ public class PlayerTest {
 
     @Test
     public void WeaponTest() throws IOException {
-        Player p1 = new Player("Saul");
         Assertions.assertEquals("Saul", p1.getName());
         Assertions.assertEquals(true, p1.isAlive());
         CombatItem sword = new CombatItem("Excalibur", 100, 5000);
