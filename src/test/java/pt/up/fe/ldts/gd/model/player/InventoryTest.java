@@ -17,5 +17,7 @@ public class InventoryTest {
         Assertions.assertEquals(2, inv.size());
         Assertions.assertEquals("Blood God's Offering", inv.getItem(1).getName());
         Assertions.assertFalse(inv.isEmpty());
+        inv.removeItem(potion);
+        Assertions.assertEquals(1, inv.size());
     }
 }
