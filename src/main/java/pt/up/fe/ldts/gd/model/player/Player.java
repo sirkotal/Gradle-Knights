@@ -90,7 +90,7 @@ public class Player {
             for(int j = 0; j < inventory.size(); j++) {
                 if (inventory.getItem(j).isUsed() && inventory.getItem(j) instanceof CombatItem) {
                     inventory.getItem(j).setUsed(false);
-                    setDamage(damage - item.getValue());
+                    setDamage(damage - inventory.getItem(j).getValue());
                 }
             }
             setDamage(item.getValue() + damage);
