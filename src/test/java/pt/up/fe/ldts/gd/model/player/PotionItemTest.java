@@ -19,5 +19,10 @@ public class PotionItemTest {
         p1.use(potion);
         Assertions.assertEquals(0, p1.getInventory().size());
         Assertions.assertEquals(175, p1.getHP());
+
+        PotionItem juice = new PotionItem("Wise Mystical Tree Juice", 300, 80000);
+        juice.setUsed(true);
+        juice.refill();
+        Assertions.assertFalse(juice.isUsed());
     }
 }

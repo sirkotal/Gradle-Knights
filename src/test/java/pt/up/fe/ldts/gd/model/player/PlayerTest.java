@@ -49,7 +49,7 @@ public class PlayerTest {
         p1.use(sword);
         Assertions.assertEquals(115, p1.getDamage());
         p1.use(axe);
-        Assertions.assertEquals(95, p1.getDamage());
+        Assertions.assertEquals(105, p1.getDamage());
         Assertions.assertEquals(2, p1.getInventory().size());
     }
 }
