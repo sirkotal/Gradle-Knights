@@ -12,7 +12,7 @@ import java.util.List;
 public class AsciiReader {
     static public List<String> readAscii(String path) throws IOException {
         List<String> lines = new ArrayList<>();
-        URL resource = Menu.class.getResource(path);
+        URL resource = AsciiReader.class.getResource(path);
         assert resource != null;
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
