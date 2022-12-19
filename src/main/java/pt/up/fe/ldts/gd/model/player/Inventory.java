@@ -1,11 +1,8 @@
 package pt.up.fe.ldts.gd.model.player;
 
-import pt.up.fe.ldts.gd.model.town.Town;
+import pt.up.fe.ldts.gd.AsciiReader;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +17,7 @@ public class Inventory {
         this.player = player;
         this.items = new ArrayList<>();
         this.options = new ArrayList<>(Arrays.asList("9: Exit", "0: Menu"));
-        this.lines = readAscii();
+        this.lines = AsciiReader.readAscii("/ascii/inventory/inventory.txt");
     }
 
     public List<Item> getItems(){
@@ -89,17 +86,5 @@ public class Inventory {
         }
         this.options.add("9: Exit");
         this.options.add("0: Menu");
-    }
-
-    private List<String> readAscii() throws IOException {
-        List<String> lines = new ArrayList<>();
-        URL resource = Town.class.getResource("/ascii/inventory/inventory.txt");
-        assert resource != null;
-        BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
-
-        for(String line; (line = br.readLine()) != null;)
-            lines.add(line);
-
-        return lines;
     }
 }

@@ -2,11 +2,7 @@ package pt.up.fe.ldts.gd.model.menu;
 
 import pt.up.fe.ldts.gd.AsciiReader;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
