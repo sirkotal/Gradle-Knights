@@ -1,5 +1,7 @@
 package pt.up.fe.ldts.gd.model.menu;
 
+import pt.up.fe.ldts.gd.AsciiReader;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -16,21 +18,21 @@ public class Menu {
     public Menu() throws IOException {
         this.currentEntry = 0;
         this.entries = Arrays.asList("start", "exit");
-        this.lines = readAscii(entries.get(currentEntry));
+        this.lines = AsciiReader.readAscii("/ascii/menu/" + entries.get(currentEntry) + "_menu.txt");
     }
 
     public void nextEntry() throws IOException {
         currentEntry++;
         if(currentEntry > this.entries.size() - 1)
             currentEntry = 0;
-        this.lines = readAscii(this.entries.get(currentEntry));
+        this.lines = AsciiReader.readAscii("/ascii/menu/" + this.entries.get(currentEntry) + "_menu.txt");
     }
 
     public void previousEntry() throws IOException {
         currentEntry--;
         if (currentEntry < 0)
             currentEntry = this.entries.size() - 1;
-        this.lines = readAscii(this.entries.get(currentEntry));
+        this.lines = AsciiReader.readAscii("/ascii/menu/" + this.entries.get(currentEntry) + "_menu.txt");
     }
 
     public boolean selectedExit() {
@@ -39,20 +41,5 @@ public class Menu {
 
     public List<String> getLines() {
         return this.lines;
-    }
-
-    private List<String> readAscii(String mode) throws IOException {
-        if(!mode.equals("start") && !mode.equals("exit")) {
-            throw new Error("mode can only be start or exit");
-        }
-        List<String> lines = new ArrayList<>();
-        URL resource = Menu.class.getResource("/ascii/menu/" + mode + "_menu.txt");
-        assert resource != null;
-        BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
-
-        for(String line; (line = br.readLine()) != null;)
-            lines.add(line);
-
-        return lines;
     }
 }
