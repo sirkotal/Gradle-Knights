@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AsciiReader {
-    public List<String> readAscii(String path) throws IOException {
+    static public List<String> readAscii(String path) throws IOException {
         List<String> lines = new ArrayList<>();
         URL resource = Menu.class.getResource(path);
         assert resource != null;
