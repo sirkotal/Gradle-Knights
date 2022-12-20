@@ -9,6 +9,7 @@ import java.io.IOException;
 
 public class Game {
     private State state;
+    private State previousState;
 
     private final LanternaGUI gui;
 
@@ -18,9 +19,13 @@ public class Game {
         this.state = new MenuState(new Menu());
     }
 
-
     public void setState(State state) {
+        this.previousState = this.state;
         this.state = state;
+    }
+
+    public State getPreviousState() {
+        return previousState;
     }
 
     public static void main(String[] args) throws IOException {

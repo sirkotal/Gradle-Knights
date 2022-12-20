@@ -32,8 +32,7 @@ public class ShopController extends Controller<Shop> {
             game.setState(new MenuState(new Menu()));
         }
         if(action == GUI.ACTION.OPT9) {
-            // BUG: resets shop strategy when leaving to town (solution idea: pass town as parameter for ShopState)
-            game.setState(new TownState(new Town(getModel())));
+            game.setState(game.getPreviousState());
         }
         if(action == GUI.ACTION.OPT1 && items.size() >= 1) {
             if(strategy.buyItem(items.get(0), player))

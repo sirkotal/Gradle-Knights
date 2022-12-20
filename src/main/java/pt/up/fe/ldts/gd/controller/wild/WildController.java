@@ -33,10 +33,8 @@ public class WildController extends Controller<Wild> {
             }
         }
         if(action == GUI.ACTION.OPT2) {
-            if(getModel().getPlayer().isAlive()) {
+            if(getModel().getPlayer().isAlive())
                 game.setState(new InventoryState(getModel().getPlayer().getInventory()));
-            }
-
         }
     }
 }

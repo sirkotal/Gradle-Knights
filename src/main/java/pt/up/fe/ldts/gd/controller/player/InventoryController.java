@@ -39,7 +39,7 @@ public class InventoryController extends Controller<Inventory> {
             player.use(player.getInventory().getItem(4));
         }
         if(action == GUI.ACTION.OPT9) {
-            game.setState(new WildState(new Wild(getModel().getPlayer())));
+            game.setState(game.getPreviousState());
         }
     }
 }
