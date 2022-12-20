@@ -22,7 +22,6 @@ public class PotionItemTest {
 
         PotionItem juice = new PotionItem("Wise Mystical Tree Juice", 300, 80000);
         juice.setUsed(true);
-        juice.refill();
-        Assertions.assertFalse(juice.isUsed());
+        Assertions.assertTrue(juice.isUsed());
     }
 }

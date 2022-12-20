@@ -66,14 +66,4 @@ public class ShopTest {
         Assertions.assertEquals(new CombatItem("item1", 10, 10), player.getInventory().getItem(0));
         Assertions.assertEquals(30, player.getGold());
     }
-
-    @Test
-    public void levelUpTest() {
-        shop.setMessage("Welcome to the Shop!");
-        Assertions.assertEquals("Welcome to the Shop!", shop.getMessage());
-        Player p2 = shop.getPlayer();
-        Assertions.assertEquals("Saul", p2.getName());
-        shop.levelUp();
-        Assertions.assertEquals(16, player.getDamage());
-    }
 }
