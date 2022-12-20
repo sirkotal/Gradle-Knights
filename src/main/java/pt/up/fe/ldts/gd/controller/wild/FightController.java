@@ -18,11 +18,19 @@ public class FightController extends Controller<Fight> {
             game.setState(new MenuState(new Menu()));
         }
         if(action == GUI.ACTION.OPT1) {
-            game.setState(new WildState(new Wild(getModel().getPlayer(), getModel().getEnemies(), "You fled from the fight")));
+            if(game.getPreviousState().getModel() instanceof Wild) {
+                ((Wild) game.getPreviousState().getModel()).setMessage("You fled from the fight");
+                game.setState(game.getPreviousState());
+            }
         }
         if(action == GUI.ACTION.OPT2) {
             int loot = getModel().resultFight();
-            game.setState(new WildState(new Wild(getModel().getPlayer(), getModel().getEnemies(), "You fought an enemy and you won! You earned " + loot + " gold!")));
+            if(game.getPreviousState().getModel() instanceof Wild) {
+                ((Wild) game.getPreviousState().getModel()).setMessage(
+                        "You fought an enemy and you won! You earned " + loot + " gold!"
+                );
+                game.setState(game.getPreviousState());
+            }
         }
     }
 }

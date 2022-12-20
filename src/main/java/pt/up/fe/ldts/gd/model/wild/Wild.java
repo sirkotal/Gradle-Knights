@@ -23,13 +23,6 @@ public class Wild {
         this.options = Arrays.asList("1: Continue", "2: Inventory", "0: Menu");
         this.message=("Be careful! There are monsters in here!");
     }
-    public Wild(Player player, List<Enemy> enemies, String message) throws IOException {
-        this.player = player;
-        this.enemies = enemies;
-        this.lines = AsciiReader.readAscii("/ascii/wild/wild.txt");
-        this.options = Arrays.asList("1: Continue", "2: Inventory", "0: Menu");
-        this.message = message;
-    }
 
     public Player getPlayer() {
         return this.player;
@@ -38,7 +31,6 @@ public class Wild {
     public List<Enemy> getEnemies() {
         return enemies;
     }
-
 
     public List<String> getLines() {
         return this.lines;
