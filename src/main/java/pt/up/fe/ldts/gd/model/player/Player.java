@@ -4,10 +4,10 @@ import java.io.IOException;
 
 public class Player {
     private int gold;
-    private String name;
+    private final String name;
     private int hp;
     private int damage;
-    private Inventory inventory;
+    private final Inventory inventory;
 
     public Player(String name) throws IOException {
         this.name = name;

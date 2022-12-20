@@ -1,7 +1,5 @@
 package pt.up.fe.ldts.gd;
 
-import pt.up.fe.ldts.gd.model.menu.Menu;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

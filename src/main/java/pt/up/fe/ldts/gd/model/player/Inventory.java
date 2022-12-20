@@ -8,10 +8,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Inventory {
-    private Player player;
-    private List<Item> items;
+    private final Player player;
+    private final List<Item> items;
     private List<String> options;
-    private List<String> lines;
+    private final List<String> lines;
 
     public Inventory(Player player) throws IOException {
         this.player = player;

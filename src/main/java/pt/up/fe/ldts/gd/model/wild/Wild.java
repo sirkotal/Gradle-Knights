@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.Random;
 
 public class Wild {
-    private Player player;
-    private List<Enemy> enemies;
-    private List<String> lines;
-    private List<String> options;
+    private final Player player;
+    private final List<Enemy> enemies;
+    private final List<String> lines;
+    private final List<String> options;
     private String message;
 
     public Wild(Player player) throws IOException {

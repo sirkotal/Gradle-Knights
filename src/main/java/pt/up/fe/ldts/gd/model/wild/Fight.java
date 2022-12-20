@@ -8,8 +8,8 @@ import java.util.Random;
 
 public class Fight {
     private final Player player;
-    private List<Enemy> enemies;
-    private List<String> options;
+    private final List<Enemy> enemies;
+    private final List<String> options;
     public Fight(Player player,List<Enemy> enemies){
         this.player=player;
         this.enemies=enemies;
