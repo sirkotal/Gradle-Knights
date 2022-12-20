@@ -27,13 +27,6 @@ public class Town {
         this.lines = AsciiReader.readAscii("/ascii/town/town.txt");
         this.options = Arrays.asList("1: Shop", "2: Wild", "0: Menu");
     }
-    public Town(Shop shop) throws IOException{
-        this.player = shop.getPlayer();
-        this.player.setHP(75);
-        this.shop = shop;
-        this.lines = AsciiReader.readAscii("/ascii/town/town.txt");
-        this.options = Arrays.asList("1: Shop", "2: Wild", "0: Menu");
-    }
 
     public List<String> getLines() {
         return this.lines;
