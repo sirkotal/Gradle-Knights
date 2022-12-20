@@ -1,34 +1,32 @@
 package pt.up.fe.ldts.gd.model.wild;
 
+import pt.up.fe.ldts.gd.AsciiReader;
 import pt.up.fe.ldts.gd.model.player.Player;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 public class Wild {
-    private Player player;
-    private List<Enemy> enemies;
-    private List<String> lines;
-    private List<String> options;
+    private final Player player;
+    private final List<Enemy> enemies;
+    private final List<String> lines;
+    private final List<String> options;
     private String message;
 
     public Wild(Player player) throws IOException {
         this.player = player;
         this.enemies = createEnemies();
-        this.lines = readAscii();
+        this.lines = AsciiReader.readAscii("/ascii/wild/wild.txt");
         this.options = Arrays.asList("1: Continue", "2: Inventory", "0: Menu");
         this.message=("Be careful! There are monsters in here!");
     }
     public Wild(Player player, List<Enemy> enemies, String message) throws IOException {
         this.player = player;
         this.enemies = enemies;
-        this.lines = readAscii();
+        this.lines = AsciiReader.readAscii("/ascii/wild/wild.txt");
         this.options = Arrays.asList("1: Continue", "2: Inventory", "0: Menu");
         this.message = message;
     }
@@ -58,18 +56,6 @@ public class Wild {
             enemies.add(new Enemy(10,10,30,40));
         }
         return enemies;
-    }
-
-    private List<String> readAscii() throws IOException {
-        List<String> lines = new ArrayList<>();
-        URL resource = Wild.class.getResource("/ascii/wild/wild.txt");
-        assert resource != null;
-        BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
-
-        for(String line; (line = br.readLine()) != null;)
-            lines.add(line);
-
-        return lines;
     }
 
     public String getMessage() {

@@ -4,8 +4,8 @@ package pt.up.fe.ldts.gd.model.player;
 public abstract class Item {
     private String name;
     private String nameEquipped;
-    private int price;
-    private int value;  // functional value of the item
+    private final int price;
+    private final int value;  // functional value of the item
     private boolean used = false;
     private int count;
 

@@ -9,12 +9,9 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import pt.up.fe.ldts.gd.AsciiReader;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -94,13 +91,7 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawDeathScreen() throws IOException {
-        List<String> lines = new ArrayList<>();
-        URL resource = LanternaGUI.class.getResource("/ascii/death.txt");
-        assert resource != null;
-        BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
-
-        for(String line; (line = br.readLine()) != null;)
-            lines.add(line);
+        List<String> lines = AsciiReader.readAscii("/ascii/death.txt");
 
         for(int i = 0; i < lines.size(); i++) {
             drawText(lines.get(i), 35, 15+i, "#FFFFFF");
@@ -111,15 +102,9 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawEnemy() throws IOException {
-        List<String> lines = new ArrayList<>();
         Random rand = new Random();
         int random = rand.nextInt(4)+1;
-        URL resource = LanternaGUI.class.getResource("/ascii/wild/fight/enemy" + random + ".txt");
-        assert resource != null;
-        BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
-
-        for(String line; (line = br.readLine()) != null;)
-            lines.add(line);
+        List<String> lines = AsciiReader.readAscii("/ascii/wild/fight/enemy" + random + ".txt");
 
         for(int i = 0; i < lines.size(); i++) {
             drawText(lines.get(i), 35, (34-lines.size())+i, "#FFFFFF");
