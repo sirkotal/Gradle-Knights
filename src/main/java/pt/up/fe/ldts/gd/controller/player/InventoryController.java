@@ -6,9 +6,7 @@ import pt.up.fe.ldts.gd.gui.GUI;
 import pt.up.fe.ldts.gd.model.menu.Menu;
 import pt.up.fe.ldts.gd.model.player.Inventory;
 import pt.up.fe.ldts.gd.model.player.Player;
-import pt.up.fe.ldts.gd.model.wild.Wild;
 import pt.up.fe.ldts.gd.state.MenuState;
-import pt.up.fe.ldts.gd.state.WildState;
 
 import java.io.IOException;
 

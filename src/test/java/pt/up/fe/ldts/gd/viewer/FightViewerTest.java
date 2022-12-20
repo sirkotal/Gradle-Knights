@@ -9,8 +9,6 @@ import pt.up.fe.ldts.gd.model.wild.Enemy;
 import pt.up.fe.ldts.gd.model.wild.Fight;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class FightViewerTest {
     private GUI gui;
