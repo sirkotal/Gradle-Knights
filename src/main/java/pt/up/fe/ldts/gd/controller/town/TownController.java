@@ -20,7 +20,10 @@ public class TownController extends Controller<Town> {
 
     public void step(Game game, GUI.ACTION action) throws IOException {
         if (action == GUI.ACTION.OPT1) {
-            game.setState(new ShopState(new Shop(getModel().getShop())));
+            if(game.getPreviousState() instanceof ShopState)
+                game.setState(game.getPreviousState());
+            else
+                game.setState(new ShopState(new Shop(getModel().getShop())));
         }
         else if (action == GUI.ACTION.OPT2) {
             game.setState(new WildState(new Wild(getModel().getPlayer())));

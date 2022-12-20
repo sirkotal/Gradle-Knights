@@ -9,8 +9,6 @@ import pt.up.fe.ldts.gd.model.wild.Enemy;
 import pt.up.fe.ldts.gd.model.wild.Fight;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class FightViewerTest {
     private GUI gui;
@@ -19,11 +17,9 @@ public class FightViewerTest {
 
     @BeforeEach
     public void setup() throws IOException {
-        List<Enemy> enemies = new ArrayList<>();
-        enemies.add(new Enemy(10, 10, 10, 10));
-        enemies.add(new Enemy(10, 10, 10, 10));
+        Enemy enemy = new Enemy(10, 10, 10, 10);
 
-        fight = new Fight(new Player("Tortuga"), enemies);
+        fight = new Fight(new Player("Tortuga"), enemy);
         gui = Mockito.mock(GUI.class);
         viewer = new FightViewer(fight);
     }

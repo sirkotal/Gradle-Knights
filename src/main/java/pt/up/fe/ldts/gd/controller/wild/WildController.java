@@ -13,7 +13,7 @@ import pt.up.fe.ldts.gd.state.MenuState;
 import pt.up.fe.ldts.gd.state.TownState;
 
 import java.io.IOException;
-
+import java.util.Random;
 
 public class WildController extends Controller<Wild> {
     public WildController(Wild wild) {
@@ -29,14 +29,22 @@ public class WildController extends Controller<Wild> {
                 game.setState(new TownState(new Town(getModel().getPlayer())));
             }
             else if(getModel().getPlayer().isAlive()) {
-                game.setState(new FightState(new Fight(getModel().getPlayer(),getModel().getEnemies())));
+                Random rand = new Random();
+                int num_enemy;
+                if (getModel().getEnemies().size() == 1)
+                    num_enemy = 0;
+                else
+                    num_enemy = rand.nextInt(getModel().getEnemies().size() - 1);
+
+                game.setState(new FightState(new Fight(getModel().getPlayer(), getModel().getEnemies().get(num_enemy))));
+
+                if(getModel().getPlayer().isAlive())
+                    getModel().getEnemies().remove(num_enemy);
             }
         }
         if(action == GUI.ACTION.OPT2) {
-            if(getModel().getPlayer().isAlive()) {
+            if(getModel().getPlayer().isAlive())
                 game.setState(new InventoryState(getModel().getPlayer().getInventory()));
-            }
-
         }
     }
 }

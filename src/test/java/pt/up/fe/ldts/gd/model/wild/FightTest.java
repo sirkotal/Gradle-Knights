@@ -28,7 +28,7 @@ public class FightTest {
                 new Enemy(2, 10, 2, 2)
         ));
 
-        fight = new Fight(player, enemies);
+        fight = new Fight(player, enemies.get(0));
 
         Assertions.assertEquals(75, player.getHP());
         Assertions.assertEquals(15, player.getGold());
@@ -36,30 +36,40 @@ public class FightTest {
 
         fight.resultFight();
 
-        Assertions.assertEquals(2, fight.getEnemies().size());
         Assertions.assertEquals(73, fight.getPlayer().getHP());
         Assertions.assertTrue(fight.getPlayer().getGold() >= 25 && fight.getPlayer().getGold() <= 35);
         Assertions.assertTrue(fight.getPlayer().isAlive());
+
+        enemies.remove(0);
+        Assertions.assertEquals(2, enemies.size());
+
+        fight = new Fight(player, enemies.get(0));
 
         fight.getPlayer().setHP(75);
         fight.getPlayer().setGold(15);
 
         fight.resultFight();
 
-        Assertions.assertEquals(1, fight.getEnemies().size());
         Assertions.assertEquals(73, fight.getPlayer().getHP());
         Assertions.assertTrue(fight.getPlayer().getGold() >= 25 && fight.getPlayer().getGold() <= 35);
         Assertions.assertTrue(fight.getPlayer().isAlive());
+
+        enemies.remove(0);
+        Assertions.assertEquals(1, enemies.size());
+
+        fight = new Fight(player, enemies.get(0));
 
         fight.getPlayer().setHP(75);
         fight.getPlayer().setGold(15);
 
         fight.resultFight();
 
-        Assertions.assertEquals(0, fight.getEnemies().size());
         Assertions.assertEquals(73, fight.getPlayer().getHP());
         Assertions.assertTrue(fight.getPlayer().getGold() >= 25 && fight.getPlayer().getGold() <= 35);
         Assertions.assertTrue(fight.getPlayer().isAlive());
+
+        enemies.remove(0);
+        Assertions.assertEquals(0, enemies.size());
     }
 
     @Test
@@ -70,7 +80,7 @@ public class FightTest {
                 new Enemy(2, 10, 50, 50)
         ));
 
-        fight = new Fight(player, enemies);
+        fight = new Fight(player, enemies.get(0));
 
         Assertions.assertEquals(75, player.getHP());
         Assertions.assertEquals(15, player.getGold());
@@ -78,17 +88,22 @@ public class FightTest {
 
         fight.resultFight();
 
-        Assertions.assertEquals(2, fight.getEnemies().size());
         Assertions.assertEquals(25, fight.getPlayer().getHP());
         Assertions.assertTrue(fight.getPlayer().getGold() >= 25 && fight.getPlayer().getGold() <= 35);
         Assertions.assertTrue(fight.getPlayer().isAlive());
+
+        enemies.remove(0);
+        Assertions.assertEquals(2, enemies.size());
+
+        fight = new Fight(player, enemies.get(0));
 
         fight.getPlayer().setGold(15);
 
         fight.resultFight();
 
-        Assertions.assertEquals(2, fight.getEnemies().size());
         Assertions.assertEquals(15, fight.getPlayer().getGold());
         Assertions.assertFalse(fight.getPlayer().isAlive());
+
+        Assertions.assertEquals(2, enemies.size());
     }
 }

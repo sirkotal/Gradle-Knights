@@ -8,9 +8,7 @@ import pt.up.fe.ldts.gd.model.player.Item;
 import pt.up.fe.ldts.gd.model.player.Player;
 import pt.up.fe.ldts.gd.model.town.Shop;
 import pt.up.fe.ldts.gd.model.town.ShopStrategy;
-import pt.up.fe.ldts.gd.model.town.Town;
 import pt.up.fe.ldts.gd.state.MenuState;
-import pt.up.fe.ldts.gd.state.TownState;
 
 import java.io.IOException;
 import java.util.List;
@@ -32,8 +30,7 @@ public class ShopController extends Controller<Shop> {
             game.setState(new MenuState(new Menu()));
         }
         if(action == GUI.ACTION.OPT9) {
-            // BUG: resets shop strategy when leaving to town (solution idea: pass town as parameter for ShopState)
-            game.setState(new TownState(new Town(getModel())));
+            game.setState(game.getPreviousState());
         }
         if(action == GUI.ACTION.OPT1 && items.size() >= 1) {
             if(strategy.buyItem(items.get(0), player))
