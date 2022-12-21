@@ -1,10 +1,11 @@
-package pt.up.fe.ldts.gd.state;
+package pt.up.fe.ldts.gd.state.town;
 
 import pt.up.fe.ldts.gd.controller.Controller;
 import pt.up.fe.ldts.gd.controller.town.ShopController;
 import pt.up.fe.ldts.gd.model.town.Shop;
-import pt.up.fe.ldts.gd.viewer.ShopViewer;
+import pt.up.fe.ldts.gd.state.State;
 import pt.up.fe.ldts.gd.viewer.Viewer;
+import pt.up.fe.ldts.gd.viewer.town.ShopViewer;
 
 public class ShopState extends State<Shop> {
 

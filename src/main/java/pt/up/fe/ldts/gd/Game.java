@@ -2,8 +2,8 @@ package pt.up.fe.ldts.gd;
 
 import pt.up.fe.ldts.gd.gui.LanternaGUI;
 import pt.up.fe.ldts.gd.model.menu.Menu;
-import pt.up.fe.ldts.gd.state.MenuState;
 import pt.up.fe.ldts.gd.state.State;
+import pt.up.fe.ldts.gd.state.menu.MenuState;
 
 import java.io.IOException;
 

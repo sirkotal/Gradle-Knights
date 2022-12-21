@@ -7,9 +7,9 @@ import pt.up.fe.ldts.gd.model.menu.Menu;
 import pt.up.fe.ldts.gd.model.town.Shop;
 import pt.up.fe.ldts.gd.model.town.Town;
 import pt.up.fe.ldts.gd.model.wild.Wild;
-import pt.up.fe.ldts.gd.state.MenuState;
-import pt.up.fe.ldts.gd.state.ShopState;
-import pt.up.fe.ldts.gd.state.WildState;
+import pt.up.fe.ldts.gd.state.menu.MenuState;
+import pt.up.fe.ldts.gd.state.town.ShopState;
+import pt.up.fe.ldts.gd.state.wild.WildState;
 
 import java.io.IOException;
 

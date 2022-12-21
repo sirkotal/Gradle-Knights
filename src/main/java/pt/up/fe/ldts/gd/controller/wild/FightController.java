@@ -6,7 +6,7 @@ import pt.up.fe.ldts.gd.gui.GUI;
 import pt.up.fe.ldts.gd.model.menu.Menu;
 import pt.up.fe.ldts.gd.model.wild.Fight;
 import pt.up.fe.ldts.gd.model.wild.Wild;
-import pt.up.fe.ldts.gd.state.MenuState;
+import pt.up.fe.ldts.gd.state.menu.MenuState;
 
 import java.io.IOException;
 

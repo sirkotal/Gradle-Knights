@@ -7,10 +7,10 @@ import pt.up.fe.ldts.gd.model.menu.Menu;
 import pt.up.fe.ldts.gd.model.town.Town;
 import pt.up.fe.ldts.gd.model.wild.Fight;
 import pt.up.fe.ldts.gd.model.wild.Wild;
-import pt.up.fe.ldts.gd.state.FightState;
-import pt.up.fe.ldts.gd.state.InventoryState;
-import pt.up.fe.ldts.gd.state.MenuState;
-import pt.up.fe.ldts.gd.state.TownState;
+import pt.up.fe.ldts.gd.state.menu.MenuState;
+import pt.up.fe.ldts.gd.state.player.InventoryState;
+import pt.up.fe.ldts.gd.state.town.TownState;
+import pt.up.fe.ldts.gd.state.wild.FightState;
 
 import java.io.IOException;
 import java.util.Random;

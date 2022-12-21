@@ -1,4 +1,4 @@
-package pt.up.fe.ldts.gd.viewer;
+package pt.up.fe.ldts.gd.viewer.wild;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

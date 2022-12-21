@@ -1,4 +1,4 @@
-package pt.up.fe.ldts.gd.viewer;
+package pt.up.fe.ldts.gd.viewer.player;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

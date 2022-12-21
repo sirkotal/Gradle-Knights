@@ -8,7 +8,7 @@ import pt.up.fe.ldts.gd.model.player.Item;
 import pt.up.fe.ldts.gd.model.player.Player;
 import pt.up.fe.ldts.gd.model.town.Shop;
 import pt.up.fe.ldts.gd.model.town.ShopStrategy;
-import pt.up.fe.ldts.gd.state.MenuState;
+import pt.up.fe.ldts.gd.state.menu.MenuState;
 
 import java.io.IOException;
 import java.util.List;

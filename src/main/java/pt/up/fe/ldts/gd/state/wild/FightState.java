@@ -1,10 +1,11 @@
-package pt.up.fe.ldts.gd.state;
+package pt.up.fe.ldts.gd.state.wild;
 
 import pt.up.fe.ldts.gd.controller.Controller;
 import pt.up.fe.ldts.gd.controller.wild.FightController;
 import pt.up.fe.ldts.gd.model.wild.Fight;
-import pt.up.fe.ldts.gd.viewer.FightViewer;
+import pt.up.fe.ldts.gd.state.State;
 import pt.up.fe.ldts.gd.viewer.Viewer;
+import pt.up.fe.ldts.gd.viewer.wild.FightViewer;
 public class FightState extends State<Fight> {
     public FightState(Fight fight) {
         super(fight);

@@ -6,7 +6,7 @@ import pt.up.fe.ldts.gd.gui.GUI;
 import pt.up.fe.ldts.gd.model.menu.Menu;
 import pt.up.fe.ldts.gd.model.player.Player;
 import pt.up.fe.ldts.gd.model.town.Town;
-import pt.up.fe.ldts.gd.state.TownState;
+import pt.up.fe.ldts.gd.state.town.TownState;
 
 import java.io.IOException;
 

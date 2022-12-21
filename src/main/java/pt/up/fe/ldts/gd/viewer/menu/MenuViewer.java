@@ -1,7 +1,8 @@
-package pt.up.fe.ldts.gd.viewer;
+package pt.up.fe.ldts.gd.viewer.menu;
 
 import pt.up.fe.ldts.gd.gui.GUI;
 import pt.up.fe.ldts.gd.model.menu.Menu;
+import pt.up.fe.ldts.gd.viewer.Viewer;
 
 import java.util.List;
 

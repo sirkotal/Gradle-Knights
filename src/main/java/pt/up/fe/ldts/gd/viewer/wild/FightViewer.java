@@ -1,7 +1,8 @@
-package pt.up.fe.ldts.gd.viewer;
+package pt.up.fe.ldts.gd.viewer.wild;
 
 import pt.up.fe.ldts.gd.gui.GUI;
 import pt.up.fe.ldts.gd.model.wild.Fight;
+import pt.up.fe.ldts.gd.viewer.Viewer;
 
 import java.io.IOException;
 import java.util.List;
