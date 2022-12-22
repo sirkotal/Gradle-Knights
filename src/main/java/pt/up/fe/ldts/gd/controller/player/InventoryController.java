@@ -21,20 +21,20 @@ public class InventoryController extends Controller<Inventory> {
         if(action == GUI.ACTION.OPT0) {
             game.setState(new MenuState(new Menu()));
         }
-        if(action == GUI.ACTION.OPT1 && player.getInventory().size() >= 1) {
-            player.use(player.getInventory().getItem(0));
+        if(action == GUI.ACTION.OPT1 && getModel().size() >= 1) {
+            player.use(getModel().getItem(0));
         }
-        if(action == GUI.ACTION.OPT2 && player.getInventory().size() >= 2) {
-            player.use(player.getInventory().getItem(1));
+        if(action == GUI.ACTION.OPT2 && getModel().size() >= 2) {
+            player.use(getModel().getItem(1));
         }
-        if(action == GUI.ACTION.OPT3 && player.getInventory().size() >= 3) {
-            player.use(player.getInventory().getItem(2));
+        if(action == GUI.ACTION.OPT3 && getModel().size() >= 3) {
+            player.use(getModel().getItem(2));
         }
-        if(action == GUI.ACTION.OPT4 && player.getInventory().size() >= 4) {
-            player.use(player.getInventory().getItem(3));
+        if(action == GUI.ACTION.OPT4 && getModel().size() >= 4) {
+            player.use(getModel().getItem(3));
         }
-        if(action == GUI.ACTION.OPT5 && player.getInventory().size() >= 5) {
-            player.use(player.getInventory().getItem(4));
+        if(action == GUI.ACTION.OPT5 && getModel().size() >= 5) {
+            player.use(getModel().getItem(4));
         }
         if(action == GUI.ACTION.OPT9) {
             game.setState(game.getPreviousState());
