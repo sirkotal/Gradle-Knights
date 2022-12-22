@@ -2,6 +2,7 @@ package pt.up.fe.ldts.gd.model.player;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import pt.up.fe.ldts.gd.model.town.CheapStrategy;
 import pt.up.fe.ldts.gd.model.town.ExpensiveStrategy;
 import pt.up.fe.ldts.gd.model.town.Shop;
@@ -13,14 +14,9 @@ import java.util.List;
 public class AmuletItemTest {
     @Test
     public void amuletTest() throws IOException {
-        List<Item> list = new ArrayList<>();
-        Player p1 = new Player("Saul");
-        CombatItem sword = new CombatItem("Excalibur", 100, 5000);
-        CombatItem axe = new CombatItem("Skullcracker", 90, 3500);
-        list.add(sword);
-        list.add(axe);
+        Player player = Mockito.mock(Player.class);
 
-        Shop shop = new Shop(list, p1);
+        Shop shop = new Shop(new ArrayList<>(), player);
         shop.setStrategy(new ExpensiveStrategy());
         Assertions.assertTrue(shop.getStrategy() instanceof ExpensiveStrategy);
 
