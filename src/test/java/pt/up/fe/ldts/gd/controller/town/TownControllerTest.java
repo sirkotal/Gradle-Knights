@@ -37,11 +37,26 @@ public class TownControllerTest {
 
     @Test
     public void townToShop() throws IOException {
+        controller.step(game, GUI.ACTION.OPT1);
+        Mockito.verify(game, Mockito.times(1)).setState(game.getPreviousState());
         game.setState(new TownState(town));
-        Assertions.assertTrue(game.getPreviousState() instanceof MenuState);
 
         controller.step(game, GUI.ACTION.OPT1);
+        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(ShopState.class));
+        Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
+    }
 
-        Assertions.assertTrue(game.getPreviousState() instanceof ShopState);
+    @Test
+    public void townToWild() throws IOException {
+        controller.step(game, GUI.ACTION.OPT2);
+        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(WildState.class));
+        Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
+    }
+
+    @Test
+    public void townToMenu() throws IOException {
+        controller.step(game, GUI.ACTION.OPT0);
+        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(MenuState.class));
+        Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
     }
 }
