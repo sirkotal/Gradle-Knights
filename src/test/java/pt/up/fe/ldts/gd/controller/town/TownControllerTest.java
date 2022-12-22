@@ -9,6 +9,7 @@ import pt.up.fe.ldts.gd.controller.menu.MenuController;
 import pt.up.fe.ldts.gd.gui.GUI;
 import pt.up.fe.ldts.gd.model.menu.Menu;
 import pt.up.fe.ldts.gd.model.player.Player;
+import pt.up.fe.ldts.gd.model.town.Shop;
 import pt.up.fe.ldts.gd.model.town.Town;
 import pt.up.fe.ldts.gd.model.wild.Wild;
 import pt.up.fe.ldts.gd.state.menu.MenuState;
@@ -22,6 +23,8 @@ public class TownControllerTest {
     private TownController controller;
     private Town town;
     private Wild wild;
+
+    private Shop shop;
     private Game game;
     private Player player;
 
@@ -36,20 +39,10 @@ public class TownControllerTest {
 
     @Test
     public void townToShop() throws IOException {
+        Mockito.when(game.getPreviousState()).thenReturn(Mockito.mock(ShopState.class));
         controller.step(game, GUI.ACTION.OPT1);
         Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
         Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(ShopState.class));
-    }
-
-    @Test
-    public void backToShop() throws IOException {
-        controller.step(game, GUI.ACTION.OPT1);
-        Mockito.verify(game, Mockito.times(1)).setState(game.getPreviousState());
-        Mockito.doCallRealMethod().when(game).setState(new TownState(town));
-
-        controller.step(game, GUI.ACTION.OPT1);
-        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(ShopState.class));
-        Mockito.verify(game, Mockito.times(1)).setState(game.getPreviousState());
     }
 
     @Test
