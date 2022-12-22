@@ -20,7 +20,6 @@ import java.io.IOException;
 
 public class TownControllerTest {
     private TownController controller;
-    private Menu menu;
     private Town town;
     private Wild wild;
     private Game game;
@@ -38,12 +37,19 @@ public class TownControllerTest {
     @Test
     public void townToShop() throws IOException {
         controller.step(game, GUI.ACTION.OPT1);
+        Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
+        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(ShopState.class));
+    }
+
+    @Test
+    public void backToShop() throws IOException {
+        controller.step(game, GUI.ACTION.OPT1);
         Mockito.verify(game, Mockito.times(1)).setState(game.getPreviousState());
-        game.setState(new TownState(town));
+        Mockito.doCallRealMethod().when(game).setState(new TownState(town));
 
         controller.step(game, GUI.ACTION.OPT1);
         Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(ShopState.class));
-        Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
+        Mockito.verify(game, Mockito.times(1)).setState(game.getPreviousState());
     }
 
     @Test
