@@ -4,7 +4,7 @@ Para tal tivemos como ideia um jogo do género RPG (role-playing game) onde o pe
 
 Exemplos jogo:
   
-        ![Screenshot](https://user-images.githubusercontent.com/93836408/209408623-715919f9-513c-4546-9103-4c3ebbac728f.png)
+        ![Screenshot](Screenshot.jpg)(https://user-images.githubusercontent.com/93836408/209408623-715919f9-513c-4546-9103-4c3ebbac728f.png)
         
         
                 
