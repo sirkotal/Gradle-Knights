@@ -14,7 +14,6 @@ public class Game {
     private final LanternaGUI gui;
 
     public Game() throws IOException {
-        System.out.println("Welcome to Gradle Knights!");
         this.gui = new LanternaGUI(125, 50);
         this.state = new MenuState(new Menu());
     }

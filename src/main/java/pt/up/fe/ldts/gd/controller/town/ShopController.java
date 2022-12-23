@@ -14,14 +14,10 @@ import java.io.IOException;
 import java.util.List;
 
 public class ShopController extends Controller<Shop> {
-    private Player player;
     private List<Item> items;
-    private ShopStrategy strategy;
     public ShopController(Shop shop) {
         super(shop);
-        this.player = getModel().getPlayer();
         this.items = getModel().getItems();
-        this.strategy = getModel().getStrategy();
     }
 
     @Override
@@ -33,31 +29,31 @@ public class ShopController extends Controller<Shop> {
             game.setState(game.getPreviousState());
         }
         if(action == GUI.ACTION.OPT1 && items.size() >= 1) {
-            if(strategy.buyItem(items.get(0), player))
+            if(getModel().buyItem(items.get(0)))
                 getModel().setMessage("You bought " + items.get(0).getName() + " successfully!");
             else
                 getModel().setMessage("You don't have enough gold!");
         }
         if(action == GUI.ACTION.OPT2 && items.size() >= 2) {
-            if(strategy.buyItem(items.get(1), player))
+            if(getModel().buyItem(items.get(1)))
                 getModel().setMessage("You bought " + items.get(1).getName() + " successfully!");
             else
                 getModel().setMessage("You don't have enough gold!");
         }
         if(action == GUI.ACTION.OPT3 && items.size() >= 3) {
-            if(strategy.buyItem(items.get(2), player))
+            if(getModel().buyItem(items.get(2)))
                 getModel().setMessage("You bought " + items.get(2).getName() + " successfully!");
             else
                 getModel().setMessage("You don't have enough gold!");
         }
         if(action == GUI.ACTION.OPT4 && items.size() >= 4) {
-            if(strategy.buyItem(items.get(3), player))
+            if(getModel().buyItem(items.get(3)))
                 getModel().setMessage("You bought " + items.get(3).getName() + " successfully!");
             else
                 getModel().setMessage("You don't have enough gold!");
         }
         if(action == GUI.ACTION.OPT5 && items.size() >= 5) {
-            if(strategy.buyItem(items.get(4), player))
+            if(getModel().buyItem(items.get(4)))
                 getModel().setMessage("You bought " + items.get(4).getName() + " successfully!");
             else
                 getModel().setMessage("You don't have enough gold!");

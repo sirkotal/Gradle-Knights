@@ -9,7 +9,9 @@ import pt.up.fe.ldts.gd.gui.GUI;
 import pt.up.fe.ldts.gd.model.player.Inventory;
 import pt.up.fe.ldts.gd.model.player.Item;
 import pt.up.fe.ldts.gd.model.player.Player;
+import pt.up.fe.ldts.gd.model.wild.Wild;
 import pt.up.fe.ldts.gd.state.menu.MenuState;
+import pt.up.fe.ldts.gd.state.wild.WildState;
 
 import java.io.IOException;
 
@@ -25,6 +27,9 @@ public class InventoryControllerTest {
         game = Mockito.mock(Game.class);
         inventory = new Inventory(player);
         controller = new InventoryController(inventory);
+
+        Mockito.when(game.getPreviousState()).thenReturn(Mockito.mock(WildState.class));
+        Mockito.when(game.getPreviousState().getModel()).thenReturn(Mockito.mock(Wild.class));
     }
 
     @Test
@@ -32,7 +37,8 @@ public class InventoryControllerTest {
         controller.step(game, GUI.ACTION.OPT0);
 
         Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(MenuState.class));
-        Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
+        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any(WildState.class));
+        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any());
         Mockito.verify(player, Mockito.times(0)).use(Mockito.any());
     }
 
@@ -40,8 +46,9 @@ public class InventoryControllerTest {
     public void goToWild() throws IOException {
         controller.step(game, GUI.ACTION.OPT9);
 
-        Mockito.verify(game, Mockito.times(1)).setState(game.getPreviousState());
+        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(WildState.class));
         Mockito.verify(game, Mockito.times(0)).setState(Mockito.any(MenuState.class));
+        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any());
         Mockito.verify(player, Mockito.times(0)).use(Mockito.any());
     }
 
@@ -53,8 +60,7 @@ public class InventoryControllerTest {
 
         Assertions.assertTrue(inventory.size() >= 1);
 
-        Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
-        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any(MenuState.class));
+        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
         Mockito.verify(player, Mockito.times(1)).use(inventory.getItem(0));
 
     }
@@ -64,8 +70,7 @@ public class InventoryControllerTest {
         while(inventory.size() < 1) {
             controller.step(game, GUI.ACTION.OPT2);
 
-            Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
-            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any(MenuState.class));
+            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
             Mockito.verify(player, Mockito.times(0)).use(Mockito.any(Item.class));
 
             inventory.addItem(Mockito.mock(Item.class));
@@ -81,8 +86,7 @@ public class InventoryControllerTest {
 
         Assertions.assertTrue(inventory.size() >= 2);
 
-        Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
-        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any(MenuState.class));
+        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
         Mockito.verify(player, Mockito.times(1)).use(inventory.getItem(1));
     }
 
@@ -91,8 +95,7 @@ public class InventoryControllerTest {
         while(inventory.size() < 2) {
             controller.step(game, GUI.ACTION.OPT2);
 
-            Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
-            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any(MenuState.class));
+            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
             Mockito.verify(player, Mockito.times(0)).use(Mockito.any(Item.class));
 
             inventory.addItem(Mockito.mock(Item.class));
@@ -108,8 +111,7 @@ public class InventoryControllerTest {
 
         Assertions.assertTrue(inventory.size() >= 3);
 
-        Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
-        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any(MenuState.class));
+        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
         Mockito.verify(player, Mockito.times(1)).use(inventory.getItem(2));
     }
 
@@ -118,8 +120,7 @@ public class InventoryControllerTest {
         while(inventory.size() < 3) {
             controller.step(game, GUI.ACTION.OPT3);
 
-            Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
-            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any(MenuState.class));
+            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
             Mockito.verify(player, Mockito.times(0)).use(Mockito.any(Item.class));
 
             inventory.addItem(Mockito.mock(Item.class));
@@ -135,8 +136,7 @@ public class InventoryControllerTest {
 
         Assertions.assertTrue(inventory.size() >= 4);
 
-        Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
-        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any(MenuState.class));
+        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
         Mockito.verify(player, Mockito.times(1)).use(inventory.getItem(3));
     }
 
@@ -145,8 +145,7 @@ public class InventoryControllerTest {
         while(inventory.size() < 4) {
             controller.step(game, GUI.ACTION.OPT4);
 
-            Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
-            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any(MenuState.class));
+            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
             Mockito.verify(player, Mockito.times(0)).use(Mockito.any(Item.class));
 
             inventory.addItem(Mockito.mock(Item.class));
@@ -162,8 +161,7 @@ public class InventoryControllerTest {
 
         Assertions.assertTrue(inventory.size() >= 5);
 
-        Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
-        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any(MenuState.class));
+        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
         Mockito.verify(player, Mockito.times(1)).use(inventory.getItem(4));
     }
 
@@ -172,8 +170,7 @@ public class InventoryControllerTest {
         while(inventory.size() < 5) {
             controller.step(game, GUI.ACTION.OPT5);
 
-            Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
-            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any(MenuState.class));
+            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
             Mockito.verify(player, Mockito.times(0)).use(Mockito.any(Item.class));
 
             inventory.addItem(Mockito.mock(Item.class));

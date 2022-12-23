@@ -9,11 +9,16 @@ import java.io.IOException;
 public class TownTest {
     @Test
     public void townTest() throws IOException {
-        Player p1 = new Player("Courier");
-        Town vegas = new Town(p1);
+        Player player = new Player("Courier");
 
-        Assertions.assertEquals(3, vegas.getOptions().size());
-        Assertions.assertEquals("Courier", vegas.getPlayer().getName());
-        Assertions.assertEquals(3, vegas.getShop().getItems().size());
+        // Assuming the player came from wild with low hp
+        player.setHP(10);
+
+        Town town = new Town(player);
+
+        Assertions.assertEquals(3, town.getOptions().size());
+        Assertions.assertEquals("Courier", town.getPlayer().getName());
+        Assertions.assertEquals(75, town.getPlayer().getHP());
+        Assertions.assertEquals(3, town.getShop().getItems().size());
     }
 }

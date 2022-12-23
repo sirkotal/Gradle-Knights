@@ -7,8 +7,8 @@ import java.io.IOException;
 
 public class CombatItemTest {
     @Test
-    public void swordTest() throws IOException {
-        Player p1 = new Player("Gus");
+    public void combatItemsTest() throws IOException {
+        Player player = new Player("Gus");
         CombatItem sword = new CombatItem("Excalibur", 100, 5000);
         CombatItem mace = new CombatItem("Mace of Molag Bal", 120, 7500);
         mace.setName("Horksbane");
@@ -19,9 +19,12 @@ public class CombatItemTest {
         Assertions.assertEquals(1, sword.getCount());
         Assertions.assertFalse(sword.isEquipped());
 
-        Assertions.assertEquals("Excalibur [Equipped]", sword.getNameEquipped());
-        p1.addItem(sword);
-        p1.use(sword);
+        Assertions.assertEquals(sword.getName() + " [Equipped]", sword.getNameEquipped());
+
+        player.addItem(sword);
+        player.use(sword);
+        Assertions.assertTrue(sword.isEquipped());
+
         sword.setUsed(false);
         Assertions.assertFalse(sword.isEquipped());
     }

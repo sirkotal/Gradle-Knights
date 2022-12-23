@@ -63,7 +63,6 @@ public class Player {
 
     public void use(Item item) {
         if(!inventory.getItems().contains(item)) {
-            System.out.println("not found");
             return;
         }
 
