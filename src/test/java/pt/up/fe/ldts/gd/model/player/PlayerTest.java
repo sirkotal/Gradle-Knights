@@ -7,53 +7,83 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 
 public class PlayerTest {
-    Player p1;
+    Player player;
     @BeforeEach
     public void setup() throws IOException {
-        p1 = new Player("Saul");
+        player = new Player("Saul");
     }
     @Test
-    public void InventoryTest() throws IOException {
+    public void InventoryTest() {
         CombatItem sword = new CombatItem("Excalibur", 100, 5000);
         CombatItem axe = new CombatItem("Skullcracker", 80, 3500);
         PotionItem potion = new PotionItem("Tap Water", 100, 100000);
-        p1.setGold(p1.getGold() + 10);
-        Assertions.assertEquals(25, p1.getGold());
-        Assertions.assertEquals(75, p1.getHP());
-        p1.addItem(sword);
-        p1.addItem(axe);
-        p1.addItem(potion);
-        Assertions.assertEquals(3, p1.getInventory().size());
-        p1.removeItem(potion);
-        Assertions.assertEquals(2, p1.getInventory().size());
+        player.setGold(player.getGold() + 10);
+        Assertions.assertEquals(25, player.getGold());
+        Assertions.assertEquals(75, player.getHP());
+        player.addItem(sword);
+        player.addItem(axe);
+        player.addItem(potion);
+        Assertions.assertEquals(3, player.getInventory().size());
+        player.removeItem(potion);
+        Assertions.assertEquals(2, player.getInventory().size());
     }
 
     @Test
-    public void PotionTest() throws IOException {
+    public void PotionTest() {
         PotionItem potion = new PotionItem("Tap Water", 100, 100000);
-        Assertions.assertEquals(75, p1.getHP());
-        p1.addItem(potion);
-        Assertions.assertEquals(1, p1.getInventory().size());
-        p1.use(potion);
-        Assertions.assertEquals(175, p1.getHP());
-        Assertions.assertEquals(0, p1.getInventory().size());
+        Assertions.assertEquals(75, player.getHP());
+        player.addItem(potion);
+        Assertions.assertEquals(1, player.getInventory().size());
+        player.use(potion);
+        Assertions.assertEquals(175, player.getHP());
+        Assertions.assertEquals(0, player.getInventory().size());
     }
 
     @Test
-    public void WeaponTest() throws IOException {
-        Assertions.assertEquals("Saul", p1.getName());
-        Assertions.assertEquals(true, p1.isAlive());
+    public void WeaponTest() {
+        Assertions.assertEquals("Saul", player.getName());
+        Assertions.assertTrue(player.isAlive());
+        Assertions.assertEquals(15, player.getDamage());
+
         CombatItem sword = new CombatItem("Excalibur", 100, 5000);
         CombatItem axe = new CombatItem("Skullcracker", 90, 3500);
-        Assertions.assertEquals(15, p1.getDamage());
-        p1.addItem(sword);
-        p1.addItem(axe);
-        Assertions.assertEquals(2, p1.getInventory().size());
-        p1.use(sword);
-        Assertions.assertEquals(115, p1.getDamage());
-        p1.use(axe);
-        Assertions.assertEquals(105, p1.getDamage());
-        Assertions.assertEquals(2, p1.getInventory().size());
+        player.addItem(sword);
+        player.addItem(axe);
+        Assertions.assertEquals(2, player.getInventory().size());
+        Assertions.assertEquals(2, player.getInventory().size());
+        Assertions.assertFalse(player.getInventory().getItem(0).isUsed());
+        Assertions.assertFalse(player.getInventory().getItem(1).isUsed());
+
+        player.use(sword);
+        Assertions.assertTrue(player.getInventory().getItem(0).isUsed());
+        Assertions.assertFalse(player.getInventory().getItem(1).isUsed());
+        Assertions.assertEquals(115, player.getDamage());
+
+        player.use(axe);
+        Assertions.assertFalse(player.getInventory().getItem(0).isUsed());
+        Assertions.assertTrue(player.getInventory().getItem(1).isUsed());
+        Assertions.assertEquals(105, player.getDamage());
+
+        String before = player.getInventory().getOptions().get(1); // axe
+
+        player.use(axe);
+        Assertions.assertFalse(player.getInventory().getItem(0).isUsed());
+        Assertions.assertFalse(player.getInventory().getItem(1).isUsed());
+        Assertions.assertEquals(15, player.getDamage());
+        Assertions.assertNotEquals(player.getInventory().getOptions().get(1), before);
+    }
+
+    @Test
+    public void itemDoesNotExist() {
+        CombatItem item = new CombatItem("item", 10, 10);
+
+        Assertions.assertEquals(15, player.getDamage());
+        Assertions.assertEquals(0, player.getInventory().size());
+
+        player.use(item);
+
+        Assertions.assertEquals(15, player.getDamage());
+        Assertions.assertEquals(0, player.getInventory().size());
     }
 }
 
