@@ -22,18 +22,14 @@ import java.io.IOException;
 public class TownControllerTest {
     private TownController controller;
     private Town town;
-    private Wild wild;
-
-    private Shop shop;
     private Game game;
     private Player player;
 
     @BeforeEach
     public void setup() throws IOException {
-        player = new Player("Master Chief");
+        player = Mockito.mock(Player.class);
         town = new Town(player);
         controller = new TownController(town);
-        wild = new Wild(player);
         game = Mockito.mock(Game.class);
     }
 
@@ -41,8 +37,9 @@ public class TownControllerTest {
     public void townToShop() throws IOException {
         Mockito.when(game.getPreviousState()).thenReturn(Mockito.mock(ShopState.class));
         controller.step(game, GUI.ACTION.OPT1);
-        Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
+
         Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(ShopState.class));
+        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any());
     }
 
     @Test
