@@ -3,19 +3,8 @@ Este trabalho realizado por João Pedro Rodrigues Coutinho (up202108787), Joaqui
 Para tal tivemos como ideia um jogo do género RPG (role-playing game) onde o personagem tem de explorar e coletar "gold" para se fortalecer e enfrentar diversos oponentes e desafios durante a sua jornada.
 
 Exemplos jogo:
-  
-        ![image](https://user-images.githubusercontent.com/93836408/209408623-715919f9-513c-4546-9103-4c3ebbac728f.png)
-        
-        
-                
-        ![image](https://user-images.githubusercontent.com/93836408/209408727-abb6b5a3-d8e7-441c-9414-debdfc94a90c.png)
-        
-        
-        
-        ![image](https://user-images.githubusercontent.com/93836408/209408782-c69aa4cc-2576-43ba-81f2-90552182d9f2.png)
+ ![image](https://user-images.githubusercontent.com/93836408/209411611-fc8738e9-8942-419a-ab5d-552bc881a334.png)
 
-        
-        ![image](https://user-images.githubusercontent.com/93836408/209408980-7d8ddb3e-1c7a-4dc2-b191-36215b4407cc.png)
 
 
         
