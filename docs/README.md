@@ -89,6 +89,23 @@ public boolean fight(Player player) {
 
 
 ### DESIGN
+#### CADA FASE DO JOGO DEVE TER O SEU PRÓRIO ESTADO E COMPORTAMENTO
+**Problem in Context**
+Tendo em conta a nossa visão do jogo, concordamos que para obter a melhor implementação possível seria para cada fase presente no jogo, esta possuir um comportamento unico, ou seja um _State_. Assim cada fase do jogo teria as suas semelhanças, mas ao mesmo tempo com uma facilidade de lhe ser adicionado as suas próprias características.
+
+**The Pattern**
+Utilizamos assim o **State** pattern. Com isto conseguimos que cada fase do jogo possua o seu próprio comportamento e que o jogo apenas tenha de alternar entre estados para se ir desenvolvendo. Sendo apenas necessário uma classe que cuide dos estados implementados, torna-se mais fácil interpretar o código e também a facilidade de criação de novos cenários ou _features_.
+
+**Implementation**
+
+![image](https://user-images.githubusercontent.com/93836408/209411569-8a3b088b-fd53-4059-b979-6866cbf2b6e6.png)
+
+**Consequences**
+O uso do Strategy Pattern traz os seguintes benifícios:
+- Permite que se criem novos states mais fácilmente
+- Torna a transição entre states mais percetível
+- Evita a utilização de condições
+
 #### DIFERENTES "TOWNS" TEM LOJAS COM PREÇOS DIFERENTES
 **Problem in Context**
 Decidimos que, baseado em vários rpgs, nem todas as Towns deveriam apresentar os mesmos valores de preços e raridade. Com isso, ao invés de os alterar diretamente no construtor decidimos implementar o strategy pattern para melhorar a leitura e possiveis adições de outras estratégias. Conseguimos assim tornar o nosso código mais flexível a mudanças de comportamento no que diz respeito as caracteristicas dos items. 
