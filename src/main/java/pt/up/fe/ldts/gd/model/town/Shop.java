@@ -13,7 +13,7 @@ public class Shop {
     private final List<Item> items;
     private final List<String> lines;
     private final Player player;
-    private final List<String> options;
+    private List<String> options;
     private ShopStrategy strategy; // we can have an item to change from expensive to cheap
     private String message;
 
@@ -58,8 +58,8 @@ public class Shop {
         this.message = "Welcome to the Shop!";
     }
 
-    public void buyItem(Item item) {
-        strategy.buyItem(item, player);
+    public boolean buyItem(Item item) {
+        return strategy.buyItem(item, player);
     }
 
     public List<Item> getItems(){
@@ -84,6 +84,19 @@ public class Shop {
 
     public void setStrategy(ShopStrategy strategy) {
         this.strategy = strategy;
+
+        List<String> options = new ArrayList<>();
+        for(int i = 1; i <= items.size(); i++) {
+            Item item = items.get(i-1);
+            if(strategy instanceof ExpensiveStrategy)
+                options.add(i + ": " + item.getName() + "(" + item.getValue() + "/" + item.getPrice() * 2 + ")");
+            else
+                options.add(i + ": " + item.getName() + "(" + item.getValue() + "/" + item.getPrice() + ")");
+        }
+        options.add("9: Town");
+        options.add("0: Menu");
+
+        this.options = options;
     }
 
     public void setMessage(String message) {
