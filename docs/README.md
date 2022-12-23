@@ -117,6 +117,8 @@ public void use(Item item) {
 - **Dano ao fugir** - Probabilidade de num caso de fuga levar dano
 - **Town antes de lutar** - Probabilidade de um town aparecer antes de defrontar todos os inimigos de uma wild
 - **Novos locais Town** - Locais onde pode interagir de mais diversas formas como por exemplo melhorar o armamento
+- **Sorte na wild** - Items perdidos que podem ser encontrados ao andar pela wild
+- **Quests** - Missões que o player poderia cumprir em troca de recompensas
 
 
 ### DESIGN
