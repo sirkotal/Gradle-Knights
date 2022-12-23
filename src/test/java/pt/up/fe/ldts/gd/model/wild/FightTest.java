@@ -62,7 +62,9 @@ public class FightTest {
         fight.getPlayer().setHP(75);
         fight.getPlayer().setGold(15);
 
-        fight.resultFight();
+        int loot = fight.resultFight();
+
+        Assertions.assertTrue(loot >= 10 && loot <= 20);
 
         Assertions.assertEquals(73, fight.getPlayer().getHP());
         Assertions.assertTrue(fight.getPlayer().getGold() >= 25 && fight.getPlayer().getGold() <= 35);
