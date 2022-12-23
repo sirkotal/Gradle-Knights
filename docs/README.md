@@ -114,9 +114,8 @@ public void use(Item item) {
 ### PLANNED FEATURES
 - **Raridade items** - Towns com lojas com items que apesar de mais caros são raros e mais fortes
 - **Lista Items Default** - List de items default onde os items podem ou não ser alterada consoante o comportamento da Town (mudança de preço e/ou raridade)
-- **Lista Ascii Art** - Ficheiro txt com todas as artes que vão ser utilizadas no jogo que será importado como uma lista
-- **States, Controllers, Viewers** - Base restante ao programa que irá comunicar entre si e o Model
-- **Decisões Player** - Capacidade de escolha de tentativa de fuga de uma luta
+- **Dano ao fugir** - Probabilidade de num caso de fuga levar dano
+- **Town antes de lutar** - Probabilidade de um town aparecer antes de defrontar todos os inimigos de uma wild
 - **Novos locais Town** - Locais onde pode interagir de mais diversas formas como por exemplo melhorar o armamento
 
 
