@@ -22,6 +22,9 @@ public class EnemyTest {
         enemy.setDamage(12);
         Assertions.assertEquals(12, enemy.getDamage());
 
+        enemy.setHP(0);
+        Assertions.assertFalse(enemy.isAlive());
+
         enemy.loot(player);
 
         Assertions.assertEquals(player.getGold(), initial_gold + enemy.getGold());
