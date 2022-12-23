@@ -4,11 +4,9 @@ Para tal tivemos como ideia um jogo do género RPG (role-playing game) onde o pe
 
 Exemplos jogo:
  ![image](https://user-images.githubusercontent.com/93836408/209411611-fc8738e9-8942-419a-ab5d-552bc881a334.png)
-
-
-
-        
-
+ ![image](https://user-images.githubusercontent.com/93836408/209411627-0ee091de-e26d-484f-833d-d53ad4ca5db9.png)
+ ![image](https://user-images.githubusercontent.com/93836408/209411635-493f5597-06f6-4ea3-a5e0-ea1d7c5630cf.png)
+ ![image](https://user-images.githubusercontent.com/93836408/209411643-24066da8-7ea8-4759-b67a-a64057574edf.png) 
 
 ### IMPLEMENTED FEATURES
 - **fight** - O player defronta um inimigo e consoante o resultado este morre ou ganha uma recompensa deixada pelo adversário além de alguma perda de pontos de vida;  
