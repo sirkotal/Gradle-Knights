@@ -4,7 +4,7 @@ Para tal tivemos como ideia um jogo do género RPG (role-playing game) onde o pe
 
 Exemplos jogo:
   
-        ![Screenshot](Screenshot.jpg)(https://user-images.githubusercontent.com/93836408/209408623-715919f9-513c-4546-9103-4c3ebbac728f.png)
+        ![image](https://user-images.githubusercontent.com/93836408/209408623-715919f9-513c-4546-9103-4c3ebbac728f.png)
         
         
                 
@@ -25,6 +25,9 @@ Exemplos jogo:
 - **fight** - O player defronta um inimigo e consoante o resultado este morre ou ganha uma recompensa deixada pelo adversário além de alguma perda de pontos de vida;  
 - **loot** - O player recolhe a recompensa do inimigo em caso de vitoria;  
 - **shop** - O player tem a possibilidade de utilizar o seu gold em troca de items que o fortalecem;
+- **set strategy** - Consoante a strategy determinada por um cálculo com um número _Random_ a shop aumenta ou não os preços dos items
+- **AsciiReader** - Permite a leitura de um ficheiro .txt com o objetivo de utilizar como imagem no terminal
+- **use** - Um player consegue usar um item que se encontre no seu inventário
 
 ```java
 public int buyItem(Player player, String itemName, boolean dup) {
