@@ -46,6 +46,13 @@ public class ShopViewerTest {
     }
 
     @Test
+    public void drawItemInfo() throws IOException {
+        viewer.draw(gui);
+
+        Mockito.verify(gui, Mockito.times(1)).drawText("Item(value/price)", 50,38, "#FFFFFF");
+    }
+
+    @Test
     public void drawOptions() throws IOException {
         viewer.draw(gui);
 
