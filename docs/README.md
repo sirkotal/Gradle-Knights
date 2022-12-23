@@ -6,10 +6,17 @@ Exemplos jogo:
   
         ![image](https://user-images.githubusercontent.com/93836408/209408623-715919f9-513c-4546-9103-4c3ebbac728f.png)
         
+        
+                
+        ![image](https://user-images.githubusercontent.com/93836408/209408727-abb6b5a3-d8e7-441c-9414-debdfc94a90c.png)
+        
+        
+        
+        ![image](https://user-images.githubusercontent.com/93836408/209408782-c69aa4cc-2576-43ba-81f2-90552182d9f2.png)
 
-        .
         
-        
+        ![image](https://user-images.githubusercontent.com/93836408/209408980-7d8ddb3e-1c7a-4dc2-b191-36215b4407cc.png)
+
 
         
 
