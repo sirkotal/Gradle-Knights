@@ -41,30 +41,75 @@ public int buyItem(Player player, String itemName, boolean dup) {
 ```
 
 ```java
-public void loot(Player player) {
-        player.setGold(player.getGold() + gold);
+    public int resultFight() {
+        while (player.isAlive() && enemy.isAlive()) {
+            player.setHP(player.getHP() - enemy.getDamage());
+            enemy.setHP(enemy.getHP() - player.getDamage());
+        }
+
+        int loot = 0;
+        if (player.isAlive()) {
+            loot = enemy.getGold();
+            enemy.loot(player);
+        }
+
+        return loot;
     }
 ```
-
 ```java
-public boolean fight(Player player) {
-        Random rand = new Random();
-        int num_enemy;
-        if(enemies.size() == 1)
-            num_enemy = 0;
-        else
-            num_enemy = rand.nextInt(enemies.size() - 1);
-        int player_total_atk = enemies.get(num_enemy).getHp() / player.getDamage();
-        int enemy_total_atk = player.getHp() / enemies.get(num_enemy).getDamage();
-        if(player_total_atk > enemy_total_atk)
-            return false;
-        player.setHp(player.getHp() - player_total_atk * enemies.get(num_enemy).getDamage());
-        enemies.get(num_enemy).loot(player);
-        enemies.remove(num_enemy);
-        return true;
-    }
-```
+public class AsciiReader {
+    static public List<String> readAscii(String path) throws IOException {
+        List<String> lines = new ArrayList<>();
+        URL resource = AsciiReader.class.getResource(path);
+        assert resource != null;
+        BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
+        for(String line; (line = br.readLine()) != null;)
+            lines.add(line);
+
+        return lines;
+    }
+}
+```
+```java
+public void use(Item item) {
+        if(!inventory.getItems().contains(item)) {
+            return;
+        }
+
+        if (item instanceof PotionItem) {
+            setHP(hp + item.getValue());
+            inventory.removeItem(item);
+        }
+
+        if (item instanceof CombatItem) {
+            int i;
+            for(i = 0; i < inventory.size(); i++) {
+                if(inventory.getItem(i).equals(item)) {
+                    break;
+                }
+            }
+
+            if(inventory.getItem(i).isUsed()) {
+                inventory.getItem(i).setUsed(false);
+                setDamage(damage - item.getValue());
+                inventory.refreshOptions();
+                return;
+            }
+
+            for(int j = 0; j < inventory.size(); j++) {
+                if (inventory.getItem(j).isUsed() && inventory.getItem(j) instanceof CombatItem) {
+                    inventory.getItem(j).setUsed(false);
+                    setDamage(damage - inventory.getItem(j).getValue());
+                }
+            }
+            setDamage(item.getValue() + damage);
+            inventory.getItem(i).setUsed(true);
+            inventory.refreshOptions();
+        }
+    }
+}
+```
 
 ### PLANNED FEATURES
 - **Raridade items** - Towns com lojas com items que apesar de mais caros são raros e mais fortes
