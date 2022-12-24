@@ -2,7 +2,7 @@
 Este trabalho realizado por João Pedro Rodrigues Coutinho (up202108787), Joaquim Afonso Marques da Cunha (up202108779) e Miguel Jorge Medeiros Garrido (up202108889) tem como objetivo a realização do projeto da disciplina "Laboratório de Desenho e Teste de Software" (L.EIC014) onde nos foi proposto a realização de um text-based game em Java. 
 Para tal tivemos como ideia um jogo do género RPG (role-playing game) onde o personagem tem de explorar e coletar "gold" para se fortalecer e enfrentar diversos oponentes e desafios durante a sua jornada.
 
-Exemplos jogo:
+Exemplos do jogo:
  ![image](https://user-images.githubusercontent.com/93836408/209411611-fc8738e9-8942-419a-ab5d-552bc881a334.png)
  ![image](https://user-images.githubusercontent.com/93836408/209411627-0ee091de-e26d-484f-833d-d53ad4ca5db9.png)
  ![image](https://user-images.githubusercontent.com/93836408/209411635-493f5597-06f6-4ea3-a5e0-ea1d7c5630cf.png)
