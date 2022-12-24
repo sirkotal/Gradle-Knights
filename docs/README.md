@@ -120,7 +120,7 @@ public void use(Item item) {
 - **Novos locais Wild** - Locais diferentes, como castelos ou minas, com tipos de recompensas diferentes
 - **Sorte na wild** - Items perdidos que podem ser encontrados ao andar pela wild
 - **Quests** - Missões que o player poderia cumprir em troca de recompensas
-
+- **Sistema de Níveis/Scaling** - O player teria a opção de, após reunir uma determinada quantidade de XP, subir de nível, aumentando ou o seu número de pontos de vida ou a quantidade de dano que inflinge aos inimigos; simultaneamente, o dano e os pontos de vida dos inimigos seriam scaled de acordo com o nível do player (quanto maior o nível do player, mais fortes seriam os inimigos)
 
 ### DESIGN
 #### CADA FASE DO JOGO DEVE TER O SEU PRÓRIO ESTADO E COMPORTAMENTO
@@ -163,7 +163,7 @@ Para isto decidimos usar o **Strategy** pattern. Este permite-nos que classes di
 - [ExpensiveStrategy](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/model/town/ExpensiveStrategy.java)
 
 **Consequences**
-O uso do Strategy Pattern traz os seguintes benifícios:
+O uso do Strategy Pattern traz os seguintes benefícios:
 - Permite que as Towns se diferenciem em termos de custo e raridade;
 - Fornece diferentes implementações e facilita novas que sejam desejadas no futuro;
 - Reduz o número de condições que teriam de ser utilizadas através do encapsulamento dos comportamentos em cada classe e do uso de polimorfismo;
