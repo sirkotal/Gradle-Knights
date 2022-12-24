@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Controller.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package pt.up.fe.ldts.gd.controller;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.up.fe.ldts.gd.Game;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pt.up.fe.ldts.gd.gui.GUI;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public abstract class Controller&#60;T&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final T model;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public Controller(T model) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.model = model;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public T getModel() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_16'/>
+16
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_16'>1</a>
+<span>
+1. getModel : replaced return value with null for pt/up/fe/ldts/gd/controller/Controller::getModel &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return model;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public abstract void step(Game game, GUI.ACTION action) throws IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4fb56bea_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4fb56bea_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4fb56bea_16'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getModel<br/><b>Killed by : </b>pt.up.fe.ldts.gd.controller.menu.MenuControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.menu.MenuControllerTest]/[method:selectedStartExit()]</span></span> replaced return value with null for pt/up/fe/ldts/gd/controller/Controller::getModel &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>pt.up.fe.ldts.gd.controller.player.InventoryControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.player.InventoryControllerTest]/[method:optionFourSuccessful()] (4 ms)</li><li>pt.up.fe.ldts.gd.controller.player.InventoryControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.player.InventoryControllerTest]/[method:optionThreeSuccessful()] (3 ms)</li><li>pt.up.fe.ldts.gd.controller.player.InventoryControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.player.InventoryControllerTest]/[method:goToMenu()] (2 ms)</li><li>pt.up.fe.ldts.gd.controller.town.ShopControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.ShopControllerTest]/[method:cannotBuyItemOne()] (3 ms)</li><li>pt.up.fe.ldts.gd.controller.player.InventoryControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.player.InventoryControllerTest]/[method:optionFiveFailed()] (6 ms)</li><li>pt.up.fe.ldts.gd.controller.town.ShopControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.ShopControllerTest]/[method:cannotBuyItemTwo()] (3 ms)</li><li>pt.up.fe.ldts.gd.controller.town.ShopControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.ShopControllerTest]/[method:cannotBuyItemThree()] (46 ms)</li><li>pt.up.fe.ldts.gd.controller.menu.MenuControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.menu.MenuControllerTest]/[method:verifyExitGame()] (315 ms)</li><li>pt.up.fe.ldts.gd.controller.town.ShopControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.ShopControllerTest]/[method:cannotBuyItemFour()] (6 ms)</li><li>pt.up.fe.ldts.gd.controller.town.TownControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.TownControllerTest]/[method:townToNewShop()] (3 ms)</li><li>pt.up.fe.ldts.gd.controller.menu.MenuControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.menu.MenuControllerTest]/[method:verifyStartGame()] (3 ms)</li><li>pt.up.fe.ldts.gd.controller.town.ShopControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.ShopControllerTest]/[method:cannotBuyItemFive()] (5 ms)</li><li>pt.up.fe.ldts.gd.controller.town.ShopControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.ShopControllerTest]/[method:doNotHaveItemThree()] (2 ms)</li><li>pt.up.fe.ldts.gd.controller.town.ShopControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.ShopControllerTest]/[method:canBuyItemOne()] (4 ms)</li><li>pt.up.fe.ldts.gd.controller.player.InventoryControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.player.InventoryControllerTest]/[method:optionOneSuccessful()] (2 ms)</li><li>pt.up.fe.ldts.gd.controller.town.ShopControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.ShopControllerTest]/[method:doNotHaveItemFour()] (3 ms)</li><li>pt.up.fe.ldts.gd.controller.player.InventoryControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.player.InventoryControllerTest]/[method:optionThreeFailed()] (4 ms)</li><li>pt.up.fe.ldts.gd.controller.town.ShopControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.ShopControllerTest]/[method:canBuyItemFive()] (10 ms)</li><li>pt.up.fe.ldts.gd.controller.wild.WildControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.wild.WildControllerTest]/[method:goToInventoryDead()] (32 ms)</li><li>pt.up.fe.ldts.gd.controller.wild.WildControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.wild.WildControllerTest]/[method:enemiesExists()] (5 ms)</li><li>pt.up.fe.ldts.gd.controller.player.InventoryControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.player.InventoryControllerTest]/[method:optionFiveSuccessful()] (5 ms)</li><li>pt.up.fe.ldts.gd.controller.town.ShopControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.ShopControllerTest]/[method:doNotHaveItemFive()] (3 ms)</li><li>pt.up.fe.ldts.gd.controller.menu.MenuControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.menu.MenuControllerTest]/[method:selectedStartExit()] (2 ms)</li><li>pt.up.fe.ldts.gd.controller.player.InventoryControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.player.InventoryControllerTest]/[method:optionOneFailed()] (1 ms)</li><li>pt.up.fe.ldts.gd.controller.wild.FightControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.wild.FightControllerTest]/[method:fightTest()] (37 ms)</li><li>pt.up.fe.ldts.gd.controller.wild.WildControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.wild.WildControllerTest]/[method:goToInventoryAlive()] (3 ms)</li><li>pt.up.fe.ldts.gd.controller.town.ShopControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.ShopControllerTest]/[method:canBuyItemThree()] (6 ms)</li><li>pt.up.fe.ldts.gd.controller.player.InventoryControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.player.InventoryControllerTest]/[method:goToWild()] (1 ms)</li><li>pt.up.fe.ldts.gd.controller.town.ShopControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.ShopControllerTest]/[method:doNotHaveItemTwo()] (1 ms)</li><li>pt.up.fe.ldts.gd.controller.town.TownControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.TownControllerTest]/[method:townToWild()] (3 ms)</li><li>pt.up.fe.ldts.gd.controller.town.ShopControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.ShopControllerTest]/[method:goToMenu()] (2 ms)</li><li>pt.up.fe.ldts.gd.controller.wild.WildControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.wild.WildControllerTest]/[method:oneEnemy()] (3 ms)</li><li>pt.up.fe.ldts.gd.controller.town.ShopControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.ShopControllerTest]/[method:canBuyItemTwo()] (5 ms)</li><li>pt.up.fe.ldts.gd.controller.town.ShopControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.ShopControllerTest]/[method:canBuyItemFour()] (4 ms)</li><li>pt.up.fe.ldts.gd.controller.player.InventoryControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.player.InventoryControllerTest]/[method:optionTwoSuccessful()] (3 ms)</li><li>pt.up.fe.ldts.gd.controller.player.InventoryControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.player.InventoryControllerTest]/[method:optionTwoFailed()] (98 ms)</li><li>pt.up.fe.ldts.gd.controller.player.InventoryControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.player.InventoryControllerTest]/[method:optionFourFailed()] (5 ms)</li><li>pt.up.fe.ldts.gd.controller.town.ShopControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.ShopControllerTest]/[method:goToTown()] (2 ms)</li><li>pt.up.fe.ldts.gd.controller.town.ShopControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.town.ShopControllerTest]/[method:doNotHaveItemOne()] (2 ms)</li><li>pt.up.fe.ldts.gd.controller.wild.WildControllerTest.[engine:junit-jupiter]/[class:pt.up.fe.ldts.gd.controller.wild.WildControllerTest]/[method:noEnemiesLeft()] (37 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.9.4
+
+</body>
+</html>
