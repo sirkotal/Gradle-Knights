@@ -120,7 +120,7 @@ public void use(Item item) {
 - **Novos locais Wild** - Locais diferentes, como castelos ou minas, com tipos de recompensas diferentes
 - **Sorte na wild** - Items perdidos que podem ser encontrados ao andar pela wild
 - **Quests** - Missões que o player poderia cumprir em troca de recompensas
-- **Sistema de Níveis/Scaling** - O player teria a opção de, após reunir uma determinada quantidade de XP, subir de nível, aumentando ou o seu número de pontos de vida ou a quantidade de dano que inflinge aos inimigos; simultaneamente, o dano e os pontos de vida dos inimigos seriam scaled de acordo com o nível do player (quanto maior o nível do player, mais fortes seriam os inimigos)
+- **Sistema de Níveis/Scaling** - O player teria a opção de, após reunir uma determinada quantidade de XP, subir de nível, aumentando ou o seu número de pontos de vida ou a quantidade base de dano que inflinge aos inimigos; simultaneamente, o dano e os pontos de vida dos inimigos seriam scaled de acordo com o nível do player (quanto maior o nível do player, mais fortes seriam os inimigos)
 
 ### DESIGN
 #### CADA FASE DO JOGO DEVE TER O SEU PRÓRIO ESTADO E COMPORTAMENTO
