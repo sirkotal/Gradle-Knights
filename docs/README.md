@@ -9,12 +9,12 @@ Exemplos do jogo:
  ![image](https://user-images.githubusercontent.com/93836408/209411643-24066da8-7ea8-4759-b67a-a64057574edf.png) 
 
 ### IMPLEMENTED FEATURES
-- **Fight** - O player defronta um inimigo e consoante o resultado este morre ou ganha uma recompensa deixada pelo adversário além de alguma perda de pontos de vida;  
-- **Loot** - O player recolhe a recompensa do inimigo em caso de vitoria;  
-- **Shop** - O player tem a possibilidade de utilizar o seu gold em troca de items que o fortalecem;
-- **Set Strategy** - Consoante a strategy determinada por um cálculo com um número _Random_ a shop aumenta ou não os preços dos items
-- **AsciiReader** - Permite a leitura de um ficheiro .txt com o objetivo de utilizar como imagem no terminal
-- **Use** - Um player consegue usar um item que se encontre no seu inventário
+- **Fight** - O player defronta um inimigo e, consoante o resultado, este morre ou ganha uma recompensa deixada pelo adversário, além de alguma perda de pontos de vida 
+- **Loot** - O player recolhe a recompensa do inimigo em caso de vitória
+- **Shop** - O player tem a possibilidade de utilizar o seu gold em troca de items que o fortalecem
+- **Set Strategy** - Consoante a strategy determinada por um cálculo com um número _Random_, a shop aumenta ou não os preços dos items
+- **AsciiReader** - Permite a leitura de um ficheiro .txt com o objetivo de o utilizar como imagem no terminal
+- **Use** - Um player consegue usar um item que se encontre no seu inventário, sendo este equipado ou removido do inventário consoante o tipo de item utilizado
 
 ```java
 public int buyItem(Player player, String itemName, boolean dup) {
@@ -112,11 +112,12 @@ public void use(Item item) {
 ```
 
 ### PLANNED FEATURES
-- **Raridade items** - Towns com lojas com items que apesar de mais caros são raros e mais fortes
-- **Lista Items Default** - List de items default onde os items podem ou não ser alterada consoante o comportamento da Town (mudança de preço e/ou raridade)
+- **Raridade items** - Towns com lojas com items que, apesar de mais caros, são raros e mais fortes
+- **Lista Items Default** - List de items default onde os items podem ou não ser alterados consoante o comportamento da Town (mudança de preço e/ou raridade)
 - **Dano ao fugir** - Probabilidade de num caso de fuga levar dano (neste momento fugir garante que saias ileso e fiques mais próximo da próxima town, mas não ganhas gold!)
-- **Town antes de lutar** - Probabilidade de um town aparecer antes de defrontar todos os inimigos de uma wild
-- **Novos locais Town** - Locais onde pode interagir de mais diversas formas como por exemplo melhorar o armamento
+- **Town antes de lutar** - Probabilidade de uma town aparecer antes de defrontar todos os inimigos de uma wild
+- **Novos locais Town** - Locais onde pode interagir de mais diversas formas como, por exemplo, melhorar o armamento
+- **Novos locais Wild** - Locais diferentes, como castelos ou minas, com tipos de recompensas diferentes
 - **Sorte na wild** - Items perdidos que podem ser encontrados ao andar pela wild
 - **Quests** - Missões que o player poderia cumprir em troca de recompensas
 
@@ -124,10 +125,10 @@ public void use(Item item) {
 ### DESIGN
 #### CADA FASE DO JOGO DEVE TER O SEU PRÓRIO ESTADO E COMPORTAMENTO
 **Problem in Context**
-Tendo em conta a nossa visão do jogo, concordamos que para obter a melhor implementação possível seria para cada fase presente no jogo, esta possuir um comportamento unico, ou seja um _State_. Assim cada fase do jogo teria as suas semelhanças, mas ao mesmo tempo com uma facilidade de lhe ser adicionado as suas próprias características.
+Tendo em conta a nossa visão do jogo, concordamos que para obter a melhor implementação possível para cada fase presente no jogo, esta teria de possuir um comportamento único, ou seja, um _State_. Assim cada fase do jogo teria as suas semelhanças, mas ao mesmo tempo com uma facilidade de lhe ser adicionado as suas próprias características.
 
 **The Pattern**
-Utilizamos assim o **State** pattern. Com isto conseguimos que cada fase do jogo possua o seu próprio comportamento e que o jogo apenas tenha de alternar entre estados para se ir desenvolvendo. Sendo apenas necessário uma classe que cuide dos estados implementados, torna-se mais fácil interpretar o código e também a facilidade de criação de novos cenários ou _features_.
+Utilizamos assim o **State** pattern. Com isto, conseguimos que cada fase do jogo possua o seu próprio comportamento e que o jogo apenas tenha de alternar entre estados para se ir desenvolvendo. Sendo apenas necessário uma classe que cuide dos estados implementados, torna-se mais fácil interpretar o código e também a facilidade de criação de novos cenários ou _features_.
 
 **Implementation**
 
@@ -141,17 +142,17 @@ Utilizamos assim o **State** pattern. Com isto conseguimos que cada fase do jogo
 - [MenuState](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/state/menu/MenuState.java)
 
 **Consequences**
-O uso do Strategy Pattern traz os seguintes benifícios:
+O uso do State Pattern traz os seguintes benifícios:
 - Permite que se criem novos states mais fácilmente
 - Torna a transição entre states mais percetível
 - Evita a utilização de condições
 
-#### DIFERENTES "TOWNS" TEM LOJAS COM PREÇOS DIFERENTES
+#### DIFERENTES "TOWNS" TÊM LOJAS COM PREÇOS DIFERENTES
 **Problem in Context**
-Decidimos que, baseado em vários rpgs, nem todas as Towns deveriam apresentar os mesmos valores de preços e raridade. Com isso, ao invés de os alterar diretamente no construtor decidimos implementar o strategy pattern para melhorar a leitura e possiveis adições de outras estratégias. Conseguimos assim tornar o nosso código mais flexível a mudanças de comportamento no que diz respeito as caracteristicas dos items. 
+Decidimos que, baseado em vários RPGs, nem todas as Towns deveriam apresentar os mesmos valores de preços e raridade. Com isso, ao invés de os alterar diretamente no construtor decidimos implementar o strategy pattern para melhorar a leitura e possiveis adições de outras estratégias. Conseguimos assim tornar o nosso código mais flexível a mudanças de comportamento no que diz respeito as caracteristicas dos items. 
 
 **The Pattern**
-Para isto decidimos usar o **Strategy** pattern. Este permite-nos que classes difiram apenas no seu comportamento e que consiga ser alterado em "run time". Neste design pattern conseguimos alterar facilmente o comportamento de um objeto consoante a strategy. Este pattern facilitou-nos a resolução do nosso problema, pois conseguimos alterar o comportamento de uma Town, tornando mais interativa as lojas ao apresentarem diferentes preços ao player
+Para isto decidimos usar o **Strategy** pattern. Este permite-nos que classes difiram apenas no seu comportamento e que consiga ser alterado em "run time". Neste design pattern, conseguimos alterar facilmente o comportamento de um objeto consoante a strategy. Este pattern facilitou-nos a resolução do nosso problema, pois conseguimos alterar o comportamento de uma Town, tornando mais interativa as lojas ao apresentarem diferentes preços ao player.
 
 **Implementation**
 
@@ -170,10 +171,10 @@ O uso do Strategy Pattern traz os seguintes benifícios:
 
 #### EXISTEM DIFERENTES CATEGORIAS DE ITEMS
 **Problem in Context**
-Consideramos que os items deveriam ser rotulados consoante o seu tipo, pois estes podiam ter diferentes responsabilidades e atributos. Optamos assim por utilizar o factory method pattern nos items que melhora a leitura e a manutenção de código como também facilita a adição ou remoção de algum tipo num futuro ou noutra fase do jogo.
+Consideramos que os items deveriam ser rotulados consoante o seu tipo, pois estes podiam ter diferentes responsabilidades e atributos. Optamos assim por utilizar o Factory Method pattern nos items, que melhora a leitura e a manutenção de código como também facilita a adição ou remoção de algum tipo num futuro ou noutra fase do jogo.
 
 **The Pattern**
-Como referido em cima utilizamos o **Factory Method** patern. Com este design pattern damos liberdade à subclasse de decidir qual quer instanciar através de uma interface ou de uma classe abstrata. Conseguimos com isto, também, esconder a lógica, da criação dos objetos, do cliente.
+Como referido em cima utilizamos o **Factory Method** patern. Com este design pattern, damos liberdade à subclasse de decidir qual quer instanciar através de uma interface ou de uma classe abstrata. Conseguimos com isto, também, esconder a lógica, da criação dos objetos, do cliente.
 
 **Implementation**
 
@@ -192,9 +193,9 @@ Como referido em cima utilizamos o **Factory Method** patern. Com este design pa
 
 
 ### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
-Consideramos que nas classes shop, inventory e fight podemos encontrar um code smell na característica de _bloater_, pois como na definição deste, possuímos uma classe extensa e complexa que torna difícil o trabalho sobre esta, mais prórpiamente pelo facto de encontrarmos uma classe extensa e com demasiados parâmetros nos seus metodos. No entanto, devido à utilização da estrutura do MVC, não consideramos possivel um refactor possível para resolver este code smell.\
-Também consideramos que não é o mais correto guardar o leitor das ascii nos próprios modelos que falha o primeiro princípio do SOLID, "The Single Responsibility Principle".\
-A classe [AmuletItem](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/model/player/AmuletItem.java) não é utilizada encontra-se apenas implementada, mas só com o objetivo de demonstrar como seria realizado o strategy pattern com a shop.
+Consideramos que nas classes Shop, Inventory e Fight podemos encontrar um code smell na característica de _bloater_, pois como na definição deste, possuímos uma classe extensa e complexa que torna difícil o trabalho sobre esta, mais própriamente pelo facto de encontrarmos uma classe longa e com demasiados parâmetros nos seus métodos. No entanto, devido à utilização da estrutura do MVC, não consideramos possivel um refactor adequado para resolver este code smell.\
+Também consideramos que não é o mais correto guardar o leitor das ASCII nos próprios modelos, que falha o primeiro princípio do SOLID, "The Single Responsibility Principle".\
+A classe [AmuletItem](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/model/player/AmuletItem.java) não é utilizada; encontra-se apenas implementada, mas só com o objetivo de demonstrar como seria realizado o Strategy pattern com a shop.
 
 ### TESTING
 ![image](https://user-images.githubusercontent.com/93836408/209417085-a16f40ef-57fe-4099-9135-7212b3166bc1.png)
