@@ -9,12 +9,12 @@ Exemplos do jogo:
  ![image](https://user-images.githubusercontent.com/93836408/209411643-24066da8-7ea8-4759-b67a-a64057574edf.png) 
 
 ### IMPLEMENTED FEATURES
-- **fight** - O player defronta um inimigo e consoante o resultado este morre ou ganha uma recompensa deixada pelo adversário além de alguma perda de pontos de vida;  
-- **loot** - O player recolhe a recompensa do inimigo em caso de vitoria;  
-- **shop** - O player tem a possibilidade de utilizar o seu gold em troca de items que o fortalecem;
-- **set strategy** - Consoante a strategy determinada por um cálculo com um número _Random_ a shop aumenta ou não os preços dos items
+- **Fight** - O player defronta um inimigo e consoante o resultado este morre ou ganha uma recompensa deixada pelo adversário além de alguma perda de pontos de vida;  
+- **Loot** - O player recolhe a recompensa do inimigo em caso de vitoria;  
+- **Shop** - O player tem a possibilidade de utilizar o seu gold em troca de items que o fortalecem;
+- **Set Strategy** - Consoante a strategy determinada por um cálculo com um número _Random_ a shop aumenta ou não os preços dos items
 - **AsciiReader** - Permite a leitura de um ficheiro .txt com o objetivo de utilizar como imagem no terminal
-- **use** - Um player consegue usar um item que se encontre no seu inventário
+- **Use** - Um player consegue usar um item que se encontre no seu inventário
 
 ```java
 public int buyItem(Player player, String itemName, boolean dup) {
@@ -192,10 +192,9 @@ Como referido em cima utilizamos o **Factory Method** patern. Com este design pa
 
 
 ### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
-Consideramos que nas classes shop, inventory e fight podemos encontrar um code smell na característica de _bloater_, pois como na definição deste, possuímos uma classe extensa e complexa que torna difícil o trabalho sobre esta, mais prórpiamente pelo facto de encontrarmos uma classe extensa e com demasiados parâmetros nos seus metodos. No entanto, devido à utilização da estrutura do MVC, não consideramos possivel um refactor possível para resolver este code smell.
-Também consideramos que não é o mais correto guardar o leitor das ascii nos próprios modelos que falha o primeiro princípio do SOLID, "The Single Responsibility Principle"
-A classe AmuletItem não é utilizada encontra-se apenas implementada, mas só com o objetivo de demonstrar como seria realizado o strategy pattern com a shop.
-- [AmuletItem](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/model/player/AmuletItem.java)
+Consideramos que nas classes shop, inventory e fight podemos encontrar um code smell na característica de _bloater_, pois como na definição deste, possuímos uma classe extensa e complexa que torna difícil o trabalho sobre esta, mais prórpiamente pelo facto de encontrarmos uma classe extensa e com demasiados parâmetros nos seus metodos. No entanto, devido à utilização da estrutura do MVC, não consideramos possivel um refactor possível para resolver este code smell.\
+Também consideramos que não é o mais correto guardar o leitor das ascii nos próprios modelos que falha o primeiro princípio do SOLID, "The Single Responsibility Principle".\
+A classe [AmuletItem](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/model/player/AmuletItem.java) não é utilizada encontra-se apenas implementada, mas só com o objetivo de demonstrar como seria realizado o strategy pattern com a shop.
 
 ### TESTING
 ![image](https://user-images.githubusercontent.com/93836408/209417085-a16f40ef-57fe-4099-9135-7212b3166bc1.png)
@@ -363,7 +362,7 @@ public class InventoryTest {
 }
 ```
 ![image](https://user-images.githubusercontent.com/93836408/209418656-37aeedf8-36de-40e7-8f6f-80dcd6036707.png)
-- [mutation test report](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/docs/pitest_report/index.html)
+- [Mutation Test Report](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/docs/pitest_report/index.html)
 
 
 
