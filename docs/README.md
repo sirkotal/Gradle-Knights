@@ -230,166 +230,115 @@ TownControllerTest {
 ```
 
 ```java
-public class InventoryControllerTest {
-    private InventoryController controller;
+public class InventoryTest {
     private Inventory inventory;
-    private Player player;
-    private Game game;
 
     @BeforeEach
     public void setup() throws IOException {
-        player = Mockito.mock(Player.class);
-        game = Mockito.mock(Game.class);
+        Player player = Mockito.mock(Player.class);
         inventory = new Inventory(player);
-        controller = new InventoryController(inventory);
-
-        Mockito.when(game.getPreviousState()).thenReturn(Mockito.mock(WildState.class));
-        Mockito.when(game.getPreviousState().getModel()).thenReturn(Mockito.mock(Wild.class));
     }
 
     @Test
-    public void goToMenu() throws IOException {
-        controller.step(game, GUI.ACTION.OPT0);
+    public void addAndRemoveItems() {
+        CombatItem katana = new CombatItem("Uchigatana", 100, 5000);
+        PotionItem potion = new PotionItem("Blood God's Offering", 200, 3500);
 
-        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(MenuState.class));
-        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any(WildState.class));
-        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any());
-        Mockito.verify(player, Mockito.times(0)).use(Mockito.any());
+        Assertions.assertEquals(2, inventory.getOptions().size());
+
+        inventory.addItem(katana);
+        Assertions.assertEquals(3, inventory.getOptions().size());
+
+        inventory.addItem(potion);
+        Assertions.assertEquals(4, inventory.getOptions().size());
+
+        Assertions.assertEquals(2, inventory.size());
+        Assertions.assertEquals("Blood God's Offering", inventory.getItem(1).getName());
+        Assertions.assertFalse(inventory.isEmpty());
+
+        inventory.removeItem(katana);
+        Assertions.assertEquals(3, inventory.getOptions().size());
+        Assertions.assertEquals(1, inventory.size());
     }
 
     @Test
-    public void goToWild() throws IOException {
-        controller.step(game, GUI.ACTION.OPT9);
+    public void addSameItem() {
+        CombatItem item = new CombatItem("Degree", 1000, 1000000000);
+        Assertions.assertEquals(2, inventory.getOptions().size());
 
-        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(WildState.class));
-        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any(MenuState.class));
-        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any());
-        Mockito.verify(player, Mockito.times(0)).use(Mockito.any());
+        inventory.addItem(item);
+
+        Assertions.assertEquals(1, inventory.size());
+        Assertions.assertEquals(1, inventory.getItem(0).getCount());
+        Assertions.assertEquals(3, inventory.getOptions().size());
+
+        inventory.addItem(item);
+
+        Assertions.assertEquals(1, inventory.size());
+        Assertions.assertEquals(2, inventory.getItem(0).getCount());
+        Assertions.assertEquals(3, inventory.getOptions().size());
     }
 
     @Test
-    public void optionOneSuccessful() throws IOException {
-        inventory.addItem(Mockito.mock(Item.class));
+    public void removeSameItem() {
+        CombatItem item = new CombatItem("Degree", 1000, 1000000000);
+        inventory.addItem(item);
+        inventory.addItem(item);
 
-        controller.step(game, GUI.ACTION.OPT1);
+        Assertions.assertEquals(1, inventory.size());
+        Assertions.assertEquals(2, inventory.getItem(0).getCount());
+        Assertions.assertEquals(3, inventory.getOptions().size());
 
-        Assertions.assertTrue(inventory.size() >= 1);
 
-        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
-        Mockito.verify(player, Mockito.times(1)).use(inventory.getItem(0));
+        inventory.removeItem(item);
 
+        Assertions.assertEquals(1, inventory.size());
+        Assertions.assertEquals(1, inventory.getItem(0).getCount());
+        Assertions.assertEquals(3, inventory.getOptions().size());
+
+        inventory.removeItem(item);
+
+        Assertions.assertEquals(0, inventory.size());
+        Assertions.assertEquals(2, inventory.getOptions().size());
     }
 
     @Test
-    public void optionOneFailed() throws IOException {
-        while(inventory.size() < 1) {
-            controller.step(game, GUI.ACTION.OPT2);
+    public void removeExistingPotion() {
+        PotionItem item = new PotionItem("Methylamine", 10000, 100000);
 
-            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
-            Mockito.verify(player, Mockito.times(0)).use(Mockito.any(Item.class));
+        Assertions.assertEquals(0, inventory.size());
+        Assertions.assertEquals(2, inventory.getOptions().size());
 
-            inventory.addItem(Mockito.mock(Item.class));
-        }
+        inventory.addItem(item);
+        inventory.addItem(item);
+
+        Assertions.assertEquals(1, inventory.size());
+        Assertions.assertEquals(3, inventory.getOptions().size());
+        Assertions.assertEquals(2, inventory.getItem(0).getCount());
+
+        String before = inventory.getOptions().get(0);
+
+        inventory.removeItem(item);
+
+        Assertions.assertEquals(1, inventory.size());
+        Assertions.assertEquals(3, inventory.getOptions().size());
+        Assertions.assertEquals(1, inventory.getItem(0).getCount());
+
+        Assertions.assertNotEquals(inventory.getOptions().get(0), before);
     }
 
     @Test
-    public void optionTwoSuccessful() throws IOException {
-        for(int i = 0; i < 2; i++)
-            inventory.addItem(Mockito.mock(Item.class));
+    public void equippedRefreshOptions() {
+        CombatItem katana = new CombatItem("Uchigatana", 100, 5000);
+        inventory.addItem(katana);
 
-        controller.step(game, GUI.ACTION.OPT2);
-
-        Assertions.assertTrue(inventory.size() >= 2);
-
-        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
-        Mockito.verify(player, Mockito.times(1)).use(inventory.getItem(1));
-    }
-
-    @Test
-    public void optionTwoFailed() throws IOException {
-        while(inventory.size() < 2) {
-            controller.step(game, GUI.ACTION.OPT2);
-
-            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
-            Mockito.verify(player, Mockito.times(0)).use(Mockito.any(Item.class));
-
-            inventory.addItem(Mockito.mock(Item.class));
-        }
-    }
-
-    @Test
-    public void optionThreeSuccessful() throws IOException {
-        for(int i = 0; i < 3; i++)
-            inventory.addItem(Mockito.mock(Item.class));
-
-        controller.step(game, GUI.ACTION.OPT3);
-
-        Assertions.assertTrue(inventory.size() >= 3);
-
-        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
-        Mockito.verify(player, Mockito.times(1)).use(inventory.getItem(2));
-    }
-
-    @Test
-    public void optionThreeFailed() throws IOException {
-        while(inventory.size() < 3) {
-            controller.step(game, GUI.ACTION.OPT3);
-
-            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
-            Mockito.verify(player, Mockito.times(0)).use(Mockito.any(Item.class));
-
-            inventory.addItem(Mockito.mock(Item.class));
-        }
-    }
-
-    @Test
-    public void optionFourSuccessful() throws IOException {
-        for(int i = 0; i < 4; i++)
-            inventory.addItem(Mockito.mock(Item.class));
-
-        controller.step(game, GUI.ACTION.OPT4);
-
-        Assertions.assertTrue(inventory.size() >= 4);
-
-        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
-        Mockito.verify(player, Mockito.times(1)).use(inventory.getItem(3));
-    }
-
-    @Test
-    public void optionFourFailed() throws IOException {
-        while(inventory.size() < 4) {
-            controller.step(game, GUI.ACTION.OPT4);
-
-            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
-            Mockito.verify(player, Mockito.times(0)).use(Mockito.any(Item.class));
-
-            inventory.addItem(Mockito.mock(Item.class));
-        }
-    }
-
-    @Test
-    public void optionFiveSuccessful() throws IOException {
-        for(int i = 0; i < 5; i++)
-            inventory.addItem(Mockito.mock(Item.class));
-
-        controller.step(game, GUI.ACTION.OPT5);
-
-        Assertions.assertTrue(inventory.size() >= 5);
-
-        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
-        Mockito.verify(player, Mockito.times(1)).use(inventory.getItem(4));
-    }
-
-    @Test
-    public void optionFiveFailed() throws IOException {
-        while(inventory.size() < 5) {
-            controller.step(game, GUI.ACTION.OPT5);
-
-            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
-            Mockito.verify(player, Mockito.times(0)).use(Mockito.any(Item.class));
-
-            inventory.addItem(Mockito.mock(Item.class));
-        }
+        String before = inventory.getOptions().get(0);
+        katana.setUsed(true);
+        inventory.refreshOptions();
+        Assertions.assertNotEquals(inventory.getOptions().get(0), before);
+        katana.setUsed(false);
+        inventory.refreshOptions();
+        Assertions.assertEquals(inventory.getOptions().get(0), before);
     }
 }
 ```
