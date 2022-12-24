@@ -148,7 +148,7 @@ Para isto decidimos usar o **Strategy** pattern. Este permite-nos que classes di
 
 **Implementation**
 
-![image](https://user-images.githubusercontent.com/93836408/204079847-0df94821-a0a9-4f4b-993a-562486438b83.png)
+![image](https://user-images.githubusercontent.com/93836408/209419865-4c752ac1-33a5-4c08-b6d1-529846e1c3e9.png)
 
 **Consequences**
 O uso do Strategy Pattern traz os seguintes benifícios:
