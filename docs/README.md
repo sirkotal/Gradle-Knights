@@ -174,7 +174,7 @@ O uso do Strategy Pattern traz os seguintes benifícios:
 Consideramos que os items deveriam ser rotulados consoante o seu tipo, pois estes podiam ter diferentes responsabilidades e atributos. Optamos assim por utilizar o Factory Method pattern nos items, que melhora a leitura e a manutenção de código como também facilita a adição ou remoção de algum tipo num futuro ou noutra fase do jogo.
 
 **The Pattern**
-Como referido em cima utilizamos o **Factory Method** patern. Com este design pattern, damos liberdade à subclasse de decidir qual quer instanciar através de uma interface ou de uma classe abstrata. Conseguimos com isto, também, esconder a lógica, da criação dos objetos, do cliente.
+Como referido em cima utilizamos o **Factory Method** patern. Com este design pattern, damos liberdade à subclasse de decidir que classe é necessário instanciar, através de uma interface ou de uma classe abstrata. Conseguimos, com isto, também esconder a lógica da criação dos objetos do cliente.
 
 **Implementation**
 
@@ -189,7 +189,7 @@ Como referido em cima utilizamos o **Factory Method** patern. Com este design pa
 **Consequences**
 - Facilidade na reutilização de código
 - Promove o Loose Coupling
-- Aumenta o numero de classes utilizadas
+- Aumenta o número de classes utilizadas
 
 
 ### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
