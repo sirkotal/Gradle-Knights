@@ -1,5 +1,5 @@
 ## FEUP-LDTS-PROJ
-Este trabalho realizado por João Pedro Rodrigues Coutinho (up202108787), Joaquim Afonso Marques da Cunha (up202108779) e Miguel Jorge Medeiros Garrido (up202108889) tem como objetivo a realização do projeto da disciplina "Laboratório de Desenho e Teste de Software" (L.EIC014) onde nos foi proposto a realização de um text-based game em Java. 
+Este trabalho realizado por João Pedro Rodrigues Coutinho (up202108787), Joaquim Afonso Marques da Cunha (up202108779) e Miguel Jorge Medeiros Garrido (up202108889) tem como objetivo a realização do projeto da disciplina "Laboratório de Desenho e Teste de Software" (L.EIC014), onde nos foi proposto a realização de um text-based game em Java. 
 Para tal tivemos como ideia um jogo do género RPG (role-playing game) onde o personagem tem de explorar e coletar "gold" para se fortalecer e enfrentar diversos oponentes e desafios durante a sua jornada.
 
 Exemplos do jogo:
@@ -112,20 +112,20 @@ public void use(Item item) {
 ```
 
 ### PLANNED FEATURES
-- **Raridade items** - Towns com lojas com items que, apesar de mais caros, são raros e mais fortes
-- **Lista Items Default** - List de items default onde os items podem ou não ser alterados consoante o comportamento da Town (mudança de preço e/ou raridade)
-- **Dano ao fugir** - Probabilidade de num caso de fuga levar dano (neste momento fugir garante que saias ileso e fiques mais próximo da próxima town, mas não ganhas gold!)
+- **Raridade items** - Towns com lojas que vendem items que, apesar de mais caros, são raros e mais fortes
+- **Lista Items Default** - List de items default onde os items podem ou não ser alterados, consoante o comportamento da Town (mudança de preço e/ou raridade)
+- **Dano ao fugir** - Probabilidade de num caso de fuga levar dano (neste momento, fugir garante que sais ileso e fiques mais próximo da próxima town, mas não ganhas gold!)
 - **Town antes de lutar** - Probabilidade de uma town aparecer antes de defrontar todos os inimigos de uma wild
-- **Novos locais Town** - Locais onde pode interagir de mais diversas formas como, por exemplo, melhorar o armamento
+- **Novos locais Town** - Locais com diversas novas interações como, por exemplo, melhorar o armamento ou criar poções novas
 - **Novos locais Wild** - Locais diferentes, como castelos ou minas, com tipos de recompensas diferentes
 - **Sorte na wild** - Items perdidos que podem ser encontrados ao andar pela wild
-- **Quests** - Missões que o player poderia cumprir em troca de recompensas
+- **Quests/NPCs** - Missões que o player poderia cumprir em troca de recompensas, associadas a determinados NPCs
 - **Sistema de Níveis/Scaling** - O player teria a opção de, após reunir uma determinada quantidade de XP, subir de nível, aumentando ou o seu número de pontos de vida ou a quantidade base de dano que inflinge aos inimigos; simultaneamente, o dano e os pontos de vida dos inimigos seriam scaled de acordo com o nível do player (quanto maior o nível do player, mais fortes seriam os inimigos)
 
 ### DESIGN
 #### CADA FASE DO JOGO DEVE TER O SEU PRÓRIO ESTADO E COMPORTAMENTO
 **Problem in Context**
-Tendo em conta a nossa visão do jogo, concordamos que para obter a melhor implementação possível para cada fase presente no jogo, esta teria de possuir um comportamento único, ou seja, um _State_. Assim cada fase do jogo teria as suas semelhanças, mas ao mesmo tempo com uma facilidade de lhe ser adicionado as suas próprias características.
+Tendo em conta a nossa visão do jogo, concordamos que para obter a melhor implementação possível para cada fase presente no jogo, esta teria de possuir um comportamento único, ou seja, um _State_. Assim, cada fase do jogo teria as suas semelhanças, mas ao mesmo tempo com uma facilidade de lhe ser adicionado as suas próprias características.
 
 **The Pattern**
 Utilizamos assim o **State** pattern. Com isto, conseguimos que cada fase do jogo possua o seu próprio comportamento e que o jogo apenas tenha de alternar entre estados para se ir desenvolvendo. Sendo apenas necessário uma classe que cuide dos estados implementados, torna-se mais fácil interpretar o código e também a facilidade de criação de novos cenários ou _features_.
