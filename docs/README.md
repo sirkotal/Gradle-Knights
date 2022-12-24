@@ -194,7 +194,8 @@ Como referido em cima utilizamos o **Factory Method** patern. Com este design pa
 ### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 Consideramos que nas classes shop, inventory e fight podemos encontrar um code smell na característica de _bloater_, pois como na definição deste, possuímos uma classe extensa e complexa que torna difícil o trabalho sobre esta, mais prórpiamente pelo facto de encontrarmos uma classe extensa e com demasiados parâmetros nos seus metodos. No entanto, devido à utilização da estrutura do MVC, não consideramos possivel um refactor possível para resolver este code smell.
 Também consideramos que não é o mais correto guardar o leitor das ascii nos próprios modelos que falha o primeiro princípio do SOLID, "The Single Responsibility Principle"
-A classe AmuletItem não é utilizada encontra-se apenas implementada, mas só com o objetivo de demonstrar como seria realizado o strategy pattern com a shop
+A classe AmuletItem não é utilizada encontra-se apenas implementada, mas só com o objetivo de demonstrar como seria realizado o strategy pattern com a shop.
+- [AmuletItem](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/model/player/AmuletItem.java)
 
 ### TESTING
 ![image](https://user-images.githubusercontent.com/93836408/209417085-a16f40ef-57fe-4099-9135-7212b3166bc1.png)
