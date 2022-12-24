@@ -166,7 +166,7 @@ Como referido em cima utilizamos o **Factory Method** patern. Com este design pa
 
 **Implementation**
 
-![image](https://user-images.githubusercontent.com/93836408/204081445-4f4a9e5e-ef5d-4a82-a377-ab9f3e656b69.png)
+![image](https://user-images.githubusercontent.com/93836408/209419892-8776d00f-fe67-484d-bdc9-addc79a44b71.png)
 
 **Consequences**
 - Facilidade na reutilização de código
