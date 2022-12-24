@@ -362,7 +362,7 @@ public class InventoryTest {
 }
 ```
 ![image](https://user-images.githubusercontent.com/93836408/209418656-37aeedf8-36de-40e7-8f6f-80dcd6036707.png)
-![mutation test report](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/docs/pitest_report/index.html)
+- [mutation test report](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/docs/pitest_report/index.html)
 
 
 
