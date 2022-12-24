@@ -114,7 +114,7 @@ public void use(Item item) {
 ### PLANNED FEATURES
 - **Raridade items** - Towns com lojas com items que apesar de mais caros são raros e mais fortes
 - **Lista Items Default** - List de items default onde os items podem ou não ser alterada consoante o comportamento da Town (mudança de preço e/ou raridade)
-- **Dano ao fugir** - Probabilidade de num caso de fuga levar dano
+- **Dano ao fugir** - Probabilidade de num caso de fuga levar dano (neste momento fugir garante que saias ileso e fiques mais próximo da próxima town, mas não ganhas gold!)
 - **Town antes de lutar** - Probabilidade de um town aparecer antes de defrontar todos os inimigos de uma wild
 - **Novos locais Town** - Locais onde pode interagir de mais diversas formas como por exemplo melhorar o armamento
 - **Sorte na wild** - Items perdidos que podem ser encontrados ao andar pela wild
