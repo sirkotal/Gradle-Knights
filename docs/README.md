@@ -175,7 +175,7 @@ Como referido em cima utilizamos o **Factory Method** patern. Com este design pa
 
 
 ### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
-Nada encontrado até então ainda que consideremos que possámos a vir a alterar muitas estratégias ao longo do desenvolvimento.
+Consideramos que na classe shop podemos encontrar um code smell na característica de _bloater_, pois como na definição deste, possuímos uma classe extensa e complexa que torna difícil o trabalho sobre esta, mais prórpiamente pelo facto de encontrarmos uma classe extensa e com demasiados parâmetros nos seus metodos. No entanto, devido à utilização da estrutura do MVC, não consideramos possivel um refactor possível para resolver este code smell.
 
 ### TESTING
 ![image](https://user-images.githubusercontent.com/93836408/204087956-ef296a17-c8eb-4d71-a0dd-321a06c26d4b.png)
