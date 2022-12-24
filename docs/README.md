@@ -342,6 +342,7 @@ public class InventoryTest {
     }
 }
 ```
+![image](https://user-images.githubusercontent.com/93836408/209418656-37aeedf8-36de-40e7-8f6f-80dcd6036707.png)
 
 
 
