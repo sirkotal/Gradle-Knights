@@ -8,4 +8,4 @@ Decidimos criar um jogo inspirado em RPGs medievais como [Eye of the Beholder](h
 
 Uma versão mais completa do relatório encontra-se [aqui](docs/README.md).
 
-![gd](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/report/gd.gif)
+![gd](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/docs/gd.gif)
