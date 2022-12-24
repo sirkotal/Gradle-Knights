@@ -133,6 +133,13 @@ Utilizamos assim o **State** pattern. Com isto conseguimos que cada fase do jogo
 
 ![image](https://user-images.githubusercontent.com/93836408/209411569-8a3b088b-fd53-4059-b979-6866cbf2b6e6.png)
 
+![ShopState](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/state/town/ShopState.java)
+![InventoryState](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/state/player/InventoryState.java)
+![FightStrategy](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/state/wild/FightState.java)
+![WildStrategy](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/state/wild/WildState.java)
+![TownState](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/state/town/TownState.java)
+![MenuState](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/state/menu/MenuState.java)
+
 **Consequences**
 O uso do Strategy Pattern traz os seguintes benifícios:
 - Permite que se criem novos states mais fácilmente
@@ -149,6 +156,10 @@ Para isto decidimos usar o **Strategy** pattern. Este permite-nos que classes di
 **Implementation**
 
 ![image](https://user-images.githubusercontent.com/93836408/209419865-4c752ac1-33a5-4c08-b6d1-529846e1c3e9.png)
+
+![ShopStrategy](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/model/town/ShopStrategy.java)
+![CheapStrategy](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/model/town/CheapStrategy.java)
+![ExpensiveStrategy](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/model/town/ExpensiveStrategy.java)
 
 **Consequences**
 O uso do Strategy Pattern traz os seguintes benifícios:
@@ -168,6 +179,12 @@ Como referido em cima utilizamos o **Factory Method** patern. Com este design pa
 
 ![image](https://user-images.githubusercontent.com/93836408/209419892-8776d00f-fe67-484d-bdc9-addc79a44b71.png)
 
+![Item](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/model/player/Item.java)
+![AmuletItem](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/model/player/AmuletItem.java)
+![CombatItem](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/model/player/CombatItem.java)
+![PotionItem](https://github.com/FEUP-LDTS-2022/project-l02gr01/blob/main/src/main/java/pt/up/fe/ldts/gd/model/player/PotionItem.java)
+
+
 **Consequences**
 - Facilidade na reutilização de código
 - Promove o Loose Coupling
@@ -176,6 +193,7 @@ Como referido em cima utilizamos o **Factory Method** patern. Com este design pa
 
 ### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 Consideramos que nas classes shop, inventory e fight podemos encontrar um code smell na característica de _bloater_, pois como na definição deste, possuímos uma classe extensa e complexa que torna difícil o trabalho sobre esta, mais prórpiamente pelo facto de encontrarmos uma classe extensa e com demasiados parâmetros nos seus metodos. No entanto, devido à utilização da estrutura do MVC, não consideramos possivel um refactor possível para resolver este code smell.
+Também consideramos que não é o mais correto guardar o leitor das ascii nos próprios modelos que poderia ser resolvida com um
 
 ### TESTING
 ![image](https://user-images.githubusercontent.com/93836408/209417085-a16f40ef-57fe-4099-9135-7212b3166bc1.png)
