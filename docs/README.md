@@ -178,9 +178,221 @@ Como referido em cima utilizamos o **Factory Method** patern. Com este design pa
 Consideramos que na classe shop podemos encontrar um code smell na característica de _bloater_, pois como na definição deste, possuímos uma classe extensa e complexa que torna difícil o trabalho sobre esta, mais prórpiamente pelo facto de encontrarmos uma classe extensa e com demasiados parâmetros nos seus metodos. No entanto, devido à utilização da estrutura do MVC, não consideramos possivel um refactor possível para resolver este code smell.
 
 ### TESTING
-![image](https://user-images.githubusercontent.com/93836408/204087956-ef296a17-c8eb-4d71-a0dd-321a06c26d4b.png)
+![image](https://user-images.githubusercontent.com/93836408/209417085-a16f40ef-57fe-4099-9135-7212b3166bc1.png)
 
+```java
+TownControllerTest {
+    private TownController controller;
+    private Game game;
 
+    @BeforeEach
+    public void setup() throws IOException {
+        Town town = Mockito.mock(Town.class);
+        controller = Mockito.spy(new TownController(town));
+        game = Mockito.mock(Game.class);
+    }
+
+    @Test
+    public void townToExistingShop() throws IOException {
+        Mockito.when(game.getPreviousState()).thenReturn(Mockito.mock(ShopState.class));
+        controller.step(game, GUI.ACTION.OPT1);
+
+        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(ShopState.class));
+        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any());
+    }
+
+    @Test
+    public void townToNewShop() throws IOException {
+        Mockito.when(game.getPreviousState()).thenReturn(Mockito.mock(WildState.class));
+        Mockito.when(controller.getModel()).thenReturn(Mockito.mock(Town.class));
+        Mockito.when(controller.getModel().getShop()).thenReturn(Mockito.mock(Shop.class));
+        controller.step(game, GUI.ACTION.OPT1);
+
+        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(ShopState.class));
+        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any());
+    }
+
+    @Test
+    public void townToWild() throws IOException {
+        controller.step(game, GUI.ACTION.OPT2);
+        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(WildState.class));
+        Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
+    }
+
+    @Test
+    public void townToMenu() throws IOException {
+        controller.step(game, GUI.ACTION.OPT0);
+        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(MenuState.class));
+        Mockito.verify(game, Mockito.times(0)).setState(game.getPreviousState());
+    }
+}
+
+```
+
+```java
+public class InventoryControllerTest {
+    private InventoryController controller;
+    private Inventory inventory;
+    private Player player;
+    private Game game;
+
+    @BeforeEach
+    public void setup() throws IOException {
+        player = Mockito.mock(Player.class);
+        game = Mockito.mock(Game.class);
+        inventory = new Inventory(player);
+        controller = new InventoryController(inventory);
+
+        Mockito.when(game.getPreviousState()).thenReturn(Mockito.mock(WildState.class));
+        Mockito.when(game.getPreviousState().getModel()).thenReturn(Mockito.mock(Wild.class));
+    }
+
+    @Test
+    public void goToMenu() throws IOException {
+        controller.step(game, GUI.ACTION.OPT0);
+
+        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(MenuState.class));
+        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any(WildState.class));
+        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any());
+        Mockito.verify(player, Mockito.times(0)).use(Mockito.any());
+    }
+
+    @Test
+    public void goToWild() throws IOException {
+        controller.step(game, GUI.ACTION.OPT9);
+
+        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(WildState.class));
+        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any(MenuState.class));
+        Mockito.verify(game, Mockito.times(1)).setState(Mockito.any());
+        Mockito.verify(player, Mockito.times(0)).use(Mockito.any());
+    }
+
+    @Test
+    public void optionOneSuccessful() throws IOException {
+        inventory.addItem(Mockito.mock(Item.class));
+
+        controller.step(game, GUI.ACTION.OPT1);
+
+        Assertions.assertTrue(inventory.size() >= 1);
+
+        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
+        Mockito.verify(player, Mockito.times(1)).use(inventory.getItem(0));
+
+    }
+
+    @Test
+    public void optionOneFailed() throws IOException {
+        while(inventory.size() < 1) {
+            controller.step(game, GUI.ACTION.OPT2);
+
+            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
+            Mockito.verify(player, Mockito.times(0)).use(Mockito.any(Item.class));
+
+            inventory.addItem(Mockito.mock(Item.class));
+        }
+    }
+
+    @Test
+    public void optionTwoSuccessful() throws IOException {
+        for(int i = 0; i < 2; i++)
+            inventory.addItem(Mockito.mock(Item.class));
+
+        controller.step(game, GUI.ACTION.OPT2);
+
+        Assertions.assertTrue(inventory.size() >= 2);
+
+        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
+        Mockito.verify(player, Mockito.times(1)).use(inventory.getItem(1));
+    }
+
+    @Test
+    public void optionTwoFailed() throws IOException {
+        while(inventory.size() < 2) {
+            controller.step(game, GUI.ACTION.OPT2);
+
+            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
+            Mockito.verify(player, Mockito.times(0)).use(Mockito.any(Item.class));
+
+            inventory.addItem(Mockito.mock(Item.class));
+        }
+    }
+
+    @Test
+    public void optionThreeSuccessful() throws IOException {
+        for(int i = 0; i < 3; i++)
+            inventory.addItem(Mockito.mock(Item.class));
+
+        controller.step(game, GUI.ACTION.OPT3);
+
+        Assertions.assertTrue(inventory.size() >= 3);
+
+        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
+        Mockito.verify(player, Mockito.times(1)).use(inventory.getItem(2));
+    }
+
+    @Test
+    public void optionThreeFailed() throws IOException {
+        while(inventory.size() < 3) {
+            controller.step(game, GUI.ACTION.OPT3);
+
+            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
+            Mockito.verify(player, Mockito.times(0)).use(Mockito.any(Item.class));
+
+            inventory.addItem(Mockito.mock(Item.class));
+        }
+    }
+
+    @Test
+    public void optionFourSuccessful() throws IOException {
+        for(int i = 0; i < 4; i++)
+            inventory.addItem(Mockito.mock(Item.class));
+
+        controller.step(game, GUI.ACTION.OPT4);
+
+        Assertions.assertTrue(inventory.size() >= 4);
+
+        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
+        Mockito.verify(player, Mockito.times(1)).use(inventory.getItem(3));
+    }
+
+    @Test
+    public void optionFourFailed() throws IOException {
+        while(inventory.size() < 4) {
+            controller.step(game, GUI.ACTION.OPT4);
+
+            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
+            Mockito.verify(player, Mockito.times(0)).use(Mockito.any(Item.class));
+
+            inventory.addItem(Mockito.mock(Item.class));
+        }
+    }
+
+    @Test
+    public void optionFiveSuccessful() throws IOException {
+        for(int i = 0; i < 5; i++)
+            inventory.addItem(Mockito.mock(Item.class));
+
+        controller.step(game, GUI.ACTION.OPT5);
+
+        Assertions.assertTrue(inventory.size() >= 5);
+
+        Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
+        Mockito.verify(player, Mockito.times(1)).use(inventory.getItem(4));
+    }
+
+    @Test
+    public void optionFiveFailed() throws IOException {
+        while(inventory.size() < 5) {
+            controller.step(game, GUI.ACTION.OPT5);
+
+            Mockito.verify(game, Mockito.times(0)).setState(Mockito.any());
+            Mockito.verify(player, Mockito.times(0)).use(Mockito.any(Item.class));
+
+            inventory.addItem(Mockito.mock(Item.class));
+        }
+    }
+}
+```
 
 
 
